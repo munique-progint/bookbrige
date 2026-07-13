@@ -10836,6 +10836,8 @@ html {
   height: 3rem;
   width: 3rem;
   font-size: 1.5rem;
+  background-color: #FBDD91;
+  color: #4E0119;
 }
 
 .bg-featured-blog {
@@ -10845,4 +10847,31 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   min-height: 15rem;
+}
+.botao-doacao {
+    background-color: #4E0119;
+    color: white;
+    border: none;
+    transition: 0.3s;
+}
+
+.botao-doacao:hover {
+    background-color: #660005;
+    color: white;
+}
+
+.botao-explorar {
+    background-color: #DF8F9C;
+    color: #4E0119;
+    border: none;
+    transition: 0.3s;
+}
+
+.botao-explorar:hover {
+    background-color: #FBDD91;
+    color: #4E0119;
+}
+.botao-doacao:hover,
+.botao-explorar:hover {
+    transform: translateY(-3px);
 }
