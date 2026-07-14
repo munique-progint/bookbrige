@@ -10875,3 +10875,9 @@ html {
 .botao-explorar:hover {
     transform: translateY(-3px);
 }
+.imagem-material {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+}
