@@ -10895,3 +10895,15 @@ html {
 .card-title {
     min-height: 45px;
 }
+.botao-interesse {
+    background-color: #FFB7C5;
+    color: #4E0119;
+    border-radius: 50px;
+    text-align: center;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.botao-interesse:hover {
+    background-color: #F98CA0;
+}
