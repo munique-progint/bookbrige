@@ -10829,6 +10829,7 @@ html {
   height: 100%;
 }
 
+
 .feature {
   display: inline-flex;
   align-items: center;
@@ -10894,4 +10895,40 @@ html {
 
 .card-title {
     min-height: 45px;
+}
+/* ==========================================
+   BOOKBRIDGE
+========================================== */
+
+:root {
+    --bb-vinho: #4E0119;
+    --bb-rosa: #DF8F9C;
+    --bb-amarelo: #FBDD91;
+    --bb-creme: #FFF0B3;
+    --bb-marrom: #6B5E54;
+}
+
+.bg-bb-vinho {
+    background-color: var(--bb-vinho);
+}
+
+.bg-bb-amarelo {
+    background-color: var(--bb-amarelo);
+}
+
+.bg-bb-creme {
+    background-color: var(--bb-creme);
+}
+
+.text-bb-vinho {
+    color: var(--bb-vinho);
+}
+
+.text-bb-marrom {
+    color: var(--bb-marrom);
+}
+
+.acao-doacao {
+    margin-top: 70px;
+    margin-bottom: 120px;
 }
