@@ -10932,3 +10932,194 @@ html {
     margin-top: 70px;
     margin-bottom: 120px;
 }
+
+
+
+/* =======================================================
+   MINHA CONTA
+======================================================= */
+
+.conta-section{
+    background:#FFF0D0;
+    padding:60px 0;
+    min-height:calc(100vh - 180px);
+}
+
+.conta-topo{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.conta-topo h1{
+    color:#DF8F9C;
+    font-size:3.1rem;
+    font-weight:700;
+    margin-bottom:40px;
+}
+
+.nome-usuario{
+
+    font-size:1.65rem;
+    font-weight:500;
+    margin-bottom:2px;
+
+}
+
+.descricao-conta{
+    color:#666;
+    font-size:1.6rem;
+    line-height:1.7;
+    max-width:700px;
+    margin:0 auto;
+}
+
+/* GRID DOS CARDS */
+
+.conta-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2, 1fr);
+
+    gap:30px;
+
+    max-width:900px;
+
+    margin:0 auto;
+
+}
+
+/* CARD */
+
+.conta-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    text-decoration:none;
+
+    color:inherit;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:290px;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+    transition:.2s;
+
+}
+
+.conta-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+}
+
+.conta-card i{
+
+    font-size:50px;
+
+    color:#4E0119;
+
+    margin-bottom:18px;
+
+}
+
+.conta-card h3{
+
+    color:#4E0119;
+
+    font-size:1.7rem;
+
+    margin-bottom:15px;
+
+    font-weight:700;
+
+}
+
+.conta-card p{
+
+    color:#666;
+
+    font-size:1.4rem;
+
+    line-height:1.7;
+
+    flex:1;
+
+    margin-top:8px;
+
+}
+
+.conta-card span{
+
+    color:#DF8F9C;
+
+    font-weight:bold;
+
+    font-size:1.6rem;
+
+}
+
+/* BOTÃO */
+
+.conta-sair{
+
+    text-align:center;
+
+    margin-top:50px;
+
+}
+
+.btn-sair{
+
+    background:#4E0119;
+
+    color:white;
+
+    padding:16px 55px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    font-size:1.3rem;
+
+    display:inline-block;
+
+}
+
+.btn-sair:hover{
+
+    color:white;
+
+    background:#690325;
+
+}
+
+/* RESPONSIVO */
+
+@media (max-width:768px){
+
+    .conta-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+.dados-card{
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+}
