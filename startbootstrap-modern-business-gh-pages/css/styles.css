@@ -11232,3 +11232,19 @@ html {
     color:#fff;
 
 }
+
+.favorito-card{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    font-size: 1.2rem;
+
+    color: #DF8F9C;
+
+    background: rgba(255,255,255,.9);
+    border-radius: 50%;
+    padding: .30rem;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,.12);
+}

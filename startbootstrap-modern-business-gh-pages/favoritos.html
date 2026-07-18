@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Conteúdos Digitais </title>
+        <title>Favoritos - BookBrige </title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -34,18 +34,14 @@
                 </div>
             </nav>
             <!-- Blog preview section-->
-            <section class="py-5">
-                <div class="container px-5 my-5">
+            <section class="py-5" style="background-color: #FFF0B3;">
+                <div class="container px-5 my-3">
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-8 col-xl-6">
-                           <div class="text-center">
-    <h2 class="fw-bolder" style="color:#4E0119;">
-        Conteúdos Digitais
+<div class="text-center mb-5">
+    <h2 class="fw-bold" style="color:#DF8F9C;">
+        Favoritos
     </h2>
-
-    <p class="lead fw-normal text-muted mb-5">
-        Acesse resumos, apostilas em PDF, listas de exercícios e outros conteúdos digitais compartilhados pela comunidade.
-    </p>
 </div>
                         </div>
                     </div>
@@ -58,7 +54,7 @@
         <input class="form-control mx-auto mb-3" 
         style="max-width: 700px; height: 45px;"
         type="text" 
-        placeholder="🔍 Pesquisar material">
+        placeholder="🔍 Pesquisar conteúdo">
 
         <div class="row justify-content-center g-3 mt-3 mb-4">
 
@@ -66,45 +62,78 @@
         <select class="form-select"
         style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
             <option selected>Todas as categorias</option>
-            <option>Todos</option>
-            <option>Livros</option>
-            <option>Apostilas</option>
-            <option>Materiais escolares</option>
+
+                        <option>
+                            Artigo
+                        </option>
+
+                        <option>
+                            Apostila
+                        </option>
+
+                        <option>
+                            Mapa mental
+                        </option>
+
+                        <option>
+                            Lista de exercícios
+                        </option>
+
+                         <option>
+                            Resumo
+                            </option>
+
+                        <option>
+                            Simulados
+                        </option>
+
+                         <option>
+                            Slides
+                        </option>
+
+                        <option>
+                            Outros
+                        </option>
+
         </select>
     </div>
 
-</div>
+   
 
     <div class="col-auto">
         <select class="form-select"
         style="width: 230px; height: 52px; font-size: 1.12rem; font-weight: 500;">
             <option selected>Todos os níveis</option>
-            <option>Todos</option>
-            <option>Ensino Fundamental</option>
-            <option>Ensino Médio</option>
-            <option>Ensino Superior</option>
-            <option>Outros</option>
+            <option>
+                            Ensino fundamental
+                        </option>
+
+                        <option>
+                            Ensino médio
+                        </option>
+
+                        
+                        <option>
+                            Ensino técnico
+                        </option>
+
+                        <option>
+                            Ensino superior
+                        </option>
+
+                        <option>
+                            Curso livre
+                        </option>
+
+                        <option>
+                            Outros
+                        </option>
         </select>
     </div>
 
 </div>
 
     </div>
-
-    <div class="text-center acao-doacao">
-
-    <h4 class="fw-bold text-bb-vinho mb-2">
-        Quer compartilhar conhecimento?
-    </h4>
-
-    <a href="#"
-   id="btnPublicarConteudo"
-   class="btn px-5 py-3 rounded-pill fw-bold"
-   style="background-color:#DF8F9C; color:#4E0119;">
-    + Publicar conteúdo
-</a>
-
-</div>
 
 </div>
 
@@ -112,7 +141,14 @@
 
             <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
                 <div class="card shadow border-0">
-                    <img class="card-img-top imagem-material" src="assets/img/fotopdfmatematica.png">
+                    <div class="position-relative">
+
+    <img class="card-img-top imagem-material"
+         src="assets/img/fotopdfmatematica.png">
+
+    <i class="bi bi-heart-fill favorito-card"></i>
+
+</div>
 
                     <div class="card-body p-4">
                          <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
@@ -123,9 +159,7 @@
                         Matemática Básica - Algebra
                     </h5>
 
-                <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Rolante - RS
-                </p>
+
 
 <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
     Ver detalhes
@@ -133,35 +167,11 @@
                     </div>
 
                 </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <img class="card-img-top imagem-material" src="assets/img/fotopdfprogramacao.jpg" alt="Introdução à Programação">
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Resumo
-            </div>
-
-           <h5 class="card-title mb-3">
-                        Introdução à Programação
-                    </h5>
-
-                <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Porto Alegre- RS
-                </p>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-            Ver detalhes
-            </a>
-
-        </div>
-
+        
+    
+    
+    
     </div>
-</div>
         <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
     <div class="card shadow border-0">
 
@@ -177,9 +187,6 @@
                         Redação para ENEM
                     </h5>
 
-               <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Porto Alegre- RS
-                </p>
 
             <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
              Ver detalhes
@@ -204,9 +211,6 @@
                         Biologia: patologia
                     </h5>
 
-                <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Erechim- RS
-                </p>
 
            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
             Ver detalhes
@@ -231,10 +235,6 @@
                         História Geral: Brasil e Mundo
                     </h5>
 
-                <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Porto Alegre- RS
-                </p>
-
             <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
              Ver detalhes
             </a>
@@ -242,91 +242,8 @@
         </div>
 
     </div>
-</div>
-
-    <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <img class="card-img-top imagem-material" src="assets/img/fotopdfsimulado.jpg" alt="Fichário de Resumos">
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Simulado
-            </div>
-
-            <h5 class="card-title mb-3">
-                        Simulado matemática - 2 ano fundamental
-                    </h5>
-
-               <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Taquara - RS
-                </p>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-             Ver detalhes
-            </a>
-
-        </div>
-
+    
     </div>
-</div>
-    <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <img class="card-img-top imagem-material" src="assets/img/fotopdfexcel.jpg" alt="Calculadora Científica">
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Lista de exercícios
-            </div>
-
-            <h5 class="card-title mb-3">
-                        Lista de exercícios sobre excel
-                    </h5>
-
-                <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Canoas- RS
-                </p>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-             Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-    <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <img class="card-img-top imagem-material" src="assets/img/capapdffisica.jpg" alt="Exercícios de Física">
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Apostila
-            </div>
-
-           <h5 class="card-title mb-3">
-                        Fórmulas de Física
-                    </h5>
-
-               <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Rolante - RS
-                </p>
-
-           <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-            Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-
-        </div>
          
                  
                     <!-- Call to action-->
