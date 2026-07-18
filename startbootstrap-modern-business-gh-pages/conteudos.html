@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Modern Business - Start Bootstrap Template</title>
+        <title>Conteúdos Digitais </title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -129,11 +129,12 @@
         Quer compartilhar conhecimento?
     </h4>
 
-    <a href="doar-material.html"
-       class="btn px-5 py-3 rounded-pill fw-bold"
-       style="background-color:#DF8F9C; color:#4E0119;">
-        + Publicar conteúdo
-    </a>
+    <a href="#"
+   id="btnPublicarConteudo"
+   class="btn px-5 py-3 rounded-pill fw-bold"
+   style="background-color:#DF8F9C; color:#4E0119;">
+    + Publicar conteúdo
+</a>
 
 </div>
 
@@ -403,9 +404,89 @@
                 </div>
             </div>
         </footer>
+
+
+        <!-- Modal Publicar Conteúdo -->
+<div class="modal fade" id="modalPublicar" tabindex="-1">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    Publicar Conteúdo
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <p>
+                    Apenas <strong>Colaboradores Educacionais</strong> podem publicar conteúdos.
+                </p>
+
+                <p class="mb-0">
+                    Você pode alterar seu tipo de conta em
+                    <strong>Minha Conta → Meus Dados</strong>.
+                </p>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Cancelar
+                </button>
+
+                <a href="meus-dados.html"
+                   class="btn"
+                   style="background:#DF8F9C; color:#4E0119;">
+                    Ir para Minha Conta
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+
+        <script>
+
+const tipoConta = "colaborador";
+// Troque para "colaborador" quando quiser testar o outro perfil.
+
+const botaoPublicar = document.getElementById("btnPublicarConteudo");
+
+botaoPublicar.addEventListener("click", function(event){
+
+    event.preventDefault();
+
+    if(tipoConta == "colaborador"){
+
+        window.location.href = "cadastrar-conteudo.html";
+
+    }else{
+
+        const modal = new bootstrap.Modal(document.getElementById("modalPublicar"));
+        modal.show();
+
+    }
+
+});
+
+</script>
     </body>
 </html>

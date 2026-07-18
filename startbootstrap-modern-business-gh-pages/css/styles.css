@@ -10939,9 +10939,10 @@ html {
    MINHA CONTA
 ======================================================= */
 
+
 .conta-section{
     background:#FFF0D0;
-    padding:60px 0;
+    padding:80px 0 190px;
     min-height:calc(100vh - 180px);
 }
 
@@ -10954,7 +10955,7 @@ html {
     color:#DF8F9C;
     font-size:3.1rem;
     font-weight:700;
-    margin-bottom:40px;
+    margin-bottom:10px;
 }
 
 .nome-usuario{
@@ -11119,7 +11120,115 @@ html {
 
 }
 .dados-card{
-    max-width: 700px;
-    width: 100%;
-    margin: 0 auto;
+    max-width:650px;
+    width:100%;
+    margin:0 auto;
+    padding:40px;
+}
+.btn-salvar{
+    background-color:#4E0119;
+    border-color:#4E0119;
+    color:white;
+}
+
+.btn-salvar:hover{
+    background-color:#660021;
+    border-color:#660021;
+}
+
+.conta-card .form-label{
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.conta-card .form-control{
+    font-size: 1.1rem !important;
+    padding: 0.9rem 1rem;
+}
+
+.links-conta a{
+    text-decoration: none;
+    font-size: 1.25rem;        /* 16px */
+    font-weight: 600;
+}
+
+.links-conta a:first-child{
+    color: #4E0119;
+}
+
+.links-conta a:first-child:hover{
+    color: #660021;
+}
+
+.links-conta a:last-child{
+    color: #B3261E;
+}
+
+.links-conta a:last-child:hover{
+    color: #8E1B12;
+}
+.conta-card .form-select{
+    font-size: 1.1rem !important;
+    padding: 0.9rem 1rem;
+}
+
+.editar-conta{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.editar-conta i{
+    font-size: 1.9rem;
+    color: #4E0119;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.editar-conta i:hover{
+    color:#DF8F9C;
+}
+
+.editar-conta{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:15px;
+}
+
+.btn-editar{
+    border:none;
+    background:none;
+    font-size:1.5rem;
+    color:#4E0119;
+    cursor:pointer;
+}
+
+.btn-editar:hover{
+    color:#DF8F9C;
+}
+
+#areaSalvar{
+    display:none;
+}
+
+#areaSalvar.mostrar{
+    display:grid;
+}
+
+.conta-card .form-control{
+    font-size: 1rem;
+}
+.btn-cancelar{
+
+    border:2px solid #DF8F9C;
+    color:#DF8F9C;
+    background:#fff;
+
+}
+
+.btn-cancelar:hover{
+
+    background:#DF8F9C;
+    color:#fff;
+
 }

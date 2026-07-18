@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Doação Cadastro - BookBridge</title>
+    <title>Conteúdos Cadastro - BookBridge</title>
 
     <link href="css/styles.css" rel="stylesheet">
 
@@ -23,8 +23,8 @@
                             <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
                             <li class="nav-item"><a class="nav-link" href="about.html">Conteúdos</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.html">Doações</a></li>
-                            <li class="nav-item"><a class="nav-link" href="pricing.html">Entrar</a></li>
-                            <li class="nav-item"><a class="nav-link" href="faq.html">Cadastre-se</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pricing.html">Minha Conta</a></li>
+                            
                         
                            
                         </ul>
@@ -38,12 +38,12 @@
 
         <div class="text-center mb-5">
 
-            <h1 class="fw-bold" style="color:#4E0119;">
-                Doe materiais
-            </h1>
+            <h2 class="fw-bold" style="color:#4E0119;">
+            Publique um material digital
+            </h2>
 
-            <p class="fs-4">
-                Compartilhe materiais que podem ajudar outros estudantes.
+           <p class="lead text-muted mb-1">
+             Compartilhe conteúdos que podem ajudar outros estudantes.
             </p>
 
         </div>
@@ -57,11 +57,11 @@
 
 
                     <label class="mb-2 fw-bold fs-5">
-                        Nome do material
+                        Nome do conteúdo
                     </label>
 
                     <input type="text" class="form-control fs-5 mb-4 w-100"
-                    placeholder="Ex: Livro de Matemática">
+                    placeholder="Ex: Resumo de Biologia-bioquímica">
 
 
                     <label class="mb-2 fw-bold fs-5">
@@ -75,7 +75,7 @@
                         </option>
 
                         <option>
-                            Livro
+                            Artigo
                         </option>
 
                         <option>
@@ -83,32 +83,67 @@
                         </option>
 
                         <option>
-                            Material escolar
+                            Mapa mental
                         </option>
 
                         <option>
-                            PDF
+                            Lista de exercícios
+                        </option>
+
+                         <option>
+                            Resumo
+                        </option>
+
+                        <option>
+                            Simulados
+                        </option>
+
+                         <option>
+                            Slides
+                        </option>
+
+                        <option>
+                            Outros
                         </option>
 
                     </select>
 
-
-                    <label class="mb-2 fw-bold fs-5">
-                        Tipo
+                     <label class="mb-2 fw-bold fs-5">
+                        Nível
                     </label>
 
-                    <div class="mb-4">
+                     <select class="form-control fs-5 mb-4">
 
-                        <input type="radio">
-                        <span class="fs-5">Físico</span>
+                        <option>
+                            Selecione
+                        </option>
 
-                        <br>
+                        <option>
+                            Ensino fundamental
+                        </option>
 
-                        <input type="radio">
-                        <span class="fs-5">Digital</span>
+                        <option>
+                            Ensino médio
+                        </option>
 
-                    </div>
+                        
+                        <option>
+                            Ensino técnico
+                        </option>
 
+                        <option>
+                            Ensino superior
+                        </option>
+
+                        <option>
+                            Curso livre
+                        </option>
+
+                        <option>
+                            Outros
+                        </option>
+
+                    </select>
 
                     <label class="mb-2 fw-bold fs-5">
                         Descrição
@@ -118,17 +153,37 @@
                     rows="4"
                     placeholder="Conte um pouco sobre o material"></textarea>
 
+<div class="mb-4">
 
-                    <label class="mb-2 fw-bold fs-5">
-                        Imagem do material
-                    </label>
+    <label class="form-label fw-bold">
+        Imagem de capa
+    </label>
 
-                     <input type="file" class="form-control mb-4">
+    <input
+        type="file"
+        class="form-control"
+        accept=".jpg,.jpeg,.png">
+
+</div>
+
+<div class="mb-4">
+
+    <label class="form-label fw-bold">
+        Arquivo do conteúdo (PDF)
+    </label>
+
+    <input
+        type="file"
+        class="form-control"
+        accept=".pdf">
+
+</div>
+
 
 
                    <button class="btn px-5 py-3 rounded-pill fw-bold fs-5"
                     style="background-color:#4E0119; color:white;">
-                        Enviar doação
+                        Publicar
                     </button>
 
 

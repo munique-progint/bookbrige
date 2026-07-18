@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Minha Conta | BookBridge</title>
+    <title>Meus Dados | BookBridge</title>
 
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
@@ -80,25 +80,85 @@
 
     </div>
 
-    <div class="conta-grid">
+<div class="row justify-content-center">
 
-    <div class="conta-card dados-card">
+    <div class="col-lg-6">
 
-        <div class="d-flex align-items-center mb-4">
-            <i class="bi bi-person-circle fs-2 me-3"></i>
-            <h3 class="mb-0">Dados da Conta</h3>
-        </div>
+        <div class="conta-card">
 
-        <div class="mb-3">
+    <div class="editar-conta">
+    <button type="button" id="btnEditar" class="btn-editar">
+        <i class="bi bi-pencil-square"></i>
+    </button>
+</div>
 
-    <label class="form-label">Nome</label>
+    <form>
 
-    <input
-        type="text"
-        class="form-control"
-        value="Jasmini Becker Rohr">
+    <div class="mb-3">
+        <label class="form-label">Nome completo</label>
+        <input type="text" class="form-control" value="Jasmini Becker Rohr" disabled>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">E-mail</label>
+        <input type="email" class="form-control" value="jasmini@email.com" disabled>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Telefone</label>
+        <input type="text" class="form-control" value="(51) 99999-9999"disabled>
+    </div>
+
+
+
+<div class="mb-4">
+
+    <label class="form-label">
+    Tipo de conta
+</label>
+
+<select class="form-select" disabled>
+
+    <option>Estudante</option>
+
+    <option selected>Colaborador Educacional</option>
+
+</select>
+</div>
+
+
+<div id="areaSalvar">
+
+  <button class="btn btn-lg w-100 btn-salvar">
+    Salvar Alterações
+</button>
 
 </div>
+
+
+<div class="links-conta text-center mt-5">
+
+    <a href="#" class="d-block mb-2">
+        Alterar senha
+    </a>
+
+    <a href="#"
+   data-bs-toggle="modal"
+   data-bs-target="#modalExcluirConta">
+    Excluir conta
+</a>
+
+</div>
+</form>
+           
+            
+</div>
+
+
+    
+
+
+        
 
     </div>
 
@@ -107,7 +167,65 @@
 </section>
 
 
+<!-- Modal Excluir Conta -->
+<div class="modal fade" id="modalExcluirConta" tabindex="-1">
 
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Excluir conta
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p class="fw-semibold mb-2">
+                Tem certeza que deseja excluir sua conta?
+                </p>
+
+                <p class="text-muted mb-2">
+                    Esta ação removerá permanentemente sua conta e não poderá ser desfeita.
+                </p>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-cancelar"
+                    data-bs-dismiss="modal">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-danger">
+
+                    Excluir 
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 
@@ -152,6 +270,21 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="js/scripts.js"></script>
+
+<script>
+const btnEditar = document.getElementById("btnEditar");
+
+btnEditar.addEventListener("click", function(){
+
+    document.querySelectorAll(".form-control").forEach(campo=>{
+        campo.disabled = false;
+    });
+
+    document.querySelector(".form-select").disabled = false;
+    document.getElementById("areaSalvar").classList.add("mostrar");
+
+});
+</script>
 
 </body>
 
