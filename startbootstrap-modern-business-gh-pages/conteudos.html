@@ -35,7 +35,7 @@
             </nav>
             <!-- Blog preview section-->
             <section class="py-5">
-                <div class="container px-5 my-5">
+                <div class="container px-5 my-3">
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-8 col-xl-6">
                            <div class="text-center">
@@ -53,12 +53,13 @@
 
 
     <!-- Filtros -->
+<!-- Filtros -->
     <div class="text-center mb-5">
 
         <input class="form-control mx-auto mb-3" 
         style="max-width: 700px; height: 45px;"
         type="text" 
-        placeholder="🔍 Pesquisar material">
+        placeholder="🔍 Pesquisar conteúdo">
 
         <div class="row justify-content-center g-3 mt-3 mb-4">
 
@@ -66,26 +67,77 @@
         <select class="form-select"
         style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
             <option selected>Todas as categorias</option>
-            <option>Todos</option>
-            <option>Livros</option>
-            <option>Apostilas</option>
-            <option>Materiais escolares</option>
-        </select>
-    </div>
 
+                        <option>
+                            Artigo
+                        </option>
+
+                        <option>
+                            Apostila
+                        </option>
+
+                        <option>
+                            Mapa mental
+                        </option>
+                         <option>
+                            Lista de exercícios
+                        </option>
+
+                         <option>
+                            Resumo
+                            </option>
+
+                        <option>
+                            Simulados
+                        </option>
+
+                         <option>
+                            Slides
+                        </option>
+
+                        <option>
+                            Outros
+                        </option>
+
+        </select>
 </div>
+
+   
 
     <div class="col-auto">
         <select class="form-select"
         style="width: 230px; height: 52px; font-size: 1.12rem; font-weight: 500;">
             <option selected>Todos os níveis</option>
-            <option>Todos</option>
-            <option>Ensino Fundamental</option>
-            <option>Ensino Médio</option>
-            <option>Ensino Superior</option>
-            <option>Outros</option>
+            <option>
+                            Ensino fundamental
+                        </option>
+
+                        <option>
+                            Ensino médio
+                        </option>
+
+                        
+                        <option>
+                            Ensino técnico
+                        </option>
+
+                        <option>
+                             Ensino superior
+                        </option>
+
+                        <option>
+                            Curso livre
+                        </option>
+
+                        <option>
+                            Outros
+                        </option>
         </select>
     </div>
+
+
+
+
 
 </div>
 
@@ -112,9 +164,18 @@
 
             <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
                 <div class="card shadow border-0">
-                    <img class="card-img-top imagem-material" src="assets/img/fotopdfmatematica.png">
+                    <div class="position-relative">
 
-                    <div class="card-body p-4">
+    <img class="card-img-top imagem-material"
+         src="assets/img/fotopdfmatematica.png">
+
+    <div class="favorito-card">
+        <i class="bi bi-heart"></i>
+    </div>
+
+</div>
+
+<div class="card-body p-4">
                          <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
                             Apostila
                         </div>
@@ -124,8 +185,8 @@
                     </h5>
 
                 <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Rolante - RS
-                </p>
+    <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
+</p>
 
 <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
     Ver detalhes
@@ -138,9 +199,19 @@
             <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
     <div class="card shadow border-0">
 
-        <img class="card-img-top imagem-material" src="assets/img/fotopdfprogramacao.jpg" alt="Introdução à Programação">
+        <div class="position-relative">
 
-        <div class="card-body p-4">
+    <img class="card-img-top imagem-material"
+         src="assets/img/fotopdfprogramacao.jpg"
+         alt="Introdução à Programação">
+
+    <div class="favorito-card">
+        <i class="bi bi-heart"></i>
+    </div>
+
+</div>
+
+<div class="card-body p-4">
 
             <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
                 Resumo
@@ -151,8 +222,8 @@
                     </h5>
 
                 <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Porto Alegre- RS
-                </p>
+    <i class="bi bi-person-fill"></i> Compartilhado por: Maria Oliveira
+</p>
 
             <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
             Ver detalhes
@@ -165,9 +236,19 @@
         <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
     <div class="card shadow border-0">
 
-        <img class="card-img-top imagem-material" src="assets/img/fotopdfredacao.jpg" alt="Redação para ENEM">
+        <div class="position-relative">
 
-        <div class="card-body p-4">
+    <img class="card-img-top imagem-material"
+         src="assets/img/fotopdfprogramacao.jpg"
+         alt="Introdução à Programação">
+
+    <div class="favorito-card">
+        <i class="bi bi-heart"></i>
+    </div>
+
+</div>
+
+<div class="card-body p-4">
 
             <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
                 Apostila
@@ -178,8 +259,8 @@
                     </h5>
 
                <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Porto Alegre- RS
-                </p>
+    <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
+</p>
 
             <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
              Ver detalhes
@@ -192,9 +273,19 @@
         <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
     <div class="card shadow border-0">
 
-        <img class="card-img-top imagem-material" src="assets/img/fotopdfpatologia.png" alt="Livro de Biologia">
+        <div class="position-relative">
 
-        <div class="card-body p-4">
+    <img class="card-img-top imagem-material"
+         src="assets/img/fotopdfpatologia.png"
+         alt="Livro de Biologia">
+
+    <div class="favorito-card">
+        <i class="bi bi-heart"></i>
+    </div>
+
+</div>
+
+<div class="card-body p-4">
 
             <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
                 Mapa mental
@@ -205,8 +296,8 @@
                     </h5>
 
                 <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Erechim- RS
-                </p>
+    <i class="bi bi-person-fill"></i> Compartilhado por: Maria Oliveira
+</p>
 
            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
             Ver detalhes
@@ -219,9 +310,19 @@
     <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
     <div class="card shadow border-0">
 
-        <img class="card-img-top imagem-material" src="assets/img/fotopdfhistoria.jpg" alt="História Geral">
+        <div class="position-relative">
 
-        <div class="card-body p-4">
+    <img class="card-img-top imagem-material"
+         src="assets/img/fotopdfhistoria.jpg"
+         alt="História Geral">
+
+    <div class="favorito-card">
+        <i class="bi bi-heart"></i>
+    </div>
+
+</div>
+
+<div class="card-body p-4">
 
             <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
                 Apostila
@@ -232,8 +333,8 @@
                     </h5>
 
                 <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Porto Alegre- RS
-                </p>
+    <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
+</p>
 
             <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
              Ver detalhes
@@ -247,9 +348,19 @@
     <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
     <div class="card shadow border-0">
 
-        <img class="card-img-top imagem-material" src="assets/img/fotopdfsimulado.jpg" alt="Fichário de Resumos">
+        <div class="position-relative">
 
-        <div class="card-body p-4">
+    <img class="card-img-top imagem-material"
+         src="assets/img/fotopdfsimulado.jpg"
+         alt="Fichário de Resumos">
+
+    <div class="favorito-card">
+        <i class="bi bi-heart"></i>
+    </div>
+
+</div>
+
+<div class="card-body p-4">
 
             <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
                 Simulado
@@ -260,8 +371,8 @@
                     </h5>
 
                <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Taquara - RS
-                </p>
+    <i class="bi bi-person-fill"></i> Compartilhado por: Maria Oliveira
+</p>
 
             <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
              Ver detalhes
@@ -274,9 +385,19 @@
     <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
     <div class="card shadow border-0">
 
-        <img class="card-img-top imagem-material" src="assets/img/fotopdfexcel.jpg" alt="Calculadora Científica">
+        <div class="position-relative">
 
-        <div class="card-body p-4">
+    <img class="card-img-top imagem-material"
+         src="assets/img/fotopdfexcel.jpg"
+         alt="Calculadora Científica">
+
+    <div class="favorito-card">
+        <i class="bi bi-heart"></i>
+    </div>
+
+</div>
+
+<div class="card-body p-4">
 
             <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
                 Lista de exercícios
@@ -287,8 +408,8 @@
                     </h5>
 
                 <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Canoas- RS
-                </p>
+    <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
+</p>
 
             <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
              Ver detalhes
@@ -301,9 +422,19 @@
     <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
     <div class="card shadow border-0">
 
-        <img class="card-img-top imagem-material" src="assets/img/capapdffisica.jpg" alt="Exercícios de Física">
+        <div class="position-relative">
 
-        <div class="card-body p-4">
+    <img class="card-img-top imagem-material"
+         src="assets/img/capapdffisica.jpg"
+         alt="Exercícios de Física">
+
+    <div class="favorito-card">
+        <i class="bi bi-heart"></i>
+    </div>
+
+</div>
+
+<div class="card-body p-4">
 
             <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
                 Apostila
@@ -314,8 +445,8 @@
                     </h5>
 
                <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Rolante - RS
-                </p>
+    <i class="bi bi-person-fill"></i> Compartilhado por: Maria Oliveira
+</p>
 
            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
             Ver detalhes

@@ -34,7 +34,7 @@
                 </div>
             </nav>
             <!-- Blog preview section-->
-            <section class="py-5" style="background-color: #FFF0B3;">
+            <section class="py-5 secao-favoritos" style="background-color:#FFF0B3;">
                 <div class="container px-5 my-3">
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-8 col-xl-6">
@@ -137,26 +137,27 @@
 
 </div>
 
-        <div class="row gx-4 justify-content-center mt-5">
+        <div class="row gx-4 justify-content-center mt-4 mb-6">
 
             <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-                <div class="card shadow border-0">
+                <div class="card shadow border-0 card-favorito">
                     <div class="position-relative">
 
     <img class="card-img-top imagem-material"
          src="assets/img/fotopdfmatematica.png">
 
-    <i class="bi bi-heart-fill favorito-card"></i>
+    <div class="favorito-card">
+        <i class="bi bi-heart-fill"></i>
+    </div>
 
 </div>
-
                     <div class="card-body p-4">
                          <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
                             Apostila
                         </div>
 
                        <h5 class="card-title mb-3">
-                        Matemática Básica - Algebra
+                        Matemática Básica - Álgebra
                     </h5>
 
 
@@ -173,9 +174,18 @@
     
     </div>
         <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
+    <div class="card shadow border-0 card-favorito">
 
-        <img class="card-img-top imagem-material" src="assets/img/fotopdfredacao.jpg" alt="Redação para ENEM">
+        <div class="position-relative">
+
+    <img class="card-img-top imagem-material"
+         src="assets/img/fotopdfredacao.jpg">
+
+    <div class="favorito-card">
+    <i class="bi bi-heart-fill"></i>
+</div>
+
+</div>
 
         <div class="card-body p-4">
 
@@ -197,9 +207,17 @@
     </div>
 </div>
         <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
+            <div class="card shadow border-0 card-favorito">
 
-        <img class="card-img-top imagem-material" src="assets/img/fotopdfpatologia.png" alt="Livro de Biologia">
+        <div class="position-relative">
+
+    <img class="card-img-top imagem-material"
+         src="assets/img/fotopdfpatologia.png">
+
+    <div class="favorito-card">
+    <i class="bi bi-heart-fill"></i>
+</div>
+        </div>
 
         <div class="card-body p-4">
 
@@ -221,9 +239,17 @@
     </div>
 </div>
     <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
+    <div class="card shadow border-0 card-favorito">
 
-        <img class="card-img-top imagem-material" src="assets/img/fotopdfhistoria.jpg" alt="História Geral">
+        <div class="position-relative">
+
+    <img class="card-img-top imagem-material"
+         src="assets/img/fotopdfhistoria.jpg">
+
+    <div class="favorito-card">
+    <i class="bi bi-heart-fill"></i>
+</div>
+        </div>
 
         <div class="card-body p-4">
 
@@ -246,31 +272,8 @@
     </div>
          
                  
-                    <!-- Call to action-->
+                
 
-    <aside class="rounded-3 p-3 p-sm-4 mt-5" style="background-color:#FBDD91;">
-    <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
-
-        <div class="mb-4 mb-xl-0">
-            <div class="fs-3 fw-bold" style="color:#4E0119;">
-                Doe materiais e transforme vidas.
-            </div>
-
-            <div style="color:#6B5E54;">
-                Compartilhe livros e materiais que podem ajudar outros estudantes.
-            </div>
-        </div>
-
-        <div class="ms-xl-4">
-            <a href="doar-material.html" class="btn px-4 py-2 fw-bold rounded-pill"
-            style="background-color:#DF8F9C; color:#4E0119;">
-            Fazer uma doação
-            </a>
-            
-        </div>
-
-    </div>
-</aside>
                 </div>
             </section>
         </main>
@@ -355,22 +358,26 @@ const tipoConta = "colaborador";
 
 const botaoPublicar = document.getElementById("btnPublicarConteudo");
 
-botaoPublicar.addEventListener("click", function(event){
+if (botaoPublicar) {
 
-    event.preventDefault();
+    botaoPublicar.addEventListener("click", function(event){
 
-    if(tipoConta == "colaborador"){
+        event.preventDefault();
 
-        window.location.href = "cadastrar-conteudo.html";
+        if(tipoConta == "colaborador"){
 
-    }else{
+            window.location.href = "cadastrar-conteudo.html";
 
-        const modal = new bootstrap.Modal(document.getElementById("modalPublicar"));
-        modal.show();
+        }else{
 
-    }
+            const modal = new bootstrap.Modal(document.getElementById("modalPublicar"));
+            modal.show();
 
-});
+        }
+
+    });
+
+}
 
 </script>
     </body>
