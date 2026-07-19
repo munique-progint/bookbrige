@@ -11277,3 +11277,26 @@ html {
     transform: scale(0.9);
     transition: all .3s ease;
 }
+
+/* ---------- Pastas ---------- */
+
+.card-pasta{
+    transition: all .25s ease;
+}
+
+.card-pasta:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 .8rem 1.5rem rgba(0,0,0,.15) !important;
+}
+
+.btn-abrir-pasta{
+    background:#4E0119;
+    color:white;
+    transition:.25s;
+}
+
+.btn-abrir-pasta:hover{
+    background:#6B5E54;
+    color:white;
+}
+
