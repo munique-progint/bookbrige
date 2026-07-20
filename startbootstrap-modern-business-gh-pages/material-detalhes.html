@@ -92,15 +92,32 @@
     </div>
 
 </div>
-                    <button type="button"
+                   <div class="d-flex gap-3 mt-4">
+
+    <button
+        type="button"
         class="btn px-4 py-2 rounded-pill fw-bold botao-interesse"
         style="background-color:#FFB7C5; color:#4E0119; width:220px;"
         data-bs-toggle="modal"
         data-bs-target="#modalContatoDoador">
 
-    Tenho interesse
+        Tenho interesse
 
-</button>
+    </button>
+
+    <button
+        type="button"
+        class="btn px-4 py-2 rounded-pill fw-bold text-nowrap"
+        style="background-color:#DF8F9C; color:#4E0119; width:220px;"
+        data-bs-toggle="modal"
+        data-bs-target="#modalAdicionarPasta">
+
+        <i class="bi bi-folder-plus"></i>
+        Adicionar à pasta
+
+    </button>
+
+</div>
                         </a>
                     </div>
                 </div>
@@ -155,6 +172,94 @@
                         class="btn botao-secundario"
                         data-bs-dismiss="modal">
                     Fechar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Modal Adicionar à Pasta -->
+<div class="modal fade" id="modalAdicionarPasta" tabindex="-1" aria-labelledby="modalAdicionarPastaLabel"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title" id="modalAdicionarPastaLabel">
+                    Adicionar à pasta
+                </h5>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p class="mb-3">
+                    Selecione uma pasta:
+                </p>
+
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="pasta" id="pasta1">
+                    <label class="form-check-label" for="pasta1">
+                        Matemática básica
+                    </label>
+                </div>
+
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="pasta" id="pasta2">
+                    <label class="form-check-label" for="pasta2">
+                        Biologia - físicos
+                    </label>
+                </div>
+
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="pasta" id="pasta3">
+                    <label class="form-check-label" for="pasta3">
+                        Biologia - digitais
+                    </label>
+                </div>
+
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="pasta" id="pasta4">
+                    <label class="form-check-label" for="pasta4">
+                        Programação
+                    </label>
+                </div>
+
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="pasta" id="pasta5">
+                    <label class="form-check-label" for="pasta5">
+                        Redação para UFRGS
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pasta" id="pasta6">
+                    <label class="form-check-label" for="pasta6">
+                        Faculdade
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cancelar
+                </button>
+
+                <button type="button" class="btn"
+                    style="background-color:#DF8F9C; color:#4E0119;"
+                    data-bs-dismiss="modal">
+                    Adicionar
                 </button>
 
             </div>
