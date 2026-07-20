@@ -5,13 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Conteúdos Cadastro - BookBridge</title>
+    <title>Editar publicação - BookBridge</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
 
     <link href="css/styles.css" rel="stylesheet">
 
 </head>
 
-<body>
+<body style="background-color:#FFF0B3;">
 
  <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
@@ -24,7 +26,7 @@
                             <li class="nav-item"><a class="nav-link" href="conteudos.html">Conteúdos</a></li>
                             <li class="nav-item"><a class="nav-link" href="materiais.html">Doações</a></li>
                             <li class="nav-item"><a class="nav-link" href="minha-conta.html">Minha Conta</a></li>
-                            
+        
                         
                            
                         </ul>
@@ -38,12 +40,25 @@
 
         <div class="text-center mb-5">
 
-            <h2 class="fw-bold" style="color:#4E0119;">
-            Publique um material digital
-            </h2>
+            <div class="text-start mb-4">
 
-           <p class="lead text-muted mb-1">
-             Compartilhe conteúdos que podem ajudar outros estudantes.
+    <a href="minhas-publicacoes.html"
+       class="text-decoration-none"
+       style="color:#4E0119; font-weight:600;">
+
+        <i class="bi bi-arrow-left"></i>
+        Voltar para Minhas Publicações
+
+    </a>
+
+</div>
+
+            <h1 class="fw-bold" style="color:#4E0119;">
+                Editar publicação
+            </h1>
+
+            <p class="fs-4">
+                Edite as informações do seu material digital.
             </p>
 
         </div>
@@ -57,46 +72,41 @@
 
 
                     <label class="mb-2 fw-bold fs-5">
-                        Nome do conteúdo
+                        Nome do material
                     </label>
 
-                    <input type="text" class="form-control fs-5 mb-4 w-100"
-                    placeholder="Ex: Resumo de Biologia-bioquímica">
-
+                   <input
+    type="text"
+    class="form-control fs-5"
+    value="Apostila de Matemática Básica">
 
                     <label class="mb-2 fw-bold fs-5">
                         Categoria
                     </label>
 
                      <select class="form-control fs-5 mb-4">
-
-                        <option>
-                            Selecione
-                        </option>
-
-                        <option>
+ <option>
                             Artigo
                         </option>
 
-                        <option>
+                        <option selected>
                             Apostila
                         </option>
 
                         <option>
                             Mapa mental
                         </option>
-
-                        <option>
+                         <option>
                             Lista de exercícios
                         </option>
 
                          <option>
                             Resumo
-                        </option>
+                            </option>
 
                         <option>
                             Simulados
-                        </option>
+                            </option>
 
                          <option>
                             Slides
@@ -106,84 +116,94 @@
                             Outros
                         </option>
 
-                    </select>
-
-                     <label class="mb-2 fw-bold fs-5">
-                        Nível
-                    </label>
-
-                     <select class="form-control fs-5 mb-4">
-
-                        <option>
-                            Selecione
-                        </option>
-
-                        <option>
-                            Ensino fundamental
-                        </option>
-
-                        <option>
-                            Ensino médio
-                        </option>
-
-                        
-                        <option>
-                            Ensino técnico
-                        </option>
-
-                        <option>
-                            Ensino superior
-                        </option>
-
-                        <option>
-                            Curso livre
-                        </option>
-
-                        <option>
-                            Outros
-                        </option>
+        
 
                     </select>
+
+<label class="mb-2 fw-bold fs-5">
+    Nível
+</label>
+
+<select class="form-control fs-5 mb-4">
+
+    <option>
+        Ensino Fundamental
+    </option>
+
+    <option selected>
+        Ensino Médio
+    </option>
+
+    <option>
+        Ensino Técnico
+    </option>
+
+    <option>
+        Ensino Superior
+    </option>
+
+    <option>
+        Curso Livre
+    </option>
+
+    <option>
+        Outros
+    </option>
+
+</select>
+
+                  
+
 
                     <label class="mb-2 fw-bold fs-5">
                         Descrição
                     </label>
 
-                    <textarea class="form-control fs-5 mb-4"
-                    rows="4"
-                    placeholder="Conte um pouco sobre o material"></textarea>
+                    <textarea class="form-control fs-5 mb-4" rows="4">Resumo em PDF de Matemática Básica contendo operações fundamentais, frações, porcentagem e exercícios resolvidos para revisão dos principais conteúdos.</textarea>
+                    
 
-<div class="mb-4">
 
-    <label class="form-label fw-bold">
-        Imagem de capa
-    </label>
+<label class="mb-2 fw-bold fs-5">
+    Imagem da capa
+</label>
 
-    <input
-        type="file"
-        class="form-control"
-        accept=".jpg,.jpeg,.png">
+<div class="text-center mb-4">
 
-</div>
-
-<div class="mb-4">
-
-    <label class="form-label fw-bold">
-        Arquivo do conteúdo (PDF)
-    </label>
-
-    <input
-        type="file"
-        class="form-control"
-        accept=".pdf">
+    <img src="assets/img/fotopdfmat2.jpg"
+         class="img-fluid rounded shadow"
+         style="max-width:220px;">
 
 </div>
+
+<label class="mb-2 fw-bold">
+    Alterar imagem da capa
+</label>
+
+<input type="file" class="form-control mb-5">
+
+<hr class="my-4">
+
+<label class="mb-2 fw-bold fs-5">
+    Arquivo PDF
+</label>
+
+<p class="text-muted mb-2">
+    <i class="bi bi-file-earmark-pdf-fill"></i>
+    Matematica-Basica.pdf
+</p>
+
+<label class="mb-2 fw-bold">
+    Alterar arquivo PDF
+</label>
+
+<input type="file" class="form-control mb-4">
 
 
 
                    <button class="btn px-5 py-3 rounded-pill fw-bold fs-5"
                     style="background-color:#4E0119; color:white;">
-                        Publicar
+                        Salvar Alterações
+
                     </button>
 
 
@@ -203,6 +223,10 @@
     <div class="container text-center text-white">
         BookBridge - Compartilhando conhecimento e oportunidades.
     </div>
+
+
+
+
 
 </footer>
 
