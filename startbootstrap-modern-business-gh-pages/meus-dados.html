@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Área para visualizar e editar os dados da conta do usuário.">
+    <meta name="author" content="BookBridge">
 
     <title>Meus Dados | BookBridge</title>
 
@@ -16,251 +18,194 @@
 
 <body class="d-flex flex-column h-100">
 
-<main class="flex-shrink-0 minha-conta-page">
+    <main class="flex-shrink-0 ">
 
-     <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
-                <div class="container px-5">
-                    <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">BookBridge</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-                            <li class="nav-item"><a class="nav-link" href="conteudos.html">Conteúdos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="materiais.html">Doações</a></li>
-                            <li class="nav-item"><a class="nav-link" href="minha-conta.html">Minha Conta</a></li>
-                
-                        
-                           
-                        </ul>
+        <!-- Navegação-->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
+            <div class="container px-5">
+                <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">BookBridge</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                        <li class="nav-item"><a class="nav-link" href="conteudos.html">Conteúdos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="materiais.html">Doações</a></li>
+                        <li class="nav-item"><a class="nav-link" href="minha-conta.html">Minha Conta</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="conta-section">
+
+            <div class="container">
+
+                <div class="conta-topo">
+
+                    <h2 class="fw-bolder" style="color:#DF8F9C;">
+                        Meus Dados
+                    </h2>
+
+                    <p class="descricao-conta">
+                        Visualize e atualize as informações da sua conta.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-6">
+
+                    <div class="conta-card">
+
+                        <div class="editar-conta">
+                            <button type="button" id="btnEditar" class="btn-editar" aria-label="Editar dados">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </div>
+
+                        <form>
+
+                            <div class="mb-3">
+                                <label class="form-label">Nome completo</label>
+                                <input type="text" class="form-control" value="Jasmini Becker Rohr" disabled>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">E-mail</label>
+                                <input type="email" class="form-control" value="jasmini@email.com" disabled>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Telefone</label>
+                                <input type="text" class="form-control" value="(51) 99999-9999" disabled>
+                            </div>
+
+                            <div class="mb-4">
+
+                                <label class="form-label">
+                                    Tipo de conta
+                                </label>
+
+                                <select class="form-select" disabled>
+                                    <option>Estudante</option>
+                                    <option selected>Colaborador Educacional</option>
+                                </select>
+                            </div>
+
+                            <div id="areaSalvar">
+
+                                <button type="button" class="btn btn-lg w-100 btn-salvar">
+                                    Salvar Alterações
+                                </button>
+
+                            </div>
+
+                            <div class="links-conta text-center mt-5">
+
+                                <a href="alterar-senha.html" class="d-block mb-2">
+                                    Alterar senha
+                                </a>
+
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modalExcluirConta">
+                                    Excluir conta
+                                </a>
+
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </nav>
-
-
-
-
-<section class="conta-section">
-
-    <div class="container">
-
-        <div class="conta-topo">
-
-            <h1 class="fs-1">Meus Dados</h1>
-
-            <p class="descricao-conta">
-                Visualize e atualize as informações da sua conta.
-            </p>
-
-        </div>
-
-    </div>
-
-<div class="row justify-content-center">
-
-    <div class="col-lg-6">
-
-        <div class="conta-card">
-
-    <div class="editar-conta">
-    <button type="button" id="btnEditar" class="btn-editar">
-        <i class="bi bi-pencil-square"></i>
-    </button>
-</div>
-
-    <form>
-
-    <div class="mb-3">
-        <label class="form-label">Nome completo</label>
-        <input type="text" class="form-control" value="Jasmini Becker Rohr" disabled>
-    </div>
-
-    <div class="mb-3">
-        <label class="form-label">E-mail</label>
-        <input type="email" class="form-control" value="jasmini@email.com" disabled>
-    </div>
-
-    <div class="mb-3">
-        <label class="form-label">Telefone</label>
-        <input type="text" class="form-control" value="(51) 99999-9999"disabled>
-    </div>
-
-
-
-<div class="mb-4">
-
-    <label class="form-label">
-    Tipo de conta
-</label>
-
-<select class="form-select" disabled>
-
-    <option>Estudante</option>
-
-    <option selected>Colaborador Educacional</option>
-
-</select>
-</div>
-
-
-<div id="areaSalvar">
-
-  <button class="btn btn-lg w-100 btn-salvar">
-    Salvar Alterações
-</button>
-
-</div>
-
-
-<div class="links-conta text-center mt-5">
-
-    <a href="#" class="d-block mb-2">
-        Alterar senha
-    </a>
-
-    <a href="#"
-   data-bs-toggle="modal"
-   data-bs-target="#modalExcluirConta">
-    Excluir conta
-</a>
-
-</div>
-</form>
-           
-            
-</div>
-
-
-    
-
-
-        
-
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- Modal Excluir Conta -->
-<div class="modal fade" id="modalExcluirConta" tabindex="-1">
-
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-
-                <h5 class="modal-title">
-                    Excluir conta
-                </h5>
-
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal">
-                </button>
-
             </div>
 
-            <div class="modal-body">
+        </section>
 
-                <p class="fw-semibold mb-2">
-                Tem certeza que deseja excluir sua conta?
-                </p>
+        <!-- Modal Excluir Conta -->
+        <div class="modal fade" id="modalExcluirConta" tabindex="-1">
 
-                <p class="text-muted mb-2">
-                    Esta ação removerá permanentemente sua conta e não poderá ser desfeita.
-                </p>
+            <div class="modal-dialog modal-dialog-centered modal-lg">
 
-            </div>
+                <div class="modal-content">
 
-            <div class="modal-footer">
+                    <div class="modal-header">
 
-                <button
-                    type="button"
-                    class="btn btn-cancelar"
-                    data-bs-dismiss="modal">
+                        <h5 class="modal-title">
+                            Excluir conta
+                        </h5>
 
-                    Cancelar
+                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                        </button>
 
-                </button>
+                    </div>
 
-                <button
-                    type="button"
-                    class="btn btn-danger">
+                    <div class="modal-body">
 
-                    Excluir 
+                        <p class="fw-semibold mb-2">
+                            Tem certeza que deseja excluir sua conta?
+                        </p>
 
-                </button>
+                        <p class="text-muted mb-2">
+                            Esta ação removerá permanentemente sua conta e não poderá ser desfeita.
+                        </p>
 
-            </div>
+                    </div>
 
-        </div>
+                    <div class="modal-footer">
 
-    </div>
+                        <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">
 
-</div>
+                            Cancelar
 
+                        </button>
 
+                        <button type="button" class="btn btn-danger">
 
-<footer class="py-4 mt-auto" style="background-color:#4E0119;">
+                            Excluir
 
-    <div class="container px-5">
+                        </button>
 
-        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-
-            <div class="col-auto">
-                <div class="small m-0 text-white">
-                    © 2026 BookBridge - Compartilhando conhecimento
+                    </div>
                 </div>
             </div>
-
-            <div class="col-auto">
-
-                <a class="text-white text-decoration-none small" href="#">
-                    Privacy
-                </a>
-
-                <span class="text-white mx-1">&middot;</span>
-
-                <a class="link-light small" href="#">
-                    Terms
-                </a>
-
-                <span class="text-white mx-1">&middot;</span>
-
-                <a class="link-light small" href="#">
-                    Contact
-                </a>
-
-            </div>
-
         </div>
 
-    </div>
+        <footer class="py-4 mt-auto" style="background-color:#4E0119;">
 
-</footer>
+            <div class="container px-5">
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
 
-<script src="js/scripts.js"></script>
+                    <div class="col-auto">
+                        <div class="small m-0 text-white">
+                            © 2026 BookBridge - Compartilhando conhecimento
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-<script>
-const btnEditar = document.getElementById("btnEditar");
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-btnEditar.addEventListener("click", function(){
+        <script src="js/scripts.js"></script>
 
-    document.querySelectorAll(".form-control").forEach(campo=>{
-        campo.disabled = false;
-    });
+        <script>
+            const btnEditar = document.getElementById("btnEditar");
 
-    document.querySelector(".form-select").disabled = false;
-    document.getElementById("areaSalvar").classList.add("mostrar");
+            btnEditar.addEventListener("click", function () {
 
-});
-</script>
+                document.querySelectorAll(".form-control").forEach(campo => {
+                    campo.disabled = false;
+                });
+
+                document.querySelector(".form-select").disabled = false;
+                document.getElementById("areaSalvar").classList.add("mostrar");
+
+            });
+        </script>
 
 </body>
 
