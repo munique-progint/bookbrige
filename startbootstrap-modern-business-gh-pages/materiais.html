@@ -1,411 +1,402 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Materiais Doação - BookBrige</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
-                <div class="container px-5">
-                    <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">BookBridge</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-                            <li class="nav-item"><a class="nav-link" href="conteudos.html">Conteúdos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="materiais.html">Doações</a></li>
-                            <li class="nav-item"><a class="nav-link" href="login.html">Entrar</a></li>
-                            <li class="nav-item"><a class="nav-link" href="cadastro.html">Cadastre-se</a></li>
-                        
-                           
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- Blog preview section-->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-8 col-xl-6">
-                           <div class="text-center">
-    <h2 class="fw-bolder" style="color:#4E0119;">
-        Materiais para Doação
-    </h2>
+<html lang="pt-BR">
 
-    <p class="lead fw-normal text-muted mb-5">
-        Encontre livros, apostilas e outros materiais físicos compartilhados pela comunidade.
-    </p>
-</div>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Materiais Doação - BookBrige</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
+            <div class="container px-5">
+                <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">BookBridge</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                        <li class="nav-item"><a class="nav-link" href="conteudos.html">Conteúdos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="materiais.html">Doações</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Entrar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="cadastro.html">Cadastre-se</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Blog preview section-->
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6">
+                        <div class="text-center">
+                            <h2 class="fw-bolder" style="color:#4E0119;">
+                                Materiais para Doação
+                            </h2>
+
+                            <p class="lead fw-normal text-muted mb-5">
+                                Encontre livros, apostilas e outros materiais físicos compartilhados pela comunidade.
+                            </p>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Filtros -->
+            <div class="text-center mb-5">
+
+                <input class="form-control mx-auto mb-3" style="max-width: 700px; height: 45px;" type="text"
+                    placeholder="🔍 Pesquisar material">
+
+                <div class="row justify-content-center g-3 mt-3 mb-4">
+
+                    <div class="col-auto">
+                        <select class="form-select"
+                            style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
+                            <option selected>Todas as categorias</option>
+                            <option>Todos</option>
+                            <option>Livros</option>
+                            <option>Apostilas</option>
+                            <option>Materiais escolares</option>
+                        </select>
+                    </div>
+
+                    <div class="col-auto">
+                        <select class="form-select"
+                            style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
+                            <option selected>Todos os estados</option>
+                            <option>AC</option>
+                            <option>AL</option>
+                            <option>AP</option>
+                            <option>AM</option>
+                            <option>BA</option>
+                            <option>CE</option>
+                            <option>DF</option>
+                            <option>ES</option>
+                            <option>GO</option>
+                            <option>MA</option>
+                            <option>MT</option>
+                            <option>MS</option>
+                            <option>MG</option>
+                            <option>PA</option>
+                            <option>PB</option>
+                            <option>PR</option>
+                            <option>PE</option>
+                            <option>PI</option>
+                            <option>RJ</option>
+                            <option>RN</option>
+                            <option>RS</option>
+                            <option>RO</option>
+                            <option>RR</option>
+                            <option>SC</option>
+                            <option>SP</option>
+                            <option>SE</option>
+                            <option>TO</option>
+                        </select>
+                    </div>
+
+                    <div class="col-auto">
+                        <select class="form-select"
+                            style="width: 230px; height: 52px; font-size: 1.12rem; font-weight: 500;">
+                            <option selected>Todos os níveis</option>
+                            <option>Todos</option>
+                            <option>Ensino Fundamental</option>
+                            <option>Ensino Médio</option>
+                            <option>Ensino Superior</option>
+                            <option>Outros</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center acao-doacao">
+
+                <h4 class="fw-bold text-bb-vinho mb-2">
+                    Tem um material para doar?
+                </h4>
+
+                <a href="doar-material.html" class="btn px-5 py-3 rounded-pill fw-bold"
+                    style="background-color:#DF8F9C; color:#4E0119;">
+                    + Cadastrar doação
+                </a>
+
+            </div>
+
+            <div class="row gx-4 justify-content-center mt-5">
+
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+                        <img class="card-img-top imagem-material" src="assets/img/fotolivromat.jpg">
+
+                        <div class="card-body p-4">
+                            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
+                                Livro
                             </div>
 
+                            <h5 class="card-title mb-3">
+                                Matemática Básica
+                            </h5>
 
-    <!-- Filtros -->
-    <div class="text-center mb-5">
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-geo-alt-fill"></i> Rolante - RS
+                            </p>
 
-        <input class="form-control mx-auto mb-3" 
-        style="max-width: 700px; height: 45px;"
-        type="text" 
-        placeholder="🔍 Pesquisar material">
+                            <a href="material-detalhes.html?material=matematica" class="btn"
+                                style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="row justify-content-center g-3 mt-3 mb-4">
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
 
-    <div class="col-auto">
-        <select class="form-select"
-        style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
-            <option selected>Todas as categorias</option>
-            <option>Todos</option>
-            <option>Livros</option>
-            <option>Apostilas</option>
-            <option>Materiais escolares</option>
-        </select>
-    </div>
+                        <img class="card-img-top imagem-material" src="assets/img/fotolivroprogramacao.jpg"
+                            alt="Introdução à Programação">
 
-    <div class="col-auto">
-        <select class="form-select"
-        style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
-            <option selected>Todos os estados</option>
-            <option>AC</option>
-            <option>AL</option>
-            <option>AP</option>
-            <option>AM</option>
-            <option>BA</option>
-            <option>CE</option>
-            <option>DF</option>
-            <option>ES</option>
-            <option>GO</option>
-            <option>MA</option>
-            <option>MT</option>
-            <option>MS</option>
-            <option>MG</option>
-            <option>PA</option>
-            <option>PB</option>
-            <option>PR</option>
-            <option>PE</option>
-            <option>PI</option>
-            <option>RJ</option>
-            <option>RN</option>
-            <option>RS</option>
-            <option>RO</option>
-            <option>RR</option>
-            <option>SC</option>
-            <option>SP</option>
-            <option>SE</option>
-            <option>TO</option>
-        </select>
-    </div>
+                        <div class="card-body p-4">
 
-    <div class="col-auto">
-        <select class="form-select"
-        style="width: 230px; height: 52px; font-size: 1.12rem; font-weight: 500;">
-            <option selected>Todos os níveis</option>
-            <option>Todos</option>
-            <option>Ensino Fundamental</option>
-            <option>Ensino Médio</option>
-            <option>Ensino Superior</option>
-            <option>Outros</option>
-        </select>
-    </div>
+                            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
+                                Livro
+                            </div>
 
-</div>
+                            <h5 class="card-title mb-3">
+                                Introdução à Programação
+                            </h5>
 
-    </div>
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-geo-alt-fill"></i> Porto Alegre - RS
+                            </p>
 
-    <div class="text-center acao-doacao">
+                            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
 
-    <h4 class="fw-bold text-bb-vinho mb-2">
-        Tem um material para doar?
-    </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
 
-    <a href="doar-material.html"
-       class="btn px-5 py-3 rounded-pill fw-bold"
-       style="background-color:#DF8F9C; color:#4E0119;">
-        + Cadastrar doação
-    </a>
+                        <img class="card-img-top imagem-material" src="assets/img/fotoenemapostila.jpg"
+                            alt="Redação para ENEM">
 
-</div>
+                        <div class="card-body p-4">
 
-</div>
+                            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
+                                Apostila
+                            </div>
 
-        <div class="row gx-4 justify-content-center mt-5">
+                            <h5 class="card-title mb-3">
+                                Redação para ENEM
+                            </h5>
 
-            <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-                <div class="card shadow border-0">
-                    <img class="card-img-top imagem-material" src="assets/img/fotolivromat.jpg">
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-geo-alt-fill"></i> Porto Alegre - RS
+                            </p>
 
-                    <div class="card-body p-4">
-                         <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
-                            Livro
+                            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+
+                        <img class="card-img-top imagem-material" src="assets/img/fotolivrobiologia.jpg"
+                            alt="Livro de Biologia">
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
+                                Livro
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                Biologia: Ensino médio
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-geo-alt-fill"></i> Erechim - RS
+                            </p>
+
+                            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+
+                        <img class="card-img-top imagem-material" src="assets/img/fotolivrohistoriaa.jpg"
+                            alt="História Geral">
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
+                                Livro
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                História Geral: Brasil e Mundo
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-geo-alt-fill"></i> Porto Alegre - RS
+                            </p>
+
+                            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+
+                        <img class="card-img-top imagem-material" src="assets/img/fotofichario.jpg"
+                            alt="Fichário de Resumos">
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
+                                Material escolar
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                Fichário de resumo e anotações
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-geo-alt-fill"></i> Taquara - RS
+                            </p>
+
+                            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+
+                        <img class="card-img-top imagem-material" src="assets/img/fotocalculadoracientifica.jpg"
+                            alt="Calculadora Científica">
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
+                                Material escolar
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                Calculadora Científica
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-geo-alt-fill"></i> Canoas - RS
+                            </p>
+
+                            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+
+                        <img class="card-img-top imagem-material" src="assets/img/fotolivrodefisica.jpg"
+                            alt="Exercícios de Física">
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
+                                Livro
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                Exercícios de Física
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-geo-alt-fill"></i> Rolante - RS
+                            </p>
+
+                            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to action-->
+
+            <aside class="rounded-3 p-3 p-sm-4 mt-5" style="background-color:#FBDD91;">
+                <div
+                    class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
+
+                    <div class="mb-4 mb-xl-0">
+                        <div class="fs-3 fw-bold" style="color:#4E0119;">
+                            Doe materiais e transforme vidas.
                         </div>
 
-                       <h5 class="card-title mb-3">
-                        Matemática Básica
-                    </h5>
-
-                <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Rolante - RS
-                </p>
-
-<a href="material-detalhes.html?material=matematica" class="btn" style="background-color:#4E0119; color:white;">
-  Ver detalhes
-</a>
+                        <div style="color:#6B5E54;">
+                            Compartilhe livros e materiais que podem ajudar outros estudantes.
+                        </div>
                     </div>
 
-                </div>
-            </div>
+                    <div class="ms-xl-4">
+                        <a href="doar-material.html" class="btn px-4 py-2 fw-bold rounded-pill"
+                            style="background-color:#DF8F9C; color:#4E0119;">
+                            Fazer uma doação
+                        </a>
 
-            <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <img class="card-img-top imagem-material" src="assets/img/fotolivroprogramacao.jpg" alt="Introdução à Programação">
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
-                Livro
-            </div>
-
-           <h5 class="card-title mb-3">
-                        Introdução à Programação
-                    </h5>
-
-                <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Porto Alegre- RS
-                </p>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-            Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-        <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <img class="card-img-top imagem-material" src="assets/img/fotoenemapostila.jpg" alt="Redação para ENEM">
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
-                Apostila
-            </div>
-
-           <h5 class="card-title mb-3">
-                        Redação para ENEM
-                    </h5>
-
-               <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Porto Alegre- RS
-                </p>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-             Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-        <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <img class="card-img-top imagem-material" src="assets/img/fotolivrobiologia.jpg" alt="Livro de Biologia">
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
-                Livro
-            </div>
-
-            <h5 class="card-title mb-3">
-                        Biologia: Ensino médio
-                    </h5>
-
-                <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Erechim- RS
-                </p>
-
-           <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-            Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-    <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <img class="card-img-top imagem-material" src="assets/img/fotolivrohistoriaa.jpg" alt="História Geral">
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
-                Livro
-            </div>
-
-            <h5 class="card-title mb-3">
-                        História Geral: Brasil e Mundo
-                    </h5>
-
-                <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Porto Alegre- RS
-                </p>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-             Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-
-    <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <img class="card-img-top imagem-material" src="assets/img/fotofichario.jpg" alt="Fichário de Resumos">
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
-                Material escolar
-            </div>
-
-            <h5 class="card-title mb-3">
-                        Fichário de resumo e anotações
-                    </h5>
-
-               <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Taquara - RS
-                </p>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-             Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-    <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <img class="card-img-top imagem-material" src="assets/img/fotocalculadoracientifica.jpg" alt="Calculadora Científica">
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
-                Material escolar
-            </div>
-
-            <h5 class="card-title mb-3">
-                        Calculadora Científica
-                    </h5>
-
-                <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Canoas- RS
-                </p>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-             Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-    <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <img class="card-img-top imagem-material" src="assets/img/fotolivrodefisica.jpg" alt="Exercícios de Física">
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#FBDD91; color:#4E0119;">
-                Livro
-            </div>
-
-           <h5 class="card-title mb-3">
-                        Exercícios de Física
-                    </h5>
-
-               <p class="text-muted mb-3">
-                 <i class="bi bi-geo-alt-fill"></i> Rolante - RS
-                </p>
-
-           <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-            Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-
-        </div>
-         
-
-                    <!-- Call to action-->
-
-    <aside class="rounded-3 p-3 p-sm-4 mt-5" style="background-color:#FBDD91;">
-    <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
-
-        <div class="mb-4 mb-xl-0">
-            <div class="fs-3 fw-bold" style="color:#4E0119;">
-                Doe materiais e transforme vidas.
-            </div>
-
-            <div style="color:#6B5E54;">
-                Compartilhe livros e materiais que podem ajudar outros estudantes.
-            </div>
-        </div>
-
-        <div class="ms-xl-4">
-            <a href="doar-material.html" class="btn px-4 py-2 fw-bold rounded-pill"
-            style="background-color:#DF8F9C; color:#4E0119;">
-            Fazer uma doação
-            </a>
-            
-        </div>
-
-    </div>
-</aside>
-                </div>
-            </section>
-        </main>
-        <!-- Footer-->
-        <footer class="py-4 mt-auto" style="background-color:#4E0119;">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">© 2026 BookBridge - Compartilhando conhecimento</div></div>
-                    <div class="col-auto">
-                        <a class="text-white text-decoration-none small" href="#!">Privacy</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Terms</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Contact</a>
                     </div>
                 </div>
+            </aside>
             </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+        </section>
+    </main>
+
+    <!-- Footer-->
+    <footer class="py-4 mt-auto" style="background-color:#4E0119;">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto">
+                    <div class="small m-0 text-white">© 2026 BookBridge - Compartilhando conhecimento</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
 </html>
