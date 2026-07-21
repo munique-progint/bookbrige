@@ -1,591 +1,555 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Conteúdos Digitais </title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
-                <div class="container px-5">
-                    <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">BookBridge</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-                            <li class="nav-item"><a class="nav-link" href="conteudos.html">Conteúdos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="materiais.html">Doações</a></li>
-                            <li class="nav-item"><a class="nav-link" href="login.html">Entrar</a></li>
-                            <li class="nav-item"><a class="nav-link" href="cadastro.html">Cadastre-se</a></li>
-                        
-                           
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- Blog preview section-->
-            <section class="py-5">
-                <div class="container px-5 my-3">
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-8 col-xl-6">
-                           <div class="text-center">
-    <h2 class="fw-bolder" style="color:#4E0119;">
-        Conteúdos Digitais
-    </h2>
+<html lang="pt-BR">
 
-    <p class="lead fw-normal text-muted mb-5">
-        Acesse resumos, apostilas em PDF, listas de exercícios e outros conteúdos digitais compartilhados pela comunidade.
-    </p>
-</div>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Página para explorar conteúdos digitais compartilhados no BookBridge.">
+    <meta name="author" content="BookBridge">
+
+    <title>Conteúdos - BookBridge </title>
+
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+
+        <!-- Navegação-->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
+            <div class="container px-5">
+                <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">BookBridge</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                        <li class="nav-item"><a class="nav-link" href="conteudos.html">Conteúdos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="materiais.html">Doações</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Entrar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="cadastro.html">Cadastre-se</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Blog preview section-->
+        <section class="py-5">
+            <div class="container px-5 my-3">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6">
+                        <div class="text-center">
+                            <h2 class="fw-bolder" style="color:#4E0119;">
+                                Conteúdos Digitais
+                            </h2>
+
+                            <p class="lead fw-normal text-muted mb-5">
+                                Acesse resumos, apostilas em PDF, listas de exercícios e outros conteúdos digitais
+                                compartilhados pela comunidade.
+                            </p>
                         </div>
                     </div>
-                            </div>
+                </div>
+            </div>
 
+            <!-- Filtros -->
+            <div class="text-center mb-5">
 
-    <!-- Filtros -->
-<!-- Filtros -->
-    <div class="text-center mb-5">
+                <input class="form-control mx-auto mb-3" style="max-width: 700px; height: 45px;" type="text"
+                    placeholder="🔍 Pesquisar conteúdo">
 
-        <input class="form-control mx-auto mb-3" 
-        style="max-width: 700px; height: 45px;"
-        type="text" 
-        placeholder="🔍 Pesquisar conteúdo">
+                <div class="row justify-content-center g-3 mt-3 mb-4">
 
-        <div class="row justify-content-center g-3 mt-3 mb-4">
+                    <div class="col-auto">
+                        <select class="form-select"
+                            style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
+                            <option selected>Todas as categorias</option>
 
-    <div class="col-auto">
-        <select class="form-select"
-        style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
-            <option selected>Todas as categorias</option>
-
-                        <option>
-                            Artigo
-                        </option>
-
-                        <option>
-                            Apostila
-                        </option>
-
-                        <option>
-                            Mapa mental
-                        </option>
-                         <option>
-                            Lista de exercícios
-                        </option>
-
-                         <option>
-                            Resumo
+                            <option>
+                                Artigo
                             </option>
 
-                        <option>
-                            Simulados
-                        </option>
+                            <option>
+                                Apostila
+                            </option>
 
-                         <option>
-                            Slides
-                        </option>
+                            <option>
+                                Mapa mental
+                            </option>
+                            <option>
+                                Lista de exercícios
+                            </option>
 
-                        <option>
-                            Outros
-                        </option>
+                            <option>
+                                Resumo
+                            </option>
 
-        </select>
-</div>
+                            <option>
+                                Simulados
+                            </option>
 
-   
+                            <option>
+                                Slides
+                            </option>
 
-    <div class="col-auto">
-        <select class="form-select"
-        style="width: 230px; height: 52px; font-size: 1.12rem; font-weight: 500;">
-            <option selected>Todos os níveis</option>
-            <option>
-                            Ensino fundamental
-                        </option>
+                            <option>
+                                Outros
+                            </option>
 
-                        <option>
-                            Ensino médio
-                        </option>
-
-                        
-                        <option>
-                            Ensino técnico
-                        </option>
-
-                        <option>
-                             Ensino superior
-                        </option>
-
-                        <option>
-                            Curso livre
-                        </option>
-
-                        <option>
-                            Outros
-                        </option>
-        </select>
-    </div>
-
-
-
-
-
-</div>
-
-    </div>
-
-    <div class="text-center acao-doacao">
-
-    <h4 class="fw-bold text-bb-vinho mb-2">
-        Quer compartilhar conhecimento?
-    </h4>
-
-    <a href="#"
-   id="btnPublicarConteudo"
-   class="btn px-5 py-3 rounded-pill fw-bold"
-   style="background-color:#DF8F9C; color:#4E0119;">
-    + Publicar conteúdo
-</a>
-
-</div>
-
-</div>
-
-        <div class="row gx-4 justify-content-center mt-5">
-
-            <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-                <div class="card shadow border-0">
-                    <div class="position-relative">
-
-    <img class="card-img-top imagem-material"
-         src="assets/img/fotopdfmatematica.png">
-
-    <div class="favorito-card">
-        <i class="bi bi-heart"></i>
-    </div>
-
-</div>
-
-<div class="card-body p-4">
-                         <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                            Apostila
-                        </div>
-
-                       <h5 class="card-title mb-3">
-                        Matemática Básica - Algebra
-                    </h5>
-
-                <p class="text-muted mb-3">
-    <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
-</p>
-
-<a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-    Ver detalhes
-</a>
+                        </select>
                     </div>
 
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <div class="position-relative">
-
-    <img class="card-img-top imagem-material"
-         src="assets/img/fotopdfprogramacao.jpg"
-         alt="Introdução à Programação">
-
-    <div class="favorito-card">
-        <i class="bi bi-heart"></i>
-    </div>
-
-</div>
-
-<div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Resumo
-            </div>
-
-           <h5 class="card-title mb-3">
-                        Introdução à Programação
-                    </h5>
-
-                <p class="text-muted mb-3">
-    <i class="bi bi-person-fill"></i> Compartilhado por: Maria Oliveira
-</p>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-            Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-        <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <div class="position-relative">
-
-    <img class="card-img-top imagem-material"
-         src="assets/img/fotopdfprogramacao.jpg"
-         alt="Introdução à Programação">
-
-    <div class="favorito-card">
-        <i class="bi bi-heart"></i>
-    </div>
-
-</div>
-
-<div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Apostila
-            </div>
-
-           <h5 class="card-title mb-3">
-                        Redação para ENEM
-                    </h5>
-
-               <p class="text-muted mb-3">
-    <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
-</p>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-             Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-        <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <div class="position-relative">
-
-    <img class="card-img-top imagem-material"
-         src="assets/img/fotopdfpatologia.png"
-         alt="Livro de Biologia">
-
-    <div class="favorito-card">
-        <i class="bi bi-heart"></i>
-    </div>
-
-</div>
-
-<div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Mapa mental
-            </div>
-
-            <h5 class="card-title mb-3">
-                        Biologia: patologia
-                    </h5>
-
-                <p class="text-muted mb-3">
-    <i class="bi bi-person-fill"></i> Compartilhado por: Maria Oliveira
-</p>
-
-           <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-            Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-    <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <div class="position-relative">
-
-    <img class="card-img-top imagem-material"
-         src="assets/img/fotopdfhistoria.jpg"
-         alt="História Geral">
-
-    <div class="favorito-card">
-        <i class="bi bi-heart"></i>
-    </div>
-
-</div>
-
-<div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Apostila
-            </div>
-
-            <h5 class="card-title mb-3">
-                        História Geral: Brasil e Mundo
-                    </h5>
-
-                <p class="text-muted mb-3">
-    <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
-</p>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-             Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-
-    <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <div class="position-relative">
-
-    <img class="card-img-top imagem-material"
-         src="assets/img/fotopdfsimulado.jpg"
-         alt="Fichário de Resumos">
-
-    <div class="favorito-card">
-        <i class="bi bi-heart"></i>
-    </div>
-
-</div>
-
-<div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Simulado
-            </div>
-
-            <h5 class="card-title mb-3">
-                        Simulado matemática - 2 ano fundamental
-                    </h5>
-
-               <p class="text-muted mb-3">
-    <i class="bi bi-person-fill"></i> Compartilhado por: Maria Oliveira
-</p>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-             Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-    <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <div class="position-relative">
-
-    <img class="card-img-top imagem-material"
-         src="assets/img/fotopdfexcel.jpg"
-         alt="Calculadora Científica">
-
-    <div class="favorito-card">
-        <i class="bi bi-heart"></i>
-    </div>
-
-</div>
-
-<div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Lista de exercícios
-            </div>
-
-            <h5 class="card-title mb-3">
-                        Lista de exercícios sobre excel
-                    </h5>
-
-                <p class="text-muted mb-3">
-    <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
-</p>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-             Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-    <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0">
-
-        <div class="position-relative">
-
-    <img class="card-img-top imagem-material"
-         src="assets/img/capapdffisica.jpg"
-         alt="Exercícios de Física">
-
-    <div class="favorito-card">
-        <i class="bi bi-heart"></i>
-    </div>
-
-</div>
-
-<div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Apostila
-            </div>
-
-           <h5 class="card-title mb-3">
-                        Fórmulas de Física
-                    </h5>
-
-               <p class="text-muted mb-3">
-    <i class="bi bi-person-fill"></i> Compartilhado por: Maria Oliveira
-</p>
-
-           <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-            Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-
-        </div>
-         
-                 
-                    <!-- Call to action-->
-
-    <aside class="rounded-3 p-3 p-sm-4 mt-5" style="background-color:#FBDD91;">
-    <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
-
-        <div class="mb-4 mb-xl-0">
-            <div class="fs-3 fw-bold" style="color:#4E0119;">
-                Doe materiais e transforme vidas.
-            </div>
-
-            <div style="color:#6B5E54;">
-                Compartilhe livros e materiais que podem ajudar outros estudantes.
-            </div>
-        </div>
-
-        <div class="ms-xl-4">
-            <a href="doar-material.html" class="btn px-4 py-2 fw-bold rounded-pill"
-            style="background-color:#DF8F9C; color:#4E0119;">
-            Fazer uma doação
-            </a>
-            
-        </div>
-
-    </div>
-</aside>
-                </div>
-            </section>
-        </main>
-        <!-- Footer-->
-        <footer class="py-4 mt-auto" style="background-color:#4E0119;">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">© 2026 BookBridge - Compartilhando conhecimento</div></div>
                     <div class="col-auto">
-                        <a class="text-white text-decoration-none small" href="#!">Privacy</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Terms</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Contact</a>
+                        <select class="form-select"
+                            style="width: 230px; height: 52px; font-size: 1.12rem; font-weight: 500;">
+                            <option selected>Todos os níveis</option>
+                            <option>
+                                Ensino fundamental
+                            </option>
+
+                            <option>
+                                Ensino médio
+                            </option>
+
+                            <option>
+                                Ensino técnico
+                            </option>
+
+                            <option>
+                                Ensino superior
+                            </option>
+
+                            <option>
+                                Curso livre
+                            </option>
+
+                            <option>
+                                Outros
+                            </option>
+                        </select>
                     </div>
                 </div>
             </div>
-        </footer>
 
+            <div class="text-center acao-doacao">
 
-        <!-- Modal Publicar Conteúdo -->
-<div class="modal fade" id="modalPublicar" tabindex="-1">
+                <h4 class="fw-bold text-bb-vinho mb-2">
+                    Quer compartilhar conhecimento?
+                </h4>
 
-    <div class="modal-dialog modal-dialog-centered">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h5 class="modal-title">
-                    Publicar Conteúdo
-                </h5>
-
-                <button type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal">
-                </button>
-            </div>
-
-            <div class="modal-body">
-
-                <p>
-                    Apenas <strong>Colaboradores Educacionais</strong> podem publicar conteúdos.
-                </p>
-
-                <p class="mb-0">
-                    Você pode alterar seu tipo de conta em
-                    <strong>Minha Conta → Meus Dados</strong>.
-                </p>
-
-            </div>
-
-            <div class="modal-footer">
-
-                <button type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal">
-                    Cancelar
-                </button>
-
-                <a href="meus-dados.html"
-                   class="btn"
-                   style="background:#DF8F9C; color:#4E0119;">
-                    Ir para Minha Conta
+                <a href="#" id="btnPublicarConteudo" class="btn px-5 py-3 rounded-pill fw-bold"
+                    style="background-color:#DF8F9C; color:#4E0119;">
+                    + Publicar conteúdo
                 </a>
 
             </div>
+            </div>
 
+            <div class="row gx-4 justify-content-center mt-5">
+
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+                        <div class="position-relative">
+
+                            <img class="card-img-top imagem-material" src="assets/img/fotopdfmatematica.png" alt="Matemática Básica">
+
+                            <div class="favorito-card">
+                                <i class="bi bi-heart"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="card-body p-4">
+                            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
+                                Apostila
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                Matemática Básica - Algebra
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
+                            </p>
+
+                            <a href="detalhes-conteudo.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+
+                        <div class="position-relative">
+
+                            <img class="card-img-top imagem-material" src="assets/img/fotopdfprogramacao.jpg"
+                                alt="Introdução à Programação">
+
+                            <div class="favorito-card">
+                                <i class="bi bi-heart"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
+                                Resumo
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                Introdução à Programação
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-person-fill"></i> Compartilhado por: Maria Oliveira
+                            </p>
+
+                            <a href="detalhes-conteudo.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+
+                        <div class="position-relative">
+
+                            <img class="card-img-top imagem-material" src="assets/img/fotopdfprogramacao.jpg"
+                                alt="Introdução à Programação">
+
+                            <div class="favorito-card">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
+                                Apostila
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                Redação para ENEM
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
+                            </p>
+
+                            <a href="detalhes-conteudo.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+
+                        <div class="position-relative">
+
+                            <img class="card-img-top imagem-material" src="assets/img/fotopdfpatologia.png"
+                                alt="Livro de Biologia">
+
+                            <div class="favorito-card">
+                                <i class="bi bi-heart"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
+                                Mapa mental
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                Biologia: patologia
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-person-fill"></i> Compartilhado por: Maria Oliveira
+                            </p>
+
+                            <a href="detalhes-conteudo.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+
+                        <div class="position-relative">
+
+                            <img class="card-img-top imagem-material" src="assets/img/fotopdfhistoria.jpg"
+                                alt="História Geral">
+
+                            <div class="favorito-card">
+                                <i class="bi bi-heart"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
+                                Apostila
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                História Geral: Brasil e Mundo
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
+                            </p>
+
+                            <a href="detalhes-conteudo.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+
+                        <div class="position-relative">
+
+                            <img class="card-img-top imagem-material" src="assets/img/fotopdfsimulado.jpg"
+                                alt="Fichário de Resumos">
+
+                            <div class="favorito-card">
+                                <i class="bi bi-heart"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
+                                Simulado
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                Simulado matemática - 2 ano fundamental
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-person-fill"></i> Compartilhado por: Maria Oliveira
+                            </p>
+
+                            <a href="detalhes-conteudo.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+
+                        <div class="position-relative">
+
+                            <img class="card-img-top imagem-material" src="assets/img/fotopdfexcel.jpg"
+                                alt="Calculadora Científica">
+
+                            <div class="favorito-card">
+                                <i class="bi bi-heart"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
+                                Lista de exercícios
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                Lista de exercícios sobre excel
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
+                            </p>
+
+                            <a href="detalhes-conteudo.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0">
+
+                        <div class="position-relative">
+
+                            <img class="card-img-top imagem-material" src="assets/img/capapdffisica.jpg"
+                                alt="Exercícios de Física">
+
+                            <div class="favorito-card">
+                                <i class="bi bi-heart"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
+                                Apostila
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                Fórmulas de Física
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-person-fill"></i> Compartilhado por: Maria Oliveira
+                            </p>
+
+                            <a href="detalhes-conteudo.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chamar para ação-->
+
+            <aside class="rounded-3 p-3 p-sm-4 mt-5" style="background-color:#FBDD91;">
+                <div
+                    class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
+
+                    <div class="mb-4 mb-xl-0">
+                        <div class="fs-3 fw-bold" style="color:#4E0119;">
+                            Doe materiais e transforme vidas.
+                        </div>
+
+                        <div style="color:#6B5E54;">
+                            Compartilhe livros e materiais que podem ajudar outros estudantes.
+                        </div>
+                    </div>
+
+                    <div class="ms-xl-4">
+                        <a href="doar-material.html" class="btn px-4 py-2 fw-bold rounded-pill"
+                            style="background-color:#DF8F9C; color:#4E0119;">
+                            Fazer uma doação
+                        </a>
+
+                    </div>
+                </div>
+
+            </aside>
+
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer-->
+    <footer class="py-4 mt-auto" style="background-color:#4E0119;">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto">
+                    <div class="small m-0 text-white">© 2026 BookBridge - Compartilhando conhecimento</div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Publicar Conteúdo -->
+    <div class="modal fade" id="modalPublicar" tabindex="-1">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Publicar Conteúdo
+                    </h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <p>
+                        Apenas <strong>Colaboradores Educacionais</strong> podem publicar conteúdos.
+                    </p>
+
+                    <p class="mb-0">
+                        Você pode alterar seu tipo de conta em
+                        <strong>Minha Conta → Meus Dados</strong>.
+                    </p>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+
+                    <a href="meus-dados.html" class="btn" style="background:#DF8F9C; color:#4E0119;">
+                        Ir para Minha Conta
+                    </a>
+
+                </div>
+            </div>
         </div>
 
     </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
 
-</div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+    <script>
 
-        <script>
+        const tipoConta = "colaborador";
+        // Troque para "colaborador" quando quiser testar o outro perfil.
 
-const tipoConta = "colaborador";
-// Troque para "colaborador" quando quiser testar o outro perfil.
+        const botaoPublicar = document.getElementById("btnPublicarConteudo");
 
-const botaoPublicar = document.getElementById("btnPublicarConteudo");
+        botaoPublicar.addEventListener("click", function (event) {
 
-botaoPublicar.addEventListener("click", function(event){
+            event.preventDefault();
 
-    event.preventDefault();
+            if (tipoConta == "colaborador") {
 
-    if(tipoConta == "colaborador"){
+                window.location.href = "cadastrar-conteudo.html";
 
-        window.location.href = "cadastrar-conteudo.html";
+            } else {
 
-    }else{
+                const modal = new bootstrap.Modal(document.getElementById("modalPublicar"));
+                modal.show();
 
-        const modal = new bootstrap.Modal(document.getElementById("modalPublicar"));
-        modal.show();
+            }
 
-    }
+        });
 
-});
+    </script>
+</body>
 
-</script>
-    </body>
 </html>
