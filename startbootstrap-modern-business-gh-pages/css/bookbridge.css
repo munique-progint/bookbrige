@@ -1,0 +1,425 @@
+/* ==========================================
+   BOOKBRIDGE
+   Variáveis
+========================================== */
+
+:root {
+    --bb-vinho: #4E0119;
+    --bb-rosa: #DF8F9C;
+    --bb-amarelo: #FBDD91;
+    --bb-creme: #FFF0B3;
+    --bb-marrom: #6B5E54;
+}
+
+/* ==========================================
+   CLASSES UTILITÁRIAS
+========================================== */
+
+.bg-bb-vinho {
+    background-color: var(--bb-vinho);
+}
+
+.bg-bb-amarelo {
+    background-color: var(--bb-amarelo);
+}
+
+.bg-bb-creme {
+    background-color: var(--bb-creme);
+}
+
+.text-bb-vinho {
+    color: var(--bb-vinho);
+}
+
+.text-bb-marrom {
+    color: var(--bb-marrom);
+}
+
+/* ==========================================
+   BOTÕES GERAIS
+========================================== */
+
+.botao-doacao {
+    background-color: #4E0119;
+    color: white;
+    border: none;
+    transition: .3s;
+}
+
+.botao-doacao:hover {
+    background-color: #660005;
+    color: white;
+}
+
+.botao-explorar {
+    background-color: #DF8F9C;
+    color: #4E0119;
+    border: none;
+    transition: .3s;
+}
+
+.botao-explorar:hover {
+    background-color: #FBDD91;
+    color: #4E0119;
+}
+
+.botao-doacao:hover,
+.botao-explorar:hover {
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   CARDS GERAIS
+========================================== */
+
+.imagem-material {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    background-color: #f8f8f8;
+}
+
+.card {
+    width: 100%;
+    max-width: 330px;
+    border-radius: 12px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    min-height: 45px;
+}
+
+.acao-doacao {
+    margin-top: 70px;
+    margin-bottom: 120px;
+}
+
+/* ==========================================
+   MINHA CONTA
+========================================== */
+
+.conta-section {
+    background: #FFF0D0;
+    padding: 80px 0 190px;
+    min-height: calc(100vh - 180px);
+}
+
+.conta-topo {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.conta-topo h1 {
+    color: #DF8F9C;
+    font-size: 3.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.nome-usuario {
+    font-size: 1.65rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.descricao-conta {
+    color: #666;
+    font-size: 1.5rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   GRID DA CONTA
+========================================== */
+
+.conta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   CARDS DA CONTA
+========================================== */
+
+.conta-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 180px;
+
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+
+    padding: 23px;
+    border-radius: 18px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
+    transition: .2s;
+}
+
+.conta-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .18);
+}
+
+.conta-card i {
+    font-size: 42px;
+    color: #4E0119;
+    margin-bottom: 18px;
+}
+
+.conta-card h3 {
+    color: #4E0119;
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.conta-card p {
+    flex: 1;
+    margin-top: 8px;
+
+    color: #666;
+    font-size: 1.4rem;
+    line-height: 1.7;
+}
+
+.conta-card span {
+    color: #DF8F9C;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* ==========================================
+   BOTÃO SAIR
+========================================== */
+
+.conta-sair {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-sair {
+    display: inline-block;
+    padding: 10px 33px;
+
+    background: #4E0119;
+    color: white;
+
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    border-radius: 999px;
+}
+
+.btn-sair:hover {
+    background: #690325;
+    color: white;
+}
+
+/* ==========================================
+   DADOS DA CONTA
+========================================== */
+
+.dados-card {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.btn-salvar {
+    background-color: #4E0119;
+    border-color: #4E0119;
+    color: white;
+}
+
+.btn-salvar:hover {
+    background-color: #660021;
+    border-color: #660021;
+}
+
+.conta-card .form-label {
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.conta-card .form-control {
+    font-size: 1rem;
+    padding: .9rem 1rem;
+}
+
+.conta-card .form-select {
+    font-size: 1.1rem !important;
+    padding: .9rem 1rem;
+}
+
+/* ==========================================
+   LINKS DA CONTA
+========================================== */
+
+.links-conta a {
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.links-conta a:first-child {
+    color: #4E0119;
+}
+
+.links-conta a:first-child:hover {
+    color: #660021;
+}
+
+.links-conta a:last-child {
+    color: #B3261E;
+}
+
+.links-conta a:last-child:hover {
+    color: #8E1B12;
+}
+
+/* ==========================================
+   EDIÇÃO DA CONTA
+========================================== */
+
+.editar-conta {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.editar-conta i {
+    font-size: 1.9rem;
+    color: #4E0119;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.editar-conta i:hover {
+    color: #DF8F9C;
+}
+
+.btn-editar {
+    border: none;
+    background: none;
+    color: #4E0119;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.btn-editar:hover {
+    color: #DF8F9C;
+}
+
+#areaSalvar {
+    display: none;
+}
+
+#areaSalvar.mostrar {
+    display: grid;
+}
+
+.btn-cancelar {
+    background: #fff;
+    border: 2px solid #DF8F9C;
+    color: #DF8F9C;
+}
+
+.btn-cancelar:hover {
+    background: #DF8F9C;
+    color: #fff;
+}
+
+/* ==========================================
+   FAVORITOS
+========================================== */
+
+.favorito-card {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 33px;
+    height: 33px;
+
+    background: #fff;
+    color: #DF8F9C;
+    font-size: 1.47rem;
+    line-height: 1;
+
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .12);
+
+    cursor: pointer;
+    transition: .2s;
+}
+
+.favorito-card:hover {
+    transform: scale(1.08);
+}
+
+.favorito-card::before {
+    position: relative;
+    left: .2px;
+    top: 1.38px;
+}
+
+.secao-favoritos {
+    padding-bottom: 190px !important;
+}
+
+.card-removendo {
+    opacity: 0;
+    transform: scale(.9);
+    transition: all .3s ease;
+}
+
+/* ==========================================
+   PASTAS
+========================================== */
+
+.card-pasta {
+    transition: all .25s ease;
+}
+
+.card-pasta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 .8rem 1.5rem rgba(0, 0, 0, .15) !important;
+}
+
+.btn-abrir-pasta {
+    background: #4E0119;
+    color: white;
+    transition: .25s;
+}
+
+.btn-abrir-pasta:hover {
+    background: #6B5E54;
+    color: white;
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 768px) {
+    .conta-grid {
+        grid-template-columns: 1fr;
+    }
+}
