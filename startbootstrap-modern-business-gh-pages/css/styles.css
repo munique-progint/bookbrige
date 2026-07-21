@@ -10968,7 +10968,7 @@ html {
 
 .descricao-conta{
     color:#666;
-    font-size:1.6rem;
+    font-size:1.5rem;
     line-height:1.7;
     max-width:700px;
     margin:0 auto;
@@ -10998,7 +10998,7 @@ html {
 
     border-radius:18px;
 
-    padding:35px;
+    padding:23px;
 
     text-decoration:none;
 
@@ -11008,7 +11008,7 @@ html {
 
     flex-direction:column;
 
-    min-height:290px;
+    min-height:180px;
 
     box-shadow:0 5px 18px rgba(0,0,0,.08);
 
@@ -11026,7 +11026,7 @@ html {
 
 .conta-card i{
 
-    font-size:50px;
+    font-size:42px;
 
     color:#4E0119;
 
@@ -11038,7 +11038,7 @@ html {
 
     color:#4E0119;
 
-    font-size:1.7rem;
+    font-size:1.55rem;
 
     margin-bottom:15px;
 
@@ -11066,7 +11066,7 @@ html {
 
     font-weight:bold;
 
-    font-size:1.6rem;
+    font-size:1.5rem;
 
 }
 
@@ -11086,7 +11086,7 @@ html {
 
     color:white;
 
-    padding:16px 55px;
+    padding:10px 33px;
 
     border-radius:999px;
 
@@ -11094,7 +11094,7 @@ html {
 
     font-weight:bold;
 
-    font-size:1.3rem;
+    font-size:1.2rem;
 
     display:inline-block;
 
