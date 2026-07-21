@@ -1,383 +1,284 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Favoritos - BookBrige </title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
-                <div class="container px-5">
-                    <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">BookBridge</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-                            <li class="nav-item"><a class="nav-link" href="conteudos.html">Conteúdos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="materiais.html">Doações</a></li>
-                            <li class="nav-item"><a class="nav-link" href="minha-conta.html">Minha Conta</a></li>
-                        
-                           
-                        </ul>
-                    </div>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Página de conteúdos favoritos do usuário no BookBridge." />
+    <meta name="author" content="BookBridge" />
+    <title>Favoritos - BookBrige</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <!-- Navegação-->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
+            <div class="container px-5">
+                <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">BookBridge</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                        <li class="nav-item"><a class="nav-link" href="conteudos.html">Conteúdos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="materiais.html">Doações</a></li>
+                        <li class="nav-item"><a class="nav-link" href="minha-conta.html">Minha Conta</a></li>
+                    </ul>
                 </div>
-            </nav>
-            <!-- Blog preview section-->
-            <section class="py-5 secao-favoritos" style="background-color:#FFF0B3;">
-                <div class="container px-5 my-3">
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-8 col-xl-6">
-<div class="text-center mb-5">
-    <h2 class="fw-bold" style="color:#DF8F9C;">
-        Favoritos
-    </h2>
-</div>
+            </div>
+        </nav>
+
+        <!-- Blog preview section-->
+        <section class="py-5 secao-favoritos" style="background-color:#FFF0B3;">
+            <div class="container px-5 my-3">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6">
+                        <div class="text-center mb-5">
+                            <h2 class="fw-bold" style="color:#DF8F9C;">
+                                Favoritos
+                            </h2>
                         </div>
                     </div>
-                            </div>
+                </div>
+            </div>
 
+            <!-- Filtros -->
+            <div class="text-center mb-5">
 
-    <!-- Filtros -->
-    <div class="text-center mb-5">
+                <input class="form-control mx-auto mb-3" style="max-width: 700px; height: 45px;" type="text"
+                    placeholder="🔍 Pesquisar conteúdo">
 
-        <input class="form-control mx-auto mb-3" 
-        style="max-width: 700px; height: 45px;"
-        type="text" 
-        placeholder="🔍 Pesquisar conteúdo">
+                <div class="row justify-content-center g-3 mt-3 mb-4">
 
-        <div class="row justify-content-center g-3 mt-3 mb-4">
+                    <div class="col-auto">
+                        <select class="form-select"
+                            style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
+                            <option selected>Todas as categorias</option>
 
-    <div class="col-auto">
-        <select class="form-select"
-        style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
-            <option selected>Todas as categorias</option>
-
-                        <option>
-                            Artigo
-                        </option>
-
-                        <option>
-                            Apostila
-                        </option>
-
-                        <option>
-                            Mapa mental
-                        </option>
-
-                        <option>
-                            Lista de exercícios
-                        </option>
-
-                         <option>
-                            Resumo
+                            <option>
+                                Artigo
                             </option>
 
-                        <option>
-                            Simulados
-                        </option>
+                            <option>
+                                Apostila
+                            </option>
 
-                         <option>
-                            Slides
-                        </option>
+                            <option>
+                                Mapa mental
+                            </option>
 
-                        <option>
-                            Outros
-                        </option>
+                            <option>
+                                Lista de exercícios
+                            </option>
 
-        </select>
-    </div>
+                            <option>
+                                Resumo
+                            </option>
 
-   
+                            <option>
+                                Simulados
+                            </option>
 
-    <div class="col-auto">
-        <select class="form-select"
-        style="width: 230px; height: 52px; font-size: 1.12rem; font-weight: 500;">
-            <option selected>Todos os níveis</option>
-            <option>
-                            Ensino fundamental
-                        </option>
+                            <option>
+                                Slides
+                            </option>
 
-                        <option>
-                            Ensino médio
-                        </option>
+                            <option>
+                                Outros
+                            </option>
 
-                        
-                        <option>
-                            Ensino técnico
-                        </option>
+                        </select>
+                    </div>
 
-                        <option>
-                            Ensino superior
-                        </option>
+                    <div class="col-auto">
+                        <select class="form-select"
+                            style="width: 230px; height: 52px; font-size: 1.12rem; font-weight: 500;">
+                            <option selected>Todos os níveis</option>
+                            <option>
+                                Ensino fundamental
+                            </option>
 
-                        <option>
-                            Curso livre
-                        </option>
+                            <option>
+                                Ensino médio
+                            </option>
 
-                        <option>
-                            Outros
-                        </option>
-        </select>
-    </div>
 
-</div>
+                            <option>
+                                Ensino técnico
+                            </option>
 
-    </div>
+                            <option>
+                                Ensino superior
+                            </option>
 
-</div>
+                            <option>
+                                Curso livre
+                            </option>
 
-        <div class="row gx-4 justify-content-center mt-4 mb-6">
+                            <option>
+                                Outros
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-            <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-                <div class="card shadow border-0 card-favorito">
-                    <div class="position-relative">
+            <div class="row gx-4 justify-content-center mt-4 mb-6">
 
-    <img class="card-img-top imagem-material"
-         src="assets/img/fotopdfmatematica.png">
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0 card-favorito">
+                        <div class="position-relative">
 
-    <div class="favorito-card">
-        <i class="bi bi-heart-fill"></i>
-    </div>
+                            <img class="card-img-top imagem-material" src="assets/img/fotopdfmatematica.png">
 
-</div>
-                    <div class="card-body p-4">
-                         <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                            Apostila
+                            <div class="favorito-card">
+                                <i class="bi bi-heart-fill"></i>
+                            </div>
+
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
+                                Apostila
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                Matemática Básica - Álgebra
+                            </h5>
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
+                            </p>
+                            <a href="detalhes-conteudo.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0 card-favorito">
+
+                        <div class="position-relative">
+
+                            <img class="card-img-top imagem-material" src="assets/img/fotopdfredacao.jpg">
+
+                            <div class="favorito-card">
+                                <i class="bi bi-heart-fill"></i>
+                            </div>
+
                         </div>
 
-                       <h5 class="card-title mb-3">
-                        Matemática Básica - Álgebra
-                    </h5>
+                        <div class="card-body p-4">
 
+                            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
+                                Apostila
+                            </div>
 
+                            <h5 class="card-title mb-3">
+                                Redação para ENEM
+                            </h5>
 
-<a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-    Ver detalhes
-</a>
-                    </div>
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
+                            </p>
+                            <a href="detalhes-conteudo.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
 
-                </div>
-        
-    
-    
-    
-    </div>
-        <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0 card-favorito">
-
-        <div class="position-relative">
-
-    <img class="card-img-top imagem-material"
-         src="assets/img/fotopdfredacao.jpg">
-
-    <div class="favorito-card">
-    <i class="bi bi-heart-fill"></i>
-</div>
-
-</div>
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Apostila
-            </div>
-
-           <h5 class="card-title mb-3">
-                        Redação para ENEM
-                    </h5>
-
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-             Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-        <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-            <div class="card shadow border-0 card-favorito">
-
-        <div class="position-relative">
-
-    <img class="card-img-top imagem-material"
-         src="assets/img/fotopdfpatologia.png">
-
-    <div class="favorito-card">
-    <i class="bi bi-heart-fill"></i>
-</div>
-        </div>
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Mapa mental
-            </div>
-
-            <h5 class="card-title mb-3">
-                        Biologia: patologia
-                    </h5>
-
-
-           <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-            Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-</div>
-    <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
-    <div class="card shadow border-0 card-favorito">
-
-        <div class="position-relative">
-
-    <img class="card-img-top imagem-material"
-         src="assets/img/fotopdfhistoria.jpg">
-
-    <div class="favorito-card">
-    <i class="bi bi-heart-fill"></i>
-</div>
-        </div>
-
-        <div class="card-body p-4">
-
-            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
-                Apostila
-            </div>
-
-            <h5 class="card-title mb-3">
-                        História Geral: Brasil e Mundo
-                    </h5>
-
-            <a href="material-detalhes.html" class="btn" style="background-color:#4E0119; color:white;">
-             Ver detalhes
-            </a>
-
-        </div>
-
-    </div>
-    
-    </div>
-         
-                 
-                
-
-                </div>
-            </section>
-        </main>
-        <!-- Footer-->
-        <footer class="py-4 mt-auto" style="background-color:#4E0119;">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">© 2026 BookBridge - Compartilhando conhecimento</div></div>
-                    <div class="col-auto">
-                        <a class="text-white text-decoration-none small" href="#!">Privacy</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Terms</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Contact</a>
+                        </div>
                     </div>
                 </div>
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0 card-favorito">
+
+                        <div class="position-relative">
+
+                            <img class="card-img-top imagem-material" src="assets/img/fotopdfpatologia.png">
+
+                            <div class="favorito-card">
+                                <i class="bi bi-heart-fill"></i>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
+                                Mapa mental
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                Biologia: patologia
+                            </h5>
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
+                            </p>
+
+                            <a href="detalhes-conteudo.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card shadow border-0 card-favorito">
+
+                        <div class="position-relative">
+
+                            <img class="card-img-top imagem-material" src="assets/img/fotopdfhistoria.jpg">
+
+                            <div class="favorito-card">
+                                <i class="bi bi-heart-fill"></i>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-4">
+
+                            <div class="badge rounded-pill mb-2" style="background-color:#DF8F9C; color:#4E0119;">
+                                Apostila
+                            </div>
+
+                            <h5 class="card-title mb-3">
+                                História Geral: Brasil e Mundo
+                            </h5>
+                            <p class="text-muted mb-3">
+                                <i class="bi bi-person-fill"></i> Compartilhado por: João da Silva
+                            </p>
+                            <a href="detalhes-conteudo.html" class="btn" style="background-color:#4E0119; color:white;">
+                                Ver detalhes
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </footer>
+        </section>
+    </main>
 
-
-        <!-- Modal Publicar Conteúdo -->
-<div class="modal fade" id="modalPublicar" tabindex="-1">
-
-    <div class="modal-dialog modal-dialog-centered">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h5 class="modal-title">
-                    Publicar Conteúdo
-                </h5>
-
-                <button type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal">
-                </button>
+    <!-- Footer-->
+    <footer class="py-4 mt-auto" style="background-color:#4E0119;">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto">
+                    <div class="small m-0 text-white">© 2026 BookBridge - Compartilhando conhecimento</div>
+                </div>
             </div>
-
-            <div class="modal-body">
-
-                <p>
-                    Apenas <strong>Colaboradores Educacionais</strong> podem publicar conteúdos.
-                </p>
-
-                <p class="mb-0">
-                    Você pode alterar seu tipo de conta em
-                    <strong>Minha Conta → Meus Dados</strong>.
-                </p>
-
-            </div>
-
-            <div class="modal-footer">
-
-                <button type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal">
-                    Cancelar
-                </button>
-
-                <a href="meus-dados.html"
-                   class="btn"
-                   style="background:#DF8F9C; color:#4E0119;">
-                    Ir para Minha Conta
-                </a>
-
-            </div>
-
         </div>
+    </footer>
 
-    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
 
-</div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+</body>
 
-        <script>
-
-const tipoConta = "colaborador";
-// Troque para "colaborador" quando quiser testar o outro perfil.
-
-const botaoPublicar = document.getElementById("btnPublicarConteudo");
-
-if (botaoPublicar) {
-
-    botaoPublicar.addEventListener("click", function(event){
-
-        event.preventDefault();
-
-        if(tipoConta == "colaborador"){
-
-            window.location.href = "cadastrar-conteudo.html";
-
-        }else{
-
-            const modal = new bootstrap.Modal(document.getElementById("modalPublicar"));
-            modal.show();
-
-        }
-
-    });
-
-}
-
-</script>
-    </body>
 </html>
