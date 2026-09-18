@@ -162,41 +162,19 @@
     padding: 23px;
     border-radius: 18px;
 
-    box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
-    transition: .2s;
+    border: 1px solid #b8b8b8;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, .13);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .conta-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, .18);
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, .20);
 }
 
 .conta-card i {
-    font-size: 42px;
-    color: #4E0119;
-    margin-bottom: 18px;
-}
-
-.conta-card h3 {
-    color: #4E0119;
-    font-size: 1.55rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.conta-card p {
-    flex: 1;
-    margin-top: 8px;
-
-    color: #666;
-    font-size: 1.4rem;
-    line-height: 1.7;
-}
-
-.conta-card span {
-    color: #DF8F9C;
-    font-size: 1.5rem;
-    font-weight: bold;
+    /* continua igual */
 }
 
 /* ==========================================
@@ -422,4 +400,82 @@
     .conta-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* =========================================
+   HERO DO BOOKBRIDGE
+   ========================================= */
+
+.hero-bookbridge {
+    background: linear-gradient(
+        120deg,
+        #FFFACD 0%,
+        #FFFACD 45%,
+        #FFE8A3 100%
+    );
+}
+
+/* Borda dos cards de materiais */
+
+.card.shadow.border-0 {
+    border: 1px solid #E4DCD8 !important;
+}
+
+/* Fundo branco na página de alteração de senha */
+.conta-section {
+    background-color: #ffffff;
+}
+
+/* FORMULÁRIO DE PUBLICAÇÃO */
+
+.formulario-card {
+    border: 1px solid #b8b8b8;
+    border-radius: 18px;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, .13);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formulario-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, .20);
+}
+
+/* =========================================
+   FORMULÁRIO - EDITAR MATERIAL
+   ========================================= */
+
+.editar-material-card {
+    background: #fff;
+    border: 1px solid #b8b8b8;
+    border-radius: 18px;
+
+    box-shadow: 0 6px 22px rgba(0, 0, 0, .13);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.editar-material-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, .20);
+}
+
+/* =========================================
+   PÁGINA DE DETALHES DO CONTEÚDO
+   ========================================= */
+
+.detalhes-conteudo-section {
+    padding-top: 70px !important;
+}
+
+.detalhes-conteudo-card {
+    border: 1px solid #b8b8b8;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, .13);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.detalhes-conteudo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, .20);
 }
