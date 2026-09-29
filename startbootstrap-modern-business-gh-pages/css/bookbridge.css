@@ -479,3 +479,58 @@
     transform: translateY(-5px);
     box-shadow: 0 16px 35px rgba(0, 0, 0, .20);
 }
+/* =========================================
+   FORMULÁRIO - DOAR MATERIAL
+   ========================================= */
+
+.doar-material-card {
+    background: #fff;
+    border: 1px solid #b8b8b8;
+    border-radius: 18px;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, .13);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.doar-material-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, .20);
+}
+
+/* =========================================
+   FORMULÁRIO - EDITAR PUBLICAÇÃO
+   ========================================= */
+
+.editar-publicacao-card {
+    background: #fff;
+    border: 1px solid #b8b8b8;
+    border-radius: 18px;
+
+    box-shadow: 0 6px 22px rgba(0, 0, 0, .13);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.editar-publicacao-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, .20);
+}
+/* Cores dos cartões da página Minha Conta */
+.conta-card,
+.conta-card:hover {
+    color: #212529;
+}
+
+.conta-card h3,
+.conta-card p,
+.conta-card i {
+    color: #212529;
+}
+
+.conta-card span {
+    color: #4E0119;
+}
+
+.conta-card:hover span {
+    color: #DF8F9C;
+}
