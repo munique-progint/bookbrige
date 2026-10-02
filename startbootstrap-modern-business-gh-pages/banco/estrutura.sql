@@ -1,0 +1,11 @@
+USE bookbridge;
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    telefone VARCHAR(20) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    tipo_usuario VARCHAR(30) NOT NULL,
+    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

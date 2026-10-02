@@ -55,7 +55,7 @@
 
                                 </div>
 
-                                <form>
+                                <form action="processa-cadastro.php" method="POST">
                                     <div class="mb-4">
 
                                         <label class="form-label fw-semibold">
@@ -68,8 +68,8 @@
                                                 <i class="bi bi-person"></i>
                                             </span>
 
-                                            <input type="text" class="form-control form-control-lg"
-                                                placeholder="Digite seu nome completo" required>
+                                            <input type="text" name="nome" class="form-control form-control-lg"
+                                                 placeholder="Digite seu nome completo" required>
 
                                         </div>
 
@@ -86,7 +86,7 @@
                                                 <i class="bi bi-envelope"></i>
                                             </span>
 
-                                            <input type="email" class="form-control form-control-lg"
+                                            <input type="email" name="email" class="form-control form-control-lg"
                                                 placeholder="Digite seu e-mail" required>
 
                                         </div>
@@ -103,9 +103,8 @@
                                                     <i class="bi bi-telephone"></i>
                                                 </span>
 
-                                                <input type="tel" class="form-control form-control-lg"
+                                                <input type="tel" name="telefone" class="form-control form-control-lg"
                                                     placeholder="(51) 99999-9999" required>
-
                                             </div>
 
                                         </div>
@@ -120,9 +119,8 @@
 
                                         <div class="input-group">
 
-                                            <input id="senha" type="password" class="form-control form-control-lg"
-                                                placeholder="Digite sua senha" required>
-
+                                           <input id="senha" type="password" name="senha" class="form-control form-control-lg"
+    placeholder="Digite sua senha" minlength="8" required>
                                         </div>
                                         <div class="mb-4">
 
@@ -130,9 +128,8 @@
                                                 Confirmar senha
                                             </label>
 
-                                            <input type="password" class="form-control form-control-lg"
-                                                placeholder="Digite novamente sua senha" required>
-
+                                            <input type="password" name="confirmar_senha" class="form-control form-control-lg"
+    placeholder="Digite novamente sua senha" minlength="8" required>
                                         </div>
 
                                         <div class="mt-3 mb-4">
@@ -144,7 +141,7 @@
                                             <div class="form-check mt-2">
 
                                                 <input class="form-check-input" type="radio" name="tipoUsuario"
-                                                    id="estudante" checked>
+    id="estudante" value="estudante" checked>
 
                                                 <label class="form-check-label" for="estudante">
                                                     Estudante
@@ -155,7 +152,7 @@
                                             <div class="form-check mt-2">
 
                                                 <input class="form-check-input" type="radio" name="tipoUsuario"
-                                                    id="colaborador">
+    id="colaborador" value="colaborador">
 
                                                 <label class="form-check-label" for="colaborador">
                                                     Colaborador Educacional
@@ -164,10 +161,10 @@
                                             </div>
                                         </div>
 
-                                        <button class="btn w-100 rounded-pill py-2 fw-bold mt-2"
-                                            style="background:#DF8F9C; color:#4E0119;">
-                                            Criar conta
-                                        </button>
+                                        <button type="submit" name="cadastrar" class="btn w-100 rounded-pill py-2 fw-bold mt-2"
+    style="background:#DF8F9C; color:#4E0119;">
+    Criar conta
+</button>
 
                                 </form>
 
