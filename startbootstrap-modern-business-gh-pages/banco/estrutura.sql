@@ -9,3 +9,17 @@ CREATE TABLE usuarios (
     tipo_usuario VARCHAR(30) NOT NULL,
     data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE materiais (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    nome_material VARCHAR(150) NOT NULL,
+    categoria VARCHAR(50) NOT NULL,
+    nivel VARCHAR(50) NOT NULL,
+    descricao TEXT NOT NULL,
+    imagem VARCHAR(255),
+    status VARCHAR(30) NOT NULL DEFAULT 'Disponível',
+    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+);

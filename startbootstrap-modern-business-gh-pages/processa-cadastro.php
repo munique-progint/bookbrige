@@ -28,6 +28,15 @@ $senha = $_POST["senha"];
 $confirmar_senha = $_POST["confirmar_senha"];
 $tipo_usuario = $_POST["tipoUsuario"];
 
+$telefone = preg_replace('/[^0-9]/', '', $telefone);
+
+if (strlen($telefone) != 11 || $telefone[2] != "9") {
+    $_SESSION["msg"] = "Informe um número de celular válido.";
+    $_SESSION["class"] = "erro";
+    header("Location: resultado-cadastro.php");
+    exit;
+}
+
 if (
     $nome == "" ||
     $email == "" ||
@@ -37,6 +46,15 @@ if (
     $tipo_usuario == ""
 ) {
     $_SESSION["msg"] = "Preencha todos os campos do cadastro.";
+    $_SESSION["class"] = "erro";
+    header("Location: resultado-cadastro.php");
+    exit;
+}
+
+$partes_nome = preg_split('/\s+/', $nome);
+
+if (count($partes_nome) < 2) {
+    $_SESSION["msg"] = "Informe seu nome completo, com nome e sobrenome.";
     $_SESSION["class"] = "erro";
     header("Location: resultado-cadastro.php");
     exit;

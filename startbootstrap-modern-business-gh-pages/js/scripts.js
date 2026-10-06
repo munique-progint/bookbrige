@@ -51,3 +51,16 @@ favoritos.forEach(function(favorito){
     });
 
 });
+const senha = document.getElementById("senha");
+const confirmarSenha = document.querySelector('input[name="confirmar_senha"]');
+
+function verificarSenhas() {
+    if (senha.value != confirmarSenha.value) {
+        confirmarSenha.setCustomValidity("As senhas não coincidem.");
+    } else {
+        confirmarSenha.setCustomValidity("");
+    }
+}
+
+senha.addEventListener("input", verificarSenhas);
+confirmarSenha.addEventListener("input", verificarSenhas);

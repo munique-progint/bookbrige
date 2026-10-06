@@ -68,8 +68,11 @@
                                                 <i class="bi bi-person"></i>
                                             </span>
 
-                                            <input type="text" name="nome" class="form-control form-control-lg"
-                                                 placeholder="Digite seu nome completo" required>
+                                           <input type="text" name="nome" class="form-control form-control-lg"
+    placeholder="Digite seu nome completo"
+    pattern=".*\s+.*"
+    title="Informe seu nome completo, com nome e sobrenome."
+    required>
 
                                         </div>
 
@@ -103,8 +106,12 @@
                                                     <i class="bi bi-telephone"></i>
                                                 </span>
 
-                                                <input type="tel" name="telefone" class="form-control form-control-lg"
-                                                    placeholder="(51) 99999-9999" required>
+                                               <input type="tel" name="telefone" class="form-control form-control-lg"
+    placeholder="(51) 99999-9999"
+    pattern="(\([0-9]{2}\)\s?9[0-9]{4}-[0-9]{4}|[0-9]{11})"
+    maxlength="15"
+    title="Informe um celular válido, como (51) 99999-9999 ou 51999999999."
+    required>
                                             </div>
 
                                         </div>
@@ -128,8 +135,10 @@
                                                 Confirmar senha
                                             </label>
 
-                                            <input type="password" name="confirmar_senha" class="form-control form-control-lg"
-    placeholder="Digite novamente sua senha" minlength="8" required>
+                                      <input type="password" name="confirmar_senha" class="form-control form-control-lg"
+    placeholder="Digite novamente sua senha"
+    minlength="8"
+    required>
                                         </div>
 
                                         <div class="mt-3 mb-4">

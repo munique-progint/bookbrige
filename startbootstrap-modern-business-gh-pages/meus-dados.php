@@ -1,3 +1,48 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["id_usuario"])) {
+    header("Location: login.html");
+    exit;
+}
+require_once "conecta.php";
+
+$id_usuario = $_SESSION["id_usuario"];
+
+$sql = "SELECT nome, email, telefone, tipo_usuario
+        FROM usuarios
+        WHERE id = ?";
+
+$stmt = mysqli_prepare($conn, $sql);
+
+mysqli_stmt_bind_param($stmt, "i", $id_usuario);
+mysqli_stmt_execute($stmt);
+
+mysqli_stmt_bind_result(
+    $stmt,
+    $nome,
+    $email,
+    $telefone,
+    $tipo_usuario
+);
+
+mysqli_stmt_fetch($stmt);
+mysqli_stmt_close($stmt);
+
+$msg = $_SESSION["msg"] ?? "";
+$class = $_SESSION["class"] ?? "";
+
+unset($_SESSION["msg"]);
+unset($_SESSION["class"]);
+
+if ($class == "sucesso") {
+    $classe_alerta = "alert-success";
+} else {
+    $classe_alerta = "alert-danger";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -53,7 +98,13 @@
                     <p class="descricao-conta">
                         Visualize e atualize as informações da sua conta.
                     </p>
+<?php if ($msg != "") { ?>
 
+    <div class="alert <?php echo $classe_alerta; ?> text-center mt-3">
+        <?php echo htmlspecialchars($msg); ?>
+    </div>
+
+<?php } ?>
                 </div>
 
             </div>
@@ -70,21 +121,24 @@
                             </button>
                         </div>
 
-                        <form>
+                        <form action="processa-dados.php" method="POST">
 
                             <div class="mb-3">
                                 <label class="form-label">Nome completo</label>
-                                <input type="text" class="form-control" value="Jasmini Becker Rohr" disabled>
+                                <input type="text" name="nome" class="form-control"
+    value="<?php echo htmlspecialchars($nome); ?>" disabled>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">E-mail</label>
-                                <input type="email" class="form-control" value="jasmini@email.com" disabled>
+                                <input type="email" name="email" class="form-control"
+    value="<?php echo htmlspecialchars($email); ?>" disabled>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Telefone</label>
-                                <input type="text" class="form-control" value="(51) 99999-9999" disabled>
+                           <input type="text" name="telefone" class="form-control"
+    value="<?php echo htmlspecialchars($telefone); ?>" disabled>
                             </div>
 
                             <div class="mb-4">
@@ -93,15 +147,22 @@
                                     Tipo de conta
                                 </label>
 
-                                <select class="form-select" disabled>
-                                    <option>Estudante</option>
-                                    <option selected>Colaborador Educacional</option>
-                                </select>
+                                <select name="tipo_usuario" class="form-select" disabled>
+    <option value="estudante"
+        <?php if ($tipo_usuario == "estudante") echo "selected"; ?>>
+        Estudante
+    </option>
+
+    <option value="colaborador"
+        <?php if ($tipo_usuario == "colaborador") echo "selected"; ?>>
+        Colaborador Educacional
+    </option>
+</select>
                             </div>
 
                             <div id="areaSalvar">
 
-                                <button type="button" class="btn btn-lg w-100 btn-salvar">
+                                <button type="submit" class="btn btn-lg w-100 btn-salvar">
                                     Salvar Alterações
                                 </button>
 

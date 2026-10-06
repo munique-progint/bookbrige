@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["id_usuario"])) {
+    header("Location: login.html");
+    exit;
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -51,8 +65,8 @@
 
                     <!-- Nome do usuário logado -->
                     <p class="nome-usuario">
-                        Bem-vinda de volta, Jasmini!
-                    </p>
+    Bem-vinda de volta, <?php echo htmlspecialchars($_SESSION["nome_usuario"]); ?>!
+</p>
 
                     <p class="descricao-conta">
                         Gerencie sua conta e acompanhe suas atividades no BookBridge.
@@ -140,13 +154,13 @@
 
                 <div class="conta-sair">
 
-                    <a href="login.html" class="btn-sair">
+                 <a href="logout.php" class="btn-sair">
 
-                        <i class="bi bi-box-arrow-right"></i>
+    <i class="bi bi-box-arrow-right"></i>
 
-                        Sair da conta
+    Sair da conta
 
-                    </a>
+</a>
 
                 </div>
             </div>
