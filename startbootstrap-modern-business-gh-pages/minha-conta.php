@@ -91,7 +91,7 @@ if (!isset($_SESSION["id_usuario"])) {
                     </a>
 
 
-                    <a href="minhas-doacoes.html" class="conta-card">
+                    <a href="minhas-doacoes.php" class="conta-card">
 
                         <i class="bi bi-box-seam"></i>
 

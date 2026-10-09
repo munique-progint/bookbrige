@@ -24,6 +24,18 @@ mysqli_stmt_execute($stmt);
 $resultado = mysqli_stmt_get_result($stmt);
 
 ?>
+<?php if (isset($_SESSION["msg"])) { ?>
+    <div class="container mt-3">
+        <div class="alert alert-<?php echo htmlspecialchars($_SESSION["class"]); ?> alert-dismissible fade show" role="alert">
+            <?php echo htmlspecialchars($_SESSION["msg"]); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </div>
+    </div>
+    <?php
+    unset($_SESSION["msg"]);
+    unset($_SESSION["class"]);
+    ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -43,8 +55,8 @@ $resultado = mysqli_stmt_get_result($stmt);
     <link href="css/bookbridge.css" rel="stylesheet">
 </head>
 
-<body class="d-flex flex-column h-100">
-    <main class="flex-shrink-0">
+<body class="d-flex flex-column min-vh-100">
+    <main class="d-flex flex-column flex-grow-1">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
             <div class="container px-5">
@@ -64,7 +76,7 @@ $resultado = mysqli_stmt_get_result($stmt);
             </div>
         </nav>
         <!-- Minhas Doações -->
-        <section class="py-5">
+        <section class="py-5 flex-grow-1">
             <div class="container px-5 my-3">
                 <div class="row gx-5 justify-content-center">
                     <div class="col-12">
@@ -91,6 +103,8 @@ $resultado = mysqli_stmt_get_result($stmt);
 
             <div class="row gx-4 justify-content-center mt-3"
     style="width: 100%; max-width: 1700px; margin: 1rem auto 0;">
+
+    <?php if (mysqli_num_rows($resultado) > 0) { ?>
 
     <?php while ($material = mysqli_fetch_array($resultado)) { ?>
 
@@ -148,21 +162,30 @@ $resultado = mysqli_stmt_get_result($stmt);
 
                     </p>
 
-                    <div class="d-flex justify-content-between mt-3">
+                   
+<div class="d-flex justify-content-between mt-3">
+    <a href="material-detalhes.html?id=<?php echo $material["id"]; ?>"
+        class="btn btn-sm"
+        style="background-color:#4E0119; color:white;">
+        Ver detalhes
+    </a>
 
-                        <a href="material-detalhes.html?id=<?php echo $material["id"]; ?>"
-                            class="btn btn-sm"
-                            style="background-color:#4E0119; color:white;">
-                            Ver detalhes
-                        </a>
+    <a href="editar-material.html?id=<?php echo $material["id"]; ?>"
+        class="btn btn-sm"
+        style="background-color:#FBDD91; color:#4E0119;">
+        Editar
+    </a>
 
-                        <a href="editar-material.html?id=<?php echo $material["id"]; ?>"
-                            class="btn btn-sm"
-                            style="background-color:#FBDD91; color:#4E0119;">
-                            Editar
-                        </a>
+    <button type="button"
+    class="btn btn-sm"
+    style="background-color:#DF8F9C; color:#4E0119;"
+    data-bs-toggle="modal"
+    data-bs-target="#modalExcluirMaterial"
+    data-id="<?php echo $material["id"]; ?>">
+    Excluir
+</button>
+</div>
 
-                    </div>
 
                 </div>
 
@@ -170,9 +193,29 @@ $resultado = mysqli_stmt_get_result($stmt);
 
         </div>
 
+       <?php } ?>
+
+    <?php } else { ?>
+
+        <div class="col-12 text-center py-5">
+
+            <i class="bi bi-book" style="font-size: 50px; color: #DF8F9C;"></i>
+
+            <h5 class="mt-3" style="color: #4E0119;">
+                Você ainda não cadastrou nenhuma doação.
+            </h5>
+
+            <p class="text-muted">
+                Clique em "Nova doação" para compartilhar um material.
+            </p>
+
+        </div>
+
     <?php } ?>
 
 </div>
+
+
     <!-- Modal Excluir Material -->
     <div class="modal fade" id="modalExcluirMaterial" tabindex="-1">
 
@@ -203,25 +246,26 @@ $resultado = mysqli_stmt_get_result($stmt);
 
                 </div>
 
-                <div class="modal-footer">
+              
+<div class="modal-footer">
+    <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">
+        Cancelar
+    </button>
 
-                    <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">
+    <form action="processa-exclusao-material.php" method="POST" id="formExcluirMaterial">
+        <input type="hidden" name="id_material" id="idMaterialExcluir">
 
-                        Cancelar
-
-                    </button>
-
-                    <button type="button" class="btn btn-danger">
-
-                        Excluir
-
-                    </button>
+        <button type="submit" class="btn btn-danger">
+            Excluir
+        </button>
+    </form>
+</div>
 
                 </div>
             </div>
         </div>
     </div>
-
+</main>
     <!-- Footer-->
     <footer class="py-4 mt-auto" style="background-color:#4E0119;">
         <div class="container px-5">
@@ -233,9 +277,16 @@ $resultado = mysqli_stmt_get_result($stmt);
         </div>
     </footer>
     <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-</body>
+   
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+    document.getElementById("modalExcluirMaterial").addEventListener("show.bs.modal", function (event) {
+        var botao = event.relatedTarget;
+        var idMaterial = botao.getAttribute("data-id");
+
+        document.getElementById("idMaterialExcluir").value = idMaterial;
+    });
+</script>
+</body>
 </html>

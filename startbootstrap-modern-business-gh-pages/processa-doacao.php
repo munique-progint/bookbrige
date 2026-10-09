@@ -15,10 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 if (
     !isset($_POST["nome_material"]) ||
     !isset($_POST["categoria"]) ||
-    !isset($_POST["nivel"]) ||
-    !isset($_POST["descricao"])
+    !isset($_POST["nivel"])
 ) {
-    $_SESSION["msg"] = "Preencha todos os campos da doação.";
+    $_SESSION["msg"] = "Preencha os campos obrigatórios da doação.";
     $_SESSION["class"] = "erro";
     header("Location: doar-material.html");
     exit;
@@ -27,13 +26,12 @@ if (
 $nome_material = trim($_POST["nome_material"]);
 $categoria = trim($_POST["categoria"]);
 $nivel = trim($_POST["nivel"]);
-$descricao = trim($_POST["descricao"]);
+$descricao = trim($_POST["descricao"] ?? "");
 
 if (
     $nome_material == "" ||
     $categoria == "" ||
-    $nivel == "" ||
-    $descricao == ""
+    $nivel == ""
 ) {
     $_SESSION["msg"] = "Preencha todos os campos da doação.";
     $_SESSION["class"] = "erro";
@@ -95,11 +93,14 @@ if (isset($_FILES["imagem"]) && $_FILES["imagem"]["error"] != UPLOAD_ERR_NO_FILE
 
     $extensao = strtolower(pathinfo($_FILES["imagem"]["name"], PATHINFO_EXTENSION));
 
-    if (
-        $extensao != "jpg" &&
-        $extensao != "jpeg" &&
-        $extensao != "png" &&
-        $extensao != "webp"
+    
+        if (
+    $extensao != "jpg" &&
+    $extensao != "jpeg" &&
+    $extensao != "jfif" &&
+    $extensao != "png" &&
+    $extensao != "webp"
+
     ) {
         $_SESSION["msg"] = "Formato de imagem inválido. Use JPG, PNG ou WEBP.";
         $_SESSION["class"] = "erro";
