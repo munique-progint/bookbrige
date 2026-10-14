@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 if (
     !isset($_POST["nome_material"]) ||
     !isset($_POST["categoria"]) ||
+    !isset($_POST["area"]) ||
     !isset($_POST["nivel"])
 ) {
     $_SESSION["msg"] = "Preencha os campos obrigatórios da doação.";
@@ -25,12 +26,14 @@ if (
 
 $nome_material = trim($_POST["nome_material"]);
 $categoria = trim($_POST["categoria"]);
+$area = trim($_POST["area"]);
 $nivel = trim($_POST["nivel"]);
 $descricao = trim($_POST["descricao"] ?? "");
 
 if (
     $nome_material == "" ||
     $categoria == "" ||
+    $area == "" ||
     $nivel == ""
 ) {
     $_SESSION["msg"] = "Preencha todos os campos da doação.";
@@ -45,6 +48,35 @@ if (
     $categoria != "Material escolar"
 ) {
     $_SESSION["msg"] = "Categoria inválida.";
+    $_SESSION["class"] = "erro";
+    header("Location: doar-material.html");
+    exit;
+}
+
+$areas_permitidas = [
+    "Matemática",
+    "Português",
+    "Literatura",
+    "Redação",
+    "Inglês",
+    "Espanhol",
+    "História",
+    "Geografia",
+    "Filosofia",
+    "Sociologia",
+    "Biologia",
+    "Física",
+    "Química",
+    "Ciências",
+    "Artes",
+    "Educação Física",
+    "Informática",
+    "Todas as matérias",
+    "Outra"
+];
+
+if (!in_array($area, $areas_permitidas, true)) {
+    $_SESSION["msg"] = "Área/matéria inválida.";
     $_SESSION["class"] = "erro";
     header("Location: doar-material.html");
     exit;
@@ -133,25 +165,28 @@ try {
 
     $id_usuario = $_SESSION["id_usuario"];
 
-    $sql = "INSERT INTO materiais
-            (id_usuario, nome_material, categoria, nivel, descricao, imagem)
-            VALUES (?, ?, ?, ?, ?, ?)";
+ 
+$sql = "INSERT INTO materiais
+        (id_usuario, nome_material, categoria, area, nivel, descricao, imagem)
+        VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    $stmt = mysqli_prepare($conn, $sql);
+$stmt = mysqli_prepare($conn, $sql);
 
-    mysqli_stmt_bind_param(
-        $stmt,
-        "isssss",
-        $id_usuario,
-        $nome_material,
-        $categoria,
-        $nivel,
-        $descricao,
-        $imagem
-    );
+mysqli_stmt_bind_param(
+    $stmt,
+    "issssss",
+    $id_usuario,
+    $nome_material,
+    $categoria,
+    $area,
+    $nivel,
+    $descricao,
+    $imagem
+);
 
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_close($stmt);
+
 
     $_SESSION["msg"] = "Doação cadastrada com sucesso!";
     $_SESSION["class"] = "sucesso";

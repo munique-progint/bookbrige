@@ -24,17 +24,6 @@ mysqli_stmt_execute($stmt);
 $resultado = mysqli_stmt_get_result($stmt);
 
 ?>
-<?php if (isset($_SESSION["msg"])) { ?>
-    <div class="container mt-3">
-        <div class="alert alert-<?php echo htmlspecialchars($_SESSION["class"]); ?> alert-dismissible fade show" role="alert">
-            <?php echo htmlspecialchars($_SESSION["msg"]); ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
-        </div>
-    </div>
-    <?php
-    unset($_SESSION["msg"]);
-    unset($_SESSION["class"]);
-    ?>
 
 
 <!DOCTYPE html>
@@ -56,7 +45,9 @@ $resultado = mysqli_stmt_get_result($stmt);
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <main class="d-flex flex-column flex-grow-1">
+    <main class="d-flex flex-column flex-grow-1"> 
+
+
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
             <div class="container px-5">
@@ -75,6 +66,20 @@ $resultado = mysqli_stmt_get_result($stmt);
                 </div>
             </div>
         </nav>
+
+        <?php if (isset($_SESSION["msg"])) { ?>
+    <div class="container mt-3">
+        <div class="alert alert-<?php echo $_SESSION["class"] == "sucesso" ? "success" : htmlspecialchars($_SESSION["class"]); ?> alert-dismissible fade show" role="alert">
+            <?php echo htmlspecialchars($_SESSION["msg"]); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </div>
+    </div>
+    <?php
+    unset($_SESSION["msg"]);
+    unset($_SESSION["class"]);
+    ?>
+<?php } ?>
+
         <!-- Minhas Doações -->
         <section class="py-5 flex-grow-1">
             <div class="container px-5 my-3">
@@ -164,7 +169,7 @@ $resultado = mysqli_stmt_get_result($stmt);
 
                    
 <div class="d-flex justify-content-between mt-3">
-    <a href="material-detalhes.html?id=<?php echo $material["id"]; ?>"
+    <a href="material-detalhes.php?id=<?php echo $material["id"]; ?>"
         class="btn btn-sm"
         style="background-color:#4E0119; color:white;">
         Ver detalhes

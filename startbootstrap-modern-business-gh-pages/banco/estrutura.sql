@@ -1,3 +1,4 @@
+
 USE bookbridge;
 
 CREATE TABLE usuarios (
@@ -15,6 +16,7 @@ CREATE TABLE materiais (
     id_usuario INT NOT NULL,
     nome_material VARCHAR(150) NOT NULL,
     categoria VARCHAR(50) NOT NULL,
+    area VARCHAR(100) NULL,
     nivel VARCHAR(50) NOT NULL,
     descricao TEXT NOT NULL,
     imagem VARCHAR(255),

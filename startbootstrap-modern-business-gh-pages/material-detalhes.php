@@ -1,3 +1,38 @@
+
+<?php
+require_once "conecta.php";
+
+if (!isset($_GET["id"]) || !is_numeric($_GET["id"]) || $_GET["id"] <= 0) {
+    http_response_code(400);
+    die("ID do material inválido.");
+}
+
+$id_material = (int) $_GET["id"];
+
+$sql = "SELECT materiais.id, materiais.nome_material, materiais.categoria,
+               materiais.nivel, materiais.descricao, materiais.imagem,
+               materiais.status, usuarios.nome, usuarios.email,
+               usuarios.telefone
+        FROM materiais
+        INNER JOIN usuarios ON materiais.id_usuario = usuarios.id
+        WHERE materiais.id = ?";
+
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "i", $id_material);
+mysqli_stmt_execute($stmt);
+
+$resultado = mysqli_stmt_get_result($stmt);
+$material = mysqli_fetch_assoc($resultado);
+
+mysqli_stmt_close($stmt);
+
+if (!$material) {
+    http_response_code(404);
+    die("Material não encontrado.");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -40,36 +75,41 @@
                 <div class="row gx-5 align-items-start">
                     <!-- Imagem do material -->
                     <div class="col-lg-4">
-                        <img src="assets/img/fotolivromat.jpg" class="img-fluid shadow-lg rounded-4"
-                            style="max-height: 450px; object-fit: cover;" alt="Livro de Matemática">
+                        <?php if (!empty($material["imagem"])) { ?>
+    <img src="<?php echo htmlspecialchars($material["imagem"]); ?>"
+         class="img-fluid shadow-lg rounded-4"
+         style="max-height: 450px; object-fit: cover;"
+         alt="<?php echo htmlspecialchars($material["nome_material"]); ?>">
+<?php } else { ?>
+    <div class="text-center py-5 bg-light rounded-4">
+        <i class="bi bi-book" style="font-size: 5rem; color: #4E0119;"></i>
+        <p class="mt-2 mb-0">Este material não possui imagem.</p>
+    </div>
+<?php } ?>
                     </div>
 
                     <!-- Informações do material -->
                     <div class="col-lg-6">
                         <div class="bg-white detalhes-conteudo-card rounded-4 p-5">
-                            <h2 class="fw-bold" style="color:#4E0119;">Matemática Básica</h2>
-                            <span class="badge rounded-pill mb-3"
-                                style="background-color:#FBDD91; color:#4E0119;">Livro</span>
+                            <h2 class="fw-bold" style="color:#4E0119;"><?php echo htmlspecialchars($material["nome_material"]); ?></h2>
+                           <span class="badge rounded-pill mb-3"
+      style="background-color:#FBBD91; color:#4E0119;"><?php echo htmlspecialchars($material["categoria"]); ?></span>
 
 
                             <p class="mb-2">
-                                <strong>Condição:</strong> Ótimo estado
-                            </p>
+    <strong>Status:</strong> <?php echo htmlspecialchars($material["status"]); ?>
+</p>
 
                             <p class="mb-4">
-                                <strong>Doador:</strong> João Silva
-                            </p>
+    <strong>Doador:</strong> <?php echo htmlspecialchars($material["nome"]); ?>
+</p>
                             <hr>
 
                             <h6 class="fw-bold">Descrição</h6>
 
-                            <p class="text-muted mb-4">
-                                Livro de matemática voltado para estudantes do ensino médio, contendo explicações
-                                teóricas, exemplos resolvidos e exercícios de fixação. O material está em ótimo estado e
-                                é indicado para reforçar a aprendizagem e auxiliar na preparação para avaliações
-                                escolares, vestibulares e ENEM.
-                            </p>
-
+                           <p class="text-muted mb-4">
+    <?php echo nl2br(htmlspecialchars($material["descricao"])); ?>
+</p>
 
                             <hr>
 
@@ -84,18 +124,13 @@
 
                                 <div class="col-6 mb-3">
                                     <small class="text-muted">Nível</small><br>
-                                    Ensino Médio
+                                    <?php echo htmlspecialchars($material["nivel"]); ?>
                                 </div>
 
-                                <div class="col-6 mb-3">
-                                    <small class="text-muted">Estado</small><br>
-                                    Rio Grande do Sul
-                                </div>
+                               
 
-                                <div class="col-6 mb-3">
-                                    <small class="text-muted">Cidade</small><br>
-                                    Rolante
-                                </div>
+
+                                
 
                             </div>
                             <div class="d-flex gap-3 mt-4">
