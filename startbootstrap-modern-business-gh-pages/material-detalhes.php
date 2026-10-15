@@ -1,5 +1,6 @@
-
 <?php
+session_start();
+
 require_once "conecta.php";
 
 if (!isset($_GET["id"]) || !is_numeric($_GET["id"]) || $_GET["id"] <= 0) {
@@ -9,10 +10,11 @@ if (!isset($_GET["id"]) || !is_numeric($_GET["id"]) || $_GET["id"] <= 0) {
 
 $id_material = (int) $_GET["id"];
 
-$sql = "SELECT materiais.id, materiais.nome_material, materiais.categoria,
-               materiais.nivel, materiais.descricao, materiais.imagem,
-               materiais.status, usuarios.nome, usuarios.email,
-               usuarios.telefone
+$sql = "SELECT materiais.id, materiais.id_usuario,
+               materiais.nome_material, materiais.categoria,
+               materiais.area, materiais.nivel, materiais.descricao,
+               materiais.imagem, materiais.status, usuarios.nome,
+               usuarios.email, usuarios.telefone
         FROM materiais
         INNER JOIN usuarios ON materiais.id_usuario = usuarios.id
         WHERE materiais.id = ?";
@@ -31,6 +33,7 @@ if (!$material) {
     die("Material não encontrado.");
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -117,23 +120,22 @@ if (!$material) {
 
                             <div class="row">
 
-                                <div class="col-6 mb-3">
-                                    <small class="text-muted">Área</small><br>
-                                    Matemática
-                                </div>
+                               <div class="col-6 mb-3">
+    <small class="text-muted">Área</small><br>
+    <?php echo !empty($material["area"]) ? htmlspecialchars($material["area"]) : "Não informada"; ?>
+</div>
 
                                 <div class="col-6 mb-3">
                                     <small class="text-muted">Nível</small><br>
                                     <?php echo htmlspecialchars($material["nivel"]); ?>
                                 </div>
 
-                               
-
-
-                                
-
                             </div>
-                            <div class="d-flex gap-3 mt-4">
+                            <?php
+$id_usuario_logado = $_SESSION["id_usuario"] ?? 0;
+
+if ($id_usuario_logado != $material["id_usuario"]) {
+?>
 
                                 <button type="button" class="btn px-4 py-2 rounded-pill fw-bold botao-interesse"
                                     style="background-color:#DF8F9C; color:#4E0119; width:220px;" data-bs-toggle="modal"
@@ -153,6 +155,7 @@ if (!$material) {
                                 </button>
 
                             </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -161,140 +164,142 @@ if (!$material) {
     </main>
 
 
-    <!-- Modal Contato do Doador -->
-    <div class="modal fade" id="modalContatoDoador" tabindex="-1" aria-labelledby="modalContatoDoadorLabel"
-        aria-hidden="true">
+  
+<!-- Modal Contato do Doador -->
+<div class="modal fade" id="modalContatoDoador" tabindex="-1"
+    aria-labelledby="modalContatoDoadorLabel" aria-hidden="true">
 
-        <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 rounded-4">
 
-            <div class="modal-content border-0 rounded-4">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="modalContatoDoadorLabel">
+                    Contato do doador
+                </h5>
 
-                <div class="modal-header">
+                <button type="button" class="btn-close"
+                    data-bs-dismiss="modal" aria-label="Fechar">
+                </button>
+            </div>
 
-                    <h5 class="modal-title fw-bold" id="modalContatoDoadorLabel">
-                        Contato do doador
-                    </h5>
+            <div class="modal-body">
 
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
-                    </button>
+                <p>
+                    <strong>Nome:</strong>
+                    <?php echo htmlspecialchars($material["nome"]); ?>
+                </p>
 
+                <p>
+                    <strong>E-mail:</strong>
+                    <?php echo htmlspecialchars($material["email"]); ?>
+                </p>
+
+                <p>
+                    <strong>Contato:</strong>
+                    <?php echo htmlspecialchars($material["telefone"]); ?>
+                </p>
+
+                <hr>
+
+                <p class="mb-0 text-muted">
+                    Entre em contato com o doador para combinar a entrega do material.
+                </p>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn botao-secundario"
+                    data-bs-dismiss="modal">
+                    Fechar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+  
+<!-- Modal Adicionar à Pasta -->
+<div class="modal fade" id="modalAdicionarPasta" tabindex="-1"
+    aria-labelledby="modalAdicionarPastaLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 rounded-4">
+
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="modalAdicionarPastaLabel">
+                    Adicionar à pasta
+                </h5>
+
+                <button type="button" class="btn-close"
+                    data-bs-dismiss="modal" aria-label="Fechar">
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <p class="mb-3">
+                    Selecione a pasta em que deseja guardar este material:
+                </p>
+
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio"
+                        name="pasta" id="pasta1" value="Matemática básica">
+                    <label class="form-check-label" for="pasta1">
+                        Matemática básica
+                    </label>
                 </div>
 
-                <div class="modal-body">
-
-                    <p><strong>Nome:</strong> João Silva</p>
-
-                    <p><strong>E-mail:</strong> joao@email.com</p>
-
-                    <p><strong>Contato:</strong> (51) 99999-9999</p>
-
-                    <p><strong>Cidade:</strong> Rolante - RS</p>
-
-                    <hr>
-
-                    <p class="mb-0 text-muted">
-                        Entre em contato com o doador para combinar a entrega do material.
-                    </p>
-
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio"
+                        name="pasta" id="pasta2" value="Biologia">
+                    <label class="form-check-label" for="pasta2">
+                        Biologia
+                    </label>
                 </div>
 
-                <div class="modal-footer">
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio"
+                        name="pasta" id="pasta3" value="Programação">
+                    <label class="form-check-label" for="pasta3">
+                        Programação
+                    </label>
+                </div>
 
-                    <button type="button" class="btn botao-secundario" data-bs-dismiss="modal">
-                        Fechar
-                    </button>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio"
+                        name="pasta" id="pasta4" value="Redação para UFRGS">
+                    <label class="form-check-label" for="pasta4">
+                        Redação para UFRGS
+                    </label>
+                </div>
 
+                <div class="form-check">
+                    <input class="form-check-input" type="radio"
+                        name="pasta" id="pasta5" value="Faculdade">
+                    <label class="form-check-label" for="pasta5">
+                        Faculdade
+                    </label>
                 </div>
 
             </div>
 
-        </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+                    Cancelar
+                </button>
 
-    </div>
-
-    <!-- Modal Adicionar à Pasta -->
-    <div class="modal fade" id="modalAdicionarPasta" tabindex="-1" aria-labelledby="modalAdicionarPastaLabel"
-        aria-hidden="true">
-
-        <div class="modal-dialog modal-dialog-centered">
-
-            <div class="modal-content">
-
-                <div class="modal-header">
-
-                    <h5 class="modal-title" id="modalAdicionarPastaLabel">
-                        Adicionar à pasta
-                    </h5>
-
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-
-                </div>
-
-                <div class="modal-body">
-
-                    <p class="mb-3">
-                        Selecione uma pasta:
-                    </p>
-
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="pasta" id="pasta1">
-                        <label class="form-check-label" for="pasta1">
-                            Matemática básica
-                        </label>
-                    </div>
-
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="pasta" id="pasta2">
-                        <label class="form-check-label" for="pasta2">
-                            Biologia - físicos
-                        </label>
-                    </div>
-
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="pasta" id="pasta3">
-                        <label class="form-check-label" for="pasta3">
-                            Biologia - digitais
-                        </label>
-                    </div>
-
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="pasta" id="pasta4">
-                        <label class="form-check-label" for="pasta4">
-                            Programação
-                        </label>
-                    </div>
-
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="pasta" id="pasta5">
-                        <label class="form-check-label" for="pasta5">
-                            Redação para UFRGS
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pasta" id="pasta6">
-                        <label class="form-check-label" for="pasta6">
-                            Faculdade
-                        </label>
-                    </div>
-
-                </div>
-
-                <div class="modal-footer">
-
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Cancelar
-                    </button>
-
-                    <button type="button" class="btn" style="background-color:#DF8F9C; color:#4E0119;"
-                        data-bs-dismiss="modal">
-                        Adicionar
-                    </button>
-
-                </div>
+                <button type="button" class="btn"
+                    style="background-color:#DF8F9C; color:#4E0119;"
+                    data-bs-dismiss="modal">
+                    Adicionar
+                </button>
             </div>
+
         </div>
     </div>
+</div>
 
     <!-- Footer -->
     <footer class="mt-auto py-4" style="background-color:#4E0119;">
