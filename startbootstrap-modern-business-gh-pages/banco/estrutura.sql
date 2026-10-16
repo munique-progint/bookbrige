@@ -25,3 +25,32 @@ CREATE TABLE materiais (
 
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
+CREATE TABLE pastas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    nome_pasta VARCHAR(100) NOT NULL,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+        ON DELETE CASCADE,
+    UNIQUE (id_usuario, nome_pasta)
+);
+
+CREATE TABLE materiais_salvos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_material INT NOT NULL,
+    nome_pasta VARCHAR(100) NOT NULL,
+    data_adicao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (id_material) REFERENCES materiais(id)
+        ON DELETE CASCADE,
+
+    UNIQUE KEY unico_material_pasta (
+        id_usuario,
+        id_material,
+        nome_pasta
+    )
+);

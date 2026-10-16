@@ -32,6 +32,29 @@ if (!$material) {
     http_response_code(404);
     die("Material não encontrado.");
 }
+
+$id_usuario_logado = (int) ($_SESSION["id_usuario"] ?? 0);
+
+$pastas = [];
+
+if ($id_usuario_logado > 0) {
+    $sql = "SELECT nome_pasta
+            FROM pastas
+            WHERE id_usuario = ?
+            ORDER BY nome_pasta";
+
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id_usuario_logado);
+    mysqli_stmt_execute($stmt);
+
+    $resultado_pastas = mysqli_stmt_get_result($stmt);
+
+    while ($pasta = mysqli_fetch_assoc($resultado_pastas)) {
+        $pastas[] = $pasta;
+    }
+
+    mysqli_stmt_close($stmt);
+}
 ?>
 
 
@@ -218,7 +241,7 @@ if ($id_usuario_logado != $material["id_usuario"]) {
     </div>
 </div>
 
-  
+
 <!-- Modal Adicionar à Pasta -->
 <div class="modal fade" id="modalAdicionarPasta" tabindex="-1"
     aria-labelledby="modalAdicionarPastaLabel" aria-hidden="true">
@@ -236,71 +259,62 @@ if ($id_usuario_logado != $material["id_usuario"]) {
                 </button>
             </div>
 
-            <div class="modal-body">
+            <form action="processa-material-salvo.php" method="POST">
 
-                <p class="mb-3">
-                    Selecione a pasta em que deseja guardar este material:
-                </p>
+                <div class="modal-body">
 
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio"
-                        name="pasta" id="pasta1" value="Matemática básica">
-                    <label class="form-check-label" for="pasta1">
-                        Matemática básica
-                    </label>
+                    <input type="hidden" name="id_material"
+                        value="<?php echo (int) $material["id"]; ?>">
+
+                  <?php if (count($pastas) > 0) { ?>
+
+    <?php foreach ($pastas as $indice => $pasta) { ?>
+
+        <div class="form-check mb-2">
+            <input class="form-check-input" type="radio"
+                name="nome_pasta"
+                id="pasta<?php echo $indice; ?>"
+                value="<?php echo htmlspecialchars($pasta["nome_pasta"], ENT_QUOTES, 'UTF-8'); ?>"
+                required>
+
+            <label class="form-check-label"
+                for="pasta<?php echo $indice; ?>">
+                <?php echo htmlspecialchars($pasta["nome_pasta"]); ?>
+            </label>
+        </div>
+
+    <?php } ?>
+
+<?php } else { ?>
+
+    <p class="text-muted">
+        Você ainda não possui pastas.
+        Acesse Minha Conta e abra a área de pastas para criar uma.
+    </p>
+
+<?php } ?>
+
+
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="btn"
+                        style="background-color:#DF8F9C; color:#4E0119;">
+                        Adicionar
+                    </button>
+
                 </div>
 
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio"
-                        name="pasta" id="pasta2" value="Biologia">
-                    <label class="form-check-label" for="pasta2">
-                        Biologia
-                    </label>
-                </div>
-
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio"
-                        name="pasta" id="pasta3" value="Programação">
-                    <label class="form-check-label" for="pasta3">
-                        Programação
-                    </label>
-                </div>
-
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio"
-                        name="pasta" id="pasta4" value="Redação para UFRGS">
-                    <label class="form-check-label" for="pasta4">
-                        Redação para UFRGS
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio"
-                        name="pasta" id="pasta5" value="Faculdade">
-                    <label class="form-check-label" for="pasta5">
-                        Faculdade
-                    </label>
-                </div>
-
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"
-                    data-bs-dismiss="modal">
-                    Cancelar
-                </button>
-
-                <button type="button" class="btn"
-                    style="background-color:#DF8F9C; color:#4E0119;"
-                    data-bs-dismiss="modal">
-                    Adicionar
-                </button>
-            </div>
+            </form>
 
         </div>
     </div>
 </div>
-
     <!-- Footer -->
     <footer class="mt-auto py-4" style="background-color:#4E0119;">
         <div class="container px-5 text-center text-white">
