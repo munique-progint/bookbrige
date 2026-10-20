@@ -1,4 +1,3 @@
-
 USE bookbridge;
 
 CREATE TABLE usuarios (
@@ -17,6 +16,7 @@ CREATE TABLE materiais (
     nome_material VARCHAR(150) NOT NULL,
     categoria VARCHAR(50) NOT NULL,
     area VARCHAR(100) NULL,
+    estado CHAR(2) NULL,
     nivel VARCHAR(50) NOT NULL,
     descricao TEXT NOT NULL,
     imagem VARCHAR(255),
@@ -25,13 +25,16 @@ CREATE TABLE materiais (
 
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
+
 CREATE TABLE pastas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL,
     nome_pasta VARCHAR(100) NOT NULL,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
         ON DELETE CASCADE,
+
     UNIQUE (id_usuario, nome_pasta)
 );
 

@@ -12,9 +12,9 @@ $id_material = (int) $_GET["id"];
 
 $sql = "SELECT materiais.id, materiais.id_usuario,
                materiais.nome_material, materiais.categoria,
-               materiais.area, materiais.nivel, materiais.descricao,
-               materiais.imagem, materiais.status, usuarios.nome,
-               usuarios.email, usuarios.telefone
+               materiais.area, materiais.estado, materiais.nivel,
+               materiais.descricao, materiais.imagem, materiais.status,
+               usuarios.nome, usuarios.email, usuarios.telefone
         FROM materiais
         INNER JOIN usuarios ON materiais.id_usuario = usuarios.id
         WHERE materiais.id = ?";
@@ -148,10 +148,15 @@ if ($id_usuario_logado > 0) {
     <?php echo !empty($material["area"]) ? htmlspecialchars($material["area"]) : "Não informada"; ?>
 </div>
 
-                                <div class="col-6 mb-3">
-                                    <small class="text-muted">Nível</small><br>
-                                    <?php echo htmlspecialchars($material["nivel"]); ?>
-                                </div>
+                              <div class="col-6 mb-3">
+    <small class="text-muted">Estado</small><br>
+    <?php echo !empty($material["estado"]) ? htmlspecialchars($material["estado"]) : "Não informado"; ?>
+</div>
+
+<div class="col-6 mb-3">
+    <small class="text-muted">Nível</small><br>
+    <?php echo htmlspecialchars($material["nivel"]); ?>
+</div>
 
                             </div>
                             <?php

@@ -16,6 +16,7 @@ if (
     !isset($_POST["nome_material"]) ||
     !isset($_POST["categoria"]) ||
     !isset($_POST["area"]) ||
+    !isset($_POST["estado"]) ||
     !isset($_POST["nivel"])
 ) {
     $_SESSION["msg"] = "Preencha os campos obrigatórios da doação.";
@@ -27,6 +28,7 @@ if (
 $nome_material = trim($_POST["nome_material"]);
 $categoria = trim($_POST["categoria"]);
 $area = trim($_POST["area"]);
+$estado = trim($_POST["estado"]);
 $nivel = trim($_POST["nivel"]);
 $descricao = trim($_POST["descricao"] ?? "");
 
@@ -34,9 +36,24 @@ if (
     $nome_material == "" ||
     $categoria == "" ||
     $area == "" ||
+    $estado == "" ||
     $nivel == ""
 ) {
     $_SESSION["msg"] = "Preencha todos os campos da doação.";
+    $_SESSION["class"] = "erro";
+    header("Location: doar-material.html");
+    exit;
+}
+
+$estados_permitidos = [
+    "AC", "AL", "AP", "AM", "BA", "CE", "DF",
+    "ES", "GO", "MA", "MT", "MS", "MG", "PA",
+    "PB", "PR", "PE", "PI", "RJ", "RN", "RS",
+    "RO", "RR", "SC", "SP", "SE", "TO"
+];
+
+if (!in_array($estado, $estados_permitidos, true)) {
+    $_SESSION["msg"] = "Estado inválido.";
     $_SESSION["class"] = "erro";
     header("Location: doar-material.html");
     exit;
@@ -167,18 +184,19 @@ try {
 
  
 $sql = "INSERT INTO materiais
-        (id_usuario, nome_material, categoria, area, nivel, descricao, imagem)
-        VALUES (?, ?, ?, ?, ?, ?, ?)";
+        (id_usuario, nome_material, categoria, area, estado, nivel, descricao, imagem)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = mysqli_prepare($conn, $sql);
 
 mysqli_stmt_bind_param(
     $stmt,
-    "issssss",
+    "isssssss",
     $id_usuario,
     $nome_material,
     $categoria,
     $area,
+    $estado,
     $nivel,
     $descricao,
     $imagem

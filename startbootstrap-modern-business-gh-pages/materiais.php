@@ -3,15 +3,56 @@ session_start();
 
 require_once "conecta.php";
 
+$pesquisa = trim($_GET["pesquisa"] ?? "");
+$categoria = trim($_GET["categoria"] ?? "");
+$nivel = trim($_GET["nivel"] ?? "");
+
 $sql = "SELECT materiais.id, materiais.nome_material, materiais.categoria,
                materiais.area, materiais.nivel, materiais.descricao,
                materiais.imagem, materiais.status, usuarios.nome
         FROM materiais
         INNER JOIN usuarios ON materiais.id_usuario = usuarios.id
-        WHERE materiais.status = 'Disponível'
-        ORDER BY materiais.id DESC";
+        WHERE materiais.status = 'Disponível'";
 
-$resultado = mysqli_query($conn, $sql);
+$parametros = [];
+$tipos = "";
+
+if ($pesquisa != "") {
+    $sql .= " AND materiais.nome_material LIKE ?";
+    $parametros[] = "%" . $pesquisa . "%";
+    $tipos .= "s";
+}
+
+if ($categoria != "") {
+    $sql .= " AND materiais.categoria = ?";
+    $parametros[] = $categoria;
+    $tipos .= "s";
+}
+
+if ($nivel != "") {
+    $sql .= " AND materiais.nivel = ?";
+    $parametros[] = $nivel;
+    $tipos .= "s";
+}
+
+$sql .= " ORDER BY materiais.id DESC";
+
+$stmt = mysqli_prepare($conn, $sql);
+
+if (!$stmt) {
+    die("Não foi possível consultar os materiais.");
+}
+
+if (!empty($parametros)) {
+    mysqli_stmt_bind_param($stmt, $tipos, ...$parametros);
+}
+
+if (!mysqli_stmt_execute($stmt)) {
+    mysqli_stmt_close($stmt);
+    die("Não foi possível consultar os materiais.");
+}
+
+$resultado = mysqli_stmt_get_result($stmt);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -74,23 +115,43 @@ $resultado = mysqli_query($conn, $sql);
                 </div>
             </div>
 
-            <!-- Filtros -->
-            <div class="text-center mb-5">
+          <!-- Filtros -->
+<form method="GET" action="materiais.php">
+    <div class="text-center mb-5">
 
-                <input class="form-control mx-auto mb-3" style="max-width: 700px; height: 45px;" type="text"
-                    placeholder="🔍 Pesquisar material">
+        <input
+            class="form-control mx-auto mb-3"
+            style="max-width: 700px; height: 45px;"
+            type="text"
+            name="pesquisa"
+            placeholder="🔍 Pesquisar material"
+            value="<?php echo htmlspecialchars($_GET["pesquisa"] ?? ""); ?>">
 
                 <div class="row justify-content-center g-3 mt-3 mb-4">
 
                     <div class="col-auto">
-                        <select class="form-select"
-                            style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
-                            <option selected>Todas as categorias</option>
-                            <option>Todos</option>
-                            <option>Livros</option>
-                            <option>Apostilas</option>
-                            <option>Materiais escolares</option>
-                        </select>
+                    <select class="form-select"
+    name="categoria"
+    style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
+
+    <option value="">Todas as categorias</option>
+
+    <option value="Livros"
+        <?php echo (($_GET["categoria"] ?? "") == "Livros") ? "selected" : ""; ?>>
+        Livros
+    </option>
+
+    <option value="Apostilas"
+        <?php echo (($_GET["categoria"] ?? "") == "Apostilas") ? "selected" : ""; ?>>
+        Apostilas
+    </option>
+
+    <option value="Materiais escolares"
+        <?php echo (($_GET["categoria"] ?? "") == "Materiais escolares") ? "selected" : ""; ?>>
+        Materiais escolares
+    </option>
+
+</select>
                     </div>
 
                     <div class="col-auto">
@@ -128,18 +189,49 @@ $resultado = mysqli_query($conn, $sql);
                     </div>
 
                     <div class="col-auto">
-                        <select class="form-select"
-                            style="width: 230px; height: 52px; font-size: 1.12rem; font-weight: 500;">
-                            <option selected>Todos os níveis</option>
-                            <option>Todos</option>
-                            <option>Ensino Fundamental</option>
-                            <option>Ensino Médio</option>
-                            <option>Ensino Superior</option>
-                            <option>Outros</option>
-                        </select>
+                       <select class="form-select"
+    name="nivel"
+    style="width: 230px; height: 52px; font-size: 1.12rem; font-weight: 500;">
+
+    <option value="">Todos os níveis</option>
+
+    <option value="Ensino Fundamental"
+        <?php echo (($_GET["nivel"] ?? "") == "Ensino Fundamental") ? "selected" : ""; ?>>
+        Ensino Fundamental
+    </option>
+
+    <option value="Ensino Médio"
+        <?php echo (($_GET["nivel"] ?? "") == "Ensino Médio") ? "selected" : ""; ?>>
+        Ensino Médio
+    </option>
+
+    <option value="Ensino Superior"
+        <?php echo (($_GET["nivel"] ?? "") == "Ensino Superior") ? "selected" : ""; ?>>
+        Ensino Superior
+    </option>
+
+    <option value="Outros"
+        <?php echo (($_GET["nivel"] ?? "") == "Outros") ? "selected" : ""; ?>>
+        Outros
+    </option>
+
+</select>
                     </div>
                 </div>
             </div>
+        <div class="text-center mb-4">
+            <button type="submit" class="btn rounded-pill px-4 py-2"
+                style="background-color:#4E0119; color:white;">
+                Pesquisar
+            </button>
+
+            <a href="materiais.php" class="btn rounded-pill px-4 py-2"
+                style="background-color:#FBDD91; color:#4E0119;">
+                Limpar filtros
+            </a>
+        </div>
+    </div>
+</form>
 
             <div class="text-center acao-doacao">
 
