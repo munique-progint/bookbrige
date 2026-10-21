@@ -1,3 +1,21 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["id_usuario"])) {
+    header("Location: login.php");
+    exit;
+}
+
+$msg_senha = "";
+
+if (isset($_SESSION["msg_senha"])) {
+    $msg_senha = $_SESSION["msg_senha"];
+    $class_senha = $_SESSION["class_senha"];
+
+    unset($_SESSION["msg_senha"]);
+    unset($_SESSION["class_senha"]);
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -62,26 +80,31 @@
 
                     <div class="conta-card">
 
-                        <form>
+                        <form action="processa-alteracao-senha.php" method="POST">
+<?php if ($msg_senha != "") { ?>
+    <div class="alert <?php echo $class_senha == 'sucesso' ? 'alert-success' : 'alert-danger'; ?>">
+        <?php echo htmlspecialchars($msg_senha); ?>
+    </div>
+<?php } ?>
+                            <div class="mb-4">
+    <label for="senhaAtual" class="form-label fw-bold">Senha atual</label>
+    <input type="password" class="form-control" id="senhaAtual"
+        name="senhaAtual" placeholder="Digite sua senha atual" required>
+</div>
 
                             <div class="mb-4">
-                                <label for="senhaAtual" class="form-label fw-bold">Senha atual</label>
-                                <input type="password" class="form-control" id="senhaAtual "
-                                    placeholder="Digite sua senha atual" required>
-                            </div>
+    <label for="novaSenha" class="form-label fw-bold">Nova senha</label>
+    <input type="password" class="form-control" id="novaSenha"
+        name="novaSenha" placeholder="Digite a nova senha"
+        minlength="8" required>
+</div>
 
-                            <div class="mb-4">
-                                <label for="novaSenha" class="form-label fw-bold">Nova senha</label>
-                                <input type="password" class="form-control" id="novaSenha"
-                                    placeholder="Digite a nova senha" required>
-                            </div>
-
-                            <div class="mb-2">
-                                <label for="confirmarSenha" class="form-label fw-bold">Confirmar nova senha</label>
-                                <input type="password" class="form-control" id="confirmarSenha"
-                                    placeholder="Confirme a nova senha" required>
-                            </div>
-
+                           <div class="mb-2">
+    <label for="confirmarSenha" class="form-label fw-bold">Confirmar nova senha</label>
+    <input type="password" class="form-control" id="confirmarSenha"
+        name="confirmarSenha" placeholder="Confirme a nova senha"
+        minlength="8" required>
+</div>
                             <p class="text-muted mb-4" style="font-size: 0.95rem;">
                                 A nova senha deve conter pelo menos 8 caracteres.
                             </p>

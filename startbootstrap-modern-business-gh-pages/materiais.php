@@ -5,7 +5,19 @@ require_once "conecta.php";
 
 $pesquisa = trim($_GET["pesquisa"] ?? "");
 $categoria = trim($_GET["categoria"] ?? "");
+$area = trim($_GET["area"] ?? "");
 $nivel = trim($_GET["nivel"] ?? "");
+$estado = trim($_GET["estado"] ?? "");
+$estados_permitidos = [
+    "AC", "AL", "AP", "AM", "BA", "CE", "DF",
+    "ES", "GO", "MA", "MT", "MS", "MG", "PA",
+    "PB", "PR", "PE", "PI", "RJ", "RN", "RS",
+    "RO", "RR", "SC", "SP", "SE", "TO"
+];
+
+if ($estado != "" && !in_array($estado, $estados_permitidos, true)) {
+    $estado = "";
+}
 
 $sql = "SELECT materiais.id, materiais.nome_material, materiais.categoria,
                materiais.area, materiais.nivel, materiais.descricao,
@@ -18,20 +30,31 @@ $parametros = [];
 $tipos = "";
 
 if ($pesquisa != "") {
-    $sql .= " AND materiais.nome_material LIKE ?";
+    $sql .= " AND (materiais.nome_material LIKE ? OR materiais.area LIKE ? OR materiais.descricao LIKE ?)";
     $parametros[] = "%" . $pesquisa . "%";
-    $tipos .= "s";
+    $parametros[] = "%" . $pesquisa . "%";
+    $parametros[] = "%" . $pesquisa . "%";
+    $tipos .= "sss";
 }
-
 if ($categoria != "") {
     $sql .= " AND materiais.categoria = ?";
     $parametros[] = $categoria;
+    $tipos .= "s";
+}
+if ($area != "") {
+    $sql .= " AND materiais.area = ?";
+    $parametros[] = $area;
     $tipos .= "s";
 }
 
 if ($nivel != "") {
     $sql .= " AND materiais.nivel = ?";
     $parametros[] = $nivel;
+    $tipos .= "s";
+}
+if ($estado != "") {
+    $sql .= " AND materiais.estado = ?";
+    $parametros[] = $estado;
     $tipos .= "s";
 }
 
@@ -136,9 +159,9 @@ $resultado = mysqli_stmt_get_result($stmt);
 
     <option value="">Todas as categorias</option>
 
-    <option value="Livros"
-        <?php echo (($_GET["categoria"] ?? "") == "Livros") ? "selected" : ""; ?>>
-        Livros
+    <option value="Livro"
+        <?php echo (($_GET["categoria"] ?? "") == "Livro") ? "selected" : ""; ?>>
+        Livro
     </option>
 
     <option value="Apostilas"
@@ -152,40 +175,68 @@ $resultado = mysqli_stmt_get_result($stmt);
     </option>
 
 </select>
+</div>
+
+<div class="col-auto">
+    <select class="form-select" name="area"
+        style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
+    <option value="">Todas as áreas</option>
+    <option value="Matemática" <?php if ($area == "Matemática") echo "selected"; ?>>Matemática</option>
+    <option value="Português" <?php if ($area == "Português") echo "selected"; ?>>Português</option>
+    <option value="Literatura" <?php if ($area == "Literatura") echo "selected"; ?>>Literatura</option>
+    <option value="Redação" <?php if ($area == "Redação") echo "selected"; ?>>Redação</option>
+    <option value="Inglês" <?php if ($area == "Inglês") echo "selected"; ?>>Inglês</option>
+    <option value="Espanhol" <?php if ($area == "Espanhol") echo "selected"; ?>>Espanhol</option>
+    <option value="História" <?php if ($area == "História") echo "selected"; ?>>História</option>
+    <option value="Geografia" <?php if ($area == "Geografia") echo "selected"; ?>>Geografia</option>
+    <option value="Filosofia" <?php if ($area == "Filosofia") echo "selected"; ?>>Filosofia</option>
+    <option value="Sociologia" <?php if ($area == "Sociologia") echo "selected"; ?>>Sociologia</option>
+    <option value="Biologia" <?php if ($area == "Biologia") echo "selected"; ?>>Biologia</option>
+    <option value="Física" <?php if ($area == "Física") echo "selected"; ?>>Física</option>
+    <option value="Química" <?php if ($area == "Química") echo "selected"; ?>>Química</option>
+    <option value="Artes" <?php if ($area == "Artes") echo "selected"; ?>>Artes</option>
+    <option value="Educação Física" <?php if ($area == "Educação Física") echo "selected"; ?>>Educação Física</option>
+    <option value="Todas as matérias" <?php if ($area == "Todas as matérias") echo "selected"; ?>>Todas as matérias</option>
+    <option value="Outra" <?php if ($area == "Outra") echo "selected"; ?>>Outra</option>
+</select>
+
                     </div>
 
-                    <div class="col-auto">
-                        <select class="form-select"
-                            style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
-                            <option selected>Todos os estados</option>
-                            <option>AC</option>
-                            <option>AL</option>
-                            <option>AP</option>
-                            <option>AM</option>
-                            <option>BA</option>
-                            <option>CE</option>
-                            <option>DF</option>
-                            <option>ES</option>
-                            <option>GO</option>
-                            <option>MA</option>
-                            <option>MT</option>
-                            <option>MS</option>
-                            <option>MG</option>
-                            <option>PA</option>
-                            <option>PB</option>
-                            <option>PR</option>
-                            <option>PE</option>
-                            <option>PI</option>
-                            <option>RJ</option>
-                            <option>RN</option>
-                            <option>RS</option>
-                            <option>RO</option>
-                            <option>RR</option>
-                            <option>SC</option>
-                            <option>SP</option>
-                            <option>SE</option>
-                            <option>TO</option>
-                        </select>
+                  <div class="col-auto">
+    <select class="form-select"
+        name="estado"
+        style="width: 210px; height: 50px; font-size: 1.08rem; font-weight: 500;">
+
+        <option value="">Todos os estados</option>
+
+        <option value="AC" <?php echo (($_GET["estado"] ?? "") == "AC") ? "selected" : ""; ?>>AC</option>
+        <option value="AL" <?php echo (($_GET["estado"] ?? "") == "AL") ? "selected" : ""; ?>>AL</option>
+        <option value="AP" <?php echo (($_GET["estado"] ?? "") == "AP") ? "selected" : ""; ?>>AP</option>
+        <option value="AM" <?php echo (($_GET["estado"] ?? "") == "AM") ? "selected" : ""; ?>>AM</option>
+        <option value="BA" <?php echo (($_GET["estado"] ?? "") == "BA") ? "selected" : ""; ?>>BA</option>
+        <option value="CE" <?php echo (($_GET["estado"] ?? "") == "CE") ? "selected" : ""; ?>>CE</option>
+        <option value="DF" <?php echo (($_GET["estado"] ?? "") == "DF") ? "selected" : ""; ?>>DF</option>
+        <option value="ES" <?php echo (($_GET["estado"] ?? "") == "ES") ? "selected" : ""; ?>>ES</option>
+        <option value="GO" <?php echo (($_GET["estado"] ?? "") == "GO") ? "selected" : ""; ?>>GO</option>
+        <option value="MA" <?php echo (($_GET["estado"] ?? "") == "MA") ? "selected" : ""; ?>>MA</option>
+        <option value="MT" <?php echo (($_GET["estado"] ?? "") == "MT") ? "selected" : ""; ?>>MT</option>
+        <option value="MS" <?php echo (($_GET["estado"] ?? "") == "MS") ? "selected" : ""; ?>>MS</option>
+        <option value="MG" <?php echo (($_GET["estado"] ?? "") == "MG") ? "selected" : ""; ?>>MG</option>
+        <option value="PA" <?php echo (($_GET["estado"] ?? "") == "PA") ? "selected" : ""; ?>>PA</option>
+        <option value="PB" <?php echo (($_GET["estado"] ?? "") == "PB") ? "selected" : ""; ?>>PB</option>
+        <option value="PR" <?php echo (($_GET["estado"] ?? "") == "PR") ? "selected" : ""; ?>>PR</option>
+        <option value="PE" <?php echo (($_GET["estado"] ?? "") == "PE") ? "selected" : ""; ?>>PE</option>
+        <option value="PI" <?php echo (($_GET["estado"] ?? "") == "PI") ? "selected" : ""; ?>>PI</option>
+        <option value="RJ" <?php echo (($_GET["estado"] ?? "") == "RJ") ? "selected" : ""; ?>>RJ</option>
+        <option value="RN" <?php echo (($_GET["estado"] ?? "") == "RN") ? "selected" : ""; ?>>RN</option>
+        <option value="RS" <?php echo (($_GET["estado"] ?? "") == "RS") ? "selected" : ""; ?>>RS</option>
+        <option value="RO" <?php echo (($_GET["estado"] ?? "") == "RO") ? "selected" : ""; ?>>RO</option>
+        <option value="RR" <?php echo (($_GET["estado"] ?? "") == "RR") ? "selected" : ""; ?>>RR</option>
+        <option value="SC" <?php echo (($_GET["estado"] ?? "") == "SC") ? "selected" : ""; ?>>SC</option>
+        <option value="SP" <?php echo (($_GET["estado"] ?? "") == "SP") ? "selected" : ""; ?>>SP</option>
+        <option value="SE" <?php echo (($_GET["estado"] ?? "") == "SE") ? "selected" : ""; ?>>SE</option>
+        <option value="TO" <?php echo (($_GET["estado"] ?? "") == "TO") ? "selected" : ""; ?>>TO</option>
+    </select>
                     </div>
 
                     <div class="col-auto">
@@ -209,7 +260,10 @@ $resultado = mysqli_stmt_get_result($stmt);
         <?php echo (($_GET["nivel"] ?? "") == "Ensino Superior") ? "selected" : ""; ?>>
         Ensino Superior
     </option>
-
+    <option value="Curso livre"
+    <?php echo (($_GET["nivel"] ?? "") == "Curso livre") ? "selected" : ""; ?>>
+    Curso livre
+</option>
     <option value="Outros"
         <?php echo (($_GET["nivel"] ?? "") == "Outros") ? "selected" : ""; ?>>
         Outros
@@ -300,20 +354,29 @@ $resultado = mysqli_stmt_get_result($stmt);
 
         <?php } ?>
 
-    <?php } else { ?>
+  <?php } else { ?>
 
-        <div class="col-12 text-center">
-            <p class="text-muted">Nenhum material disponível no momento.</p>
-        </div>
+    <div class="col-12 text-center pt-0 pb-4">
+        <i class="bi bi-search" style="font-size: 3rem; color: #DF8F9C;"></i>
 
-    <?php } ?>
+        <h5 class="mt-3" style="color: #4E0119;">
+            Nenhum material encontrado
+        </h5>
+
+        <p class="text-muted">
+            Não encontramos materiais com os filtros selecionados.
+            Tente alterar sua pesquisa ou limpar os filtros.
+        </p>
+
+        <a href="materiais.php" class="btn rounded-pill px-4 py-2"
+           style="background-color: #FBDD91; color: #4E0119;">
+            Limpar filtros
+        </a>
+    </div>
+
+<?php } ?>
 
 </div>
-
-
-
-
-
 
 
             <!-- Call to action-->
