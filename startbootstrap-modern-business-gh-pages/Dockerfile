@@ -13,5 +13,5 @@ RUN echo "<Directory /var/www/html>\n\
 </Directory>" > /etc/apache2/conf-available/custom.conf \
 && a2enconf custom
 # Aumenta os limites de envio de arquivos
-RUN echo "upload_max_filesize = 5M" > /usr/local/etc/php/conf.d/uploads.ini \
+RUN echo "upload_max_filesize = 20M" > /usr/local/etc/php/conf.d/uploads.ini \
     && echo "post_max_size = 30M" >> /usr/local/etc/php/conf.d/uploads.ini

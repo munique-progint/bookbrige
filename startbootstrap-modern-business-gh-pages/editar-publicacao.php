@@ -1,3 +1,54 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["id_usuario"])) {
+    header("Location: login.php");
+    exit;
+}
+
+if (!isset($_SESSION["tipo_usuario"]) || $_SESSION["tipo_usuario"] != "colaborador") {
+    header("Location: conteudos.php");
+    exit;
+}
+
+require_once "conecta.php";
+
+if (!isset($_GET["id"]) || !is_numeric($_GET["id"]) || (int) $_GET["id"] <= 0) {
+    header("Location: minhas-publicacoes.php");
+    exit;
+}
+
+$id_conteudo = (int) $_GET["id"];
+$id_usuario = (int) $_SESSION["id_usuario"];
+
+$sql = "SELECT id, nome_conteudo, categoria, nivel, descricao, imagem, arquivo_pdf
+        FROM conteudos
+        WHERE id = ? AND id_usuario = ?";
+
+$stmt = mysqli_prepare($conn, $sql);
+
+if (!$stmt) {
+    die("Não foi possível consultar a publicação.");
+}
+
+mysqli_stmt_bind_param($stmt, "ii", $id_conteudo, $id_usuario);
+
+if (!mysqli_stmt_execute($stmt)) {
+    mysqli_stmt_close($stmt);
+    die("Não foi possível consultar a publicação.");
+}
+
+$resultado = mysqli_stmt_get_result($stmt);
+$publicacao = mysqli_fetch_assoc($resultado);
+
+mysqli_stmt_close($stmt);
+
+if (!$publicacao) {
+    header("Location: minhas-publicacoes.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -69,82 +120,51 @@
 
                     <div class="card editar-publicacao-card p-5 mx-auto" style="max-width: 700px; width: 100%;">
 
+<label class="mb-2 fw-bold fs-5">
+    Nome do material
+</label>
 
-                        <label class="mb-2 fw-bold fs-5">
-                            Nome do material
-                        </label>
+<input
+    type="text"
+    name="nome_conteudo"
+    class="form-control fs-5 mb-4"
+    value="<?php echo htmlspecialchars($publicacao["nome_conteudo"], ENT_QUOTES, "UTF-8"); ?>"
+    required
+>
 
-                        <input type="text" class="form-control fs-5 mb-4" value="Apostila de Matemática Básica">
+                       
 
-                        <label class="mb-2 fw-bold fs-5">
-                            Categoria
-                        </label>
+<label class="mb-2 fw-bold fs-5">
+    Categoria
+</label>
 
-                        <select class="form-control fs-5 mb-4">
-                            <option>
-                                Artigo
-                            </option>
+<select name="categoria" class="form-control fs-5 mb-4" required>
 
-                            <option selected>
-                                Apostila
-                            </option>
+    <?php
+    $categorias = [
+        "Artigo",
+        "Apostila",
+        "Mapa mental",
+        "Lista de exercícios",
+        "Resumo",
+        "Simulados",
+        "Slides",
+        "Outros"
+    ];
 
-                            <option>
-                                Mapa mental
-                            </option>
-                            <option>
-                                Lista de exercícios
-                            </option>
+    foreach ($categorias as $categoria) {
+    ?>
 
-                            <option>
-                                Resumo
-                            </option>
+        <option
+            value="<?php echo htmlspecialchars($categoria, ENT_QUOTES, "UTF-8"); ?>"
+            <?php echo $publicacao["categoria"] == $categoria ? "selected" : ""; ?>
+        >
+            <?php echo htmlspecialchars($categoria, ENT_QUOTES, "UTF-8"); ?>
+        </option>
 
-                            <option>
-                                Simulados
-                            </option>
+    <?php } ?>
 
-                            <option>
-                                Slides
-                            </option>
-
-                            <option>
-                                Outros
-                            </option>
-
-                        </select>
-
-                        <label class="mb-2 fw-bold fs-5">
-                            Nível
-                        </label>
-
-                        <select class="form-control fs-5 mb-4">
-
-                            <option>
-                                Ensino Fundamental
-                            </option>
-
-                            <option selected>
-                                Ensino Médio
-                            </option>
-
-                            <option>
-                                Ensino Técnico
-                            </option>
-
-                            <option>
-                                Ensino Superior
-                            </option>
-
-                            <option>
-                                Curso Livre
-                            </option>
-
-                            <option>
-                                Outros
-                            </option>
-
-                        </select>
+</select>
 
                         <label class="mb-2 fw-bold fs-5">
                             Descrição

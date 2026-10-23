@@ -136,19 +136,23 @@ if (!isset($_SESSION["id_usuario"])) {
                     </a>
 
 
-                    <a href="minhas-publicaçoes.html" class="conta-card">
+               <?php if (isset($_SESSION["tipo_usuario"]) && $_SESSION["tipo_usuario"] == "colaborador") { ?>
 
-                        <i class="bi bi-journal-text"></i>
+    <a href="minhas-publicacoes.php" class="conta-card">
 
-                        <h3>Minhas Publicações</h3>
+        <i class="bi bi-journal-text"></i>
 
-                        <p>
-                            Gerencie os conteúdos publicados por você.
-                        </p>
+        <h3>Minhas Publicações</h3>
 
-                        <span>Acessar →</span>
+        <p>
+            Gerencie os conteúdos publicados por você.
+        </p>
 
-                    </a>
+        <span>Acessar →</span>
+
+    </a>
+
+<?php } ?>
 
                 </div>
 

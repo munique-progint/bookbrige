@@ -316,17 +316,13 @@ $resultado = mysqli_stmt_get_result($stmt);
                             <?php echo htmlspecialchars($conteudo['nivel']); ?>
 
                         </p>
-
-                        <a
-                            href="<?php echo htmlspecialchars($conteudo['arquivo_pdf']); ?>"
-                            target="_blank"
-                            rel="noopener"
-                            class="btn"
-                            style="background-color:#4E0119; color:white;"
-                        >
-                            Abrir PDF
-                        </a>
-
+<a
+    href="detalhes-conteudo.php?id=<?php echo (int) $conteudo['id']; ?>"
+    class="btn"
+    style="background-color:#4E0119; color:white;"
+>
+    Ver detalhes
+</a>
                     </div>
 
                 </div>
@@ -465,7 +461,6 @@ $resultado = mysqli_stmt_get_result($stmt);
         <?php } ?>
     });
 </script>
-    </script>
 </body>
 
 </html>

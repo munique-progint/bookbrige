@@ -57,3 +57,17 @@ CREATE TABLE materiais_salvos (
         nome_pasta
     )
 );
+CREATE TABLE conteudos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    nome_conteudo VARCHAR(150) NOT NULL,
+    categoria VARCHAR(50) NOT NULL,
+    nivel VARCHAR(50) NOT NULL,
+    descricao TEXT NOT NULL,
+    imagem VARCHAR(255) NOT NULL,
+    arquivo_pdf VARCHAR(255) NOT NULL,
+    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+        ON DELETE CASCADE
+);
