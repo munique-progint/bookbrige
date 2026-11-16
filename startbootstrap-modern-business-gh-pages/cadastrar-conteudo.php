@@ -1,11 +1,19 @@
 <?php
 session_start();
 
+// Verifica se o usuário está logado
 if (!isset($_SESSION["id_usuario"])) {
-    header("Location: login.php");
+    header("Location: login.html");
     exit;
 }
 
+// Verifica se o usuário é colaborador
+if ($_SESSION["tipo_usuario"] != "colaborador") {
+    header("Location: minha-conta.php");
+    exit;
+}
+
+// Mensagens de retorno
 $msg_conteudo = "";
 $class_conteudo = "";
 

@@ -12,9 +12,6 @@ if (!isset($_SESSION["id_usuario"])) {
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,7 +73,7 @@ if (!isset($_SESSION["id_usuario"])) {
 
                 <div class="conta-grid">
 
-                    <a href="meus-dados.html" class="conta-card">
+                    <a href="meus-dados.php" class="conta-card">
 
                         <i class="bi bi-person"></i>
 
@@ -121,7 +118,7 @@ if (!isset($_SESSION["id_usuario"])) {
                     </a>
 
 
-                    <a href="pastas.html" class="conta-card">
+                    <a href="pastas.php" class="conta-card">
 
                         <i class="bi bi-folder"></i>
 

@@ -1,3 +1,61 @@
+<?php
+session_start();
+
+include("conecta.php");
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION["id_usuario"])) {
+    header("Location: login.html");
+    exit;
+}
+
+$id_usuario = $_SESSION["id_usuario"];
+
+// Busca os conteúdos e materiais favoritados pelo usuário
+$sql = "SELECT
+            favoritos.id AS id_favorito,
+            'conteudo' AS tipo,
+            conteudos.id AS id_item,
+            conteudos.nome_conteudo AS nome,
+            conteudos.categoria,
+            conteudos.nivel,
+            conteudos.imagem,
+            usuarios.nome AS autor
+        FROM favoritos
+        INNER JOIN conteudos
+            ON favoritos.id_conteudo = conteudos.id
+        INNER JOIN usuarios
+            ON conteudos.id_usuario = usuarios.id
+        WHERE favoritos.id_usuario = ?
+
+        UNION ALL
+
+        SELECT
+            favoritos.id AS id_favorito,
+            'material' AS tipo,
+            materiais.id AS id_item,
+            materiais.nome_material AS nome,
+            materiais.categoria,
+            materiais.nivel,
+            materiais.imagem,
+            usuarios.nome AS autor
+        FROM favoritos
+        INNER JOIN materiais
+            ON favoritos.id_material = materiais.id
+        INNER JOIN usuarios
+            ON materiais.id_usuario = usuarios.id
+        WHERE favoritos.id_usuario = ?
+
+        ORDER BY id_favorito DESC";
+
+$stmt = mysqli_prepare($conn, $sql);
+
+mysqli_stmt_bind_param($stmt, "ii", $id_usuario, $id_usuario);
+
+mysqli_stmt_execute($stmt);
+
+$resultado = mysqli_stmt_get_result($stmt);
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -29,9 +87,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-                        <li class="nav-item"><a class="nav-link" href="conteudos.html">Conteúdos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="materiais.html">Doações</a></li>
-                        <li class="nav-item"><a class="nav-link" href="minha-conta.html">Minha Conta</a></li>
+                        <li class="nav-item"><a class="nav-link" href="conteudos.php">Conteúdos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="materiais.php">Doações</a></li>
+                        <li class="nav-item"><a class="nav-link" href="minha-conta.php">Minha Conta</a></li>
                     </ul>
                 </div>
             </div>

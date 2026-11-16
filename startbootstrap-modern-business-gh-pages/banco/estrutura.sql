@@ -71,3 +71,17 @@ CREATE TABLE conteudos (
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
         ON DELETE CASCADE
 );
+CREATE TABLE favoritos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_conteudo INT DEFAULT NULL,
+    id_material INT DEFAULT NULL,
+    data_favorito TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+    FOREIGN KEY (id_conteudo) REFERENCES conteudos(id),
+    FOREIGN KEY (id_material) REFERENCES materiais(id),
+
+    UNIQUE KEY favorito_conteudo (id_usuario, id_conteudo),
+    UNIQUE KEY favorito_material (id_usuario, id_material)
+);

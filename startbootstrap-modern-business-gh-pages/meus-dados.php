@@ -41,6 +41,7 @@ if ($class == "sucesso") {
 } else {
     $classe_alerta = "alert-danger";
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -100,9 +101,17 @@ if ($class == "sucesso") {
                     </p>
 <?php if ($msg != "") { ?>
 
-    <div class="alert <?php echo $classe_alerta; ?> text-center mt-3">
-        <?php echo htmlspecialchars($msg); ?>
-    </div>
+    <?php if ($class == "sucesso") { ?>
+        <div class="text-center mt-3 p-3 rounded"
+             style="background-color: #d1e7dd; color: #0f5132; border: 1px solid #badbcc;">
+            <?php echo htmlspecialchars($msg); ?>
+        </div>
+    <?php } else { ?>
+        <div class="text-center mt-3 p-3 rounded"
+             style="background-color: #f8d7da; color: #842029; border: 1px solid #f5c2c7;">
+            <?php echo htmlspecialchars($msg); ?>
+        </div>
+    <?php } ?>
 
 <?php } ?>
                 </div>

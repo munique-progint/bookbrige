@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["id_usuario"])) {
-    header("Location: login.php");
+    header("Location: login.html");
     exit;
 }
 
@@ -92,7 +92,7 @@ $resultado = mysqli_stmt_get_result($stmt);
                 </div>
             </div>
             <div class="text-start mt-3" style="margin-left: 170px;">
-                <a href="cadastrar-conteudo.html" class="btn px-4 py-2 rounded-pill fw-bold mt-2"
+                <a href="cadastrar-conteudo.php" class="btn px-4 py-2 rounded-pill fw-bold mt-2"
                     style="background-color:#DF8F9C; color:#4E0119;">
                     + Nova publicação
                 </a>
@@ -162,6 +162,15 @@ $resultado = mysqli_stmt_get_result($stmt);
 >
     Editar
 </a>
+<button
+    type="button"
+    class="btn btn-danger"
+    data-bs-toggle="modal"
+    data-bs-target="#modalExcluirPublicacao"
+    data-id="<?php echo (int) $publicacao["id"]; ?>"
+>
+    Excluir
+</button>
                         </div>
 
                     </div>
@@ -189,22 +198,25 @@ $resultado = mysqli_stmt_get_result($stmt);
     </main>
 
     <!-- Modal Excluir Publicação -->
-    <div class="modal fade" id="modalExcluirPublicacao" tabindex="-1">
+   
+<div class="modal fade" id="modalExcluirPublicacao" tabindex="-1">
 
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
 
-            <div class="modal-content">
+        <div class="modal-content">
 
-                <div class="modal-header">
+            <div class="modal-header">
 
-                    <h5 class="modal-title">
-                        Excluir publicação
-                    </h5>
+                <h5 class="modal-title">
+                    Excluir publicação
+                </h5>
 
-                    <button type="button" class="btn-close" data-bs-dismiss="modal">
-                    </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
 
-                </div>
+            </div>
+
+            <form action="processa-exclusao-publicacao.php" method="POST">
 
                 <div class="modal-body">
 
@@ -216,23 +228,23 @@ $resultado = mysqli_stmt_get_result($stmt);
                         Esta ação removerá permanentemente esta publicação e não poderá ser desfeita.
                     </p>
 
+                    <input type="hidden" name="id_conteudo" id="id_conteudo_excluir">
+
                 </div>
 
                 <div class="modal-footer">
 
                     <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">
-
                         Cancelar
-
                     </button>
 
-                    <button type="button" class="btn btn-danger">
-
+                    <button type="submit" class="btn btn-danger">
                         Excluir
-
                     </button>
 
                 </div>
+
+            </form>
             </div>
         </div>
     </div>
@@ -251,6 +263,19 @@ $resultado = mysqli_stmt_get_result($stmt);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script>
+    const modalExcluir = document.getElementById("modalExcluirPublicacao");
+
+    modalExcluir.addEventListener("show.bs.modal", function (event) {
+
+        const botao = event.relatedTarget;
+
+        const id = botao.getAttribute("data-id");
+
+        document.getElementById("id_conteudo_excluir").value = id;
+
+    });
+</script>
 </body>
 
 </html>

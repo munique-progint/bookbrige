@@ -96,10 +96,15 @@ try {
     );
 
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+mysqli_stmt_close($stmt);
 
-    $_SESSION["msg"] = "Dados atualizados com sucesso!";
-    $_SESSION["class"] = "sucesso";
+// Atualiza os dados da sessão
+$_SESSION["nome_usuario"] = $nome;
+$_SESSION["email_usuario"] = $email;
+$_SESSION["tipo_usuario"] = $tipo_usuario;
+
+$_SESSION["msg"] = "Dados atualizados com sucesso!";
+$_SESSION["class"] = "sucesso";
 
     header("Location: meus-dados.php");
     exit;

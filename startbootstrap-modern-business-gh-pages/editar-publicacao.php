@@ -93,7 +93,7 @@ if (!$publicacao) {
 
                 <div class="text-start mb-4">
 
-                    <a href="minhas-publicacoes.html" class="text-decoration-none"
+                    <a href="minhas-publicacoes.php" class="text-decoration-none"
                         style="color:#4E0119; font-weight:600;">
 
                         <i class="bi bi-arrow-left"></i>
@@ -118,100 +118,174 @@ if (!$publicacao) {
 
                 <div class="col-lg-8">
 
-                    <div class="card editar-publicacao-card p-5 mx-auto" style="max-width: 700px; width: 100%;">
+                    
+<div class="card editar-publicacao-card p-5 mx-auto" style="max-width: 700px; width: 100%;">
 
-<label class="mb-2 fw-bold fs-5">
-    Nome do material
-</label>
+    <form action="processa-edicao-publicacao.php" method="POST" enctype="multipart/form-data">
 
-<input
-    type="text"
-    name="nome_conteudo"
-    class="form-control fs-5 mb-4"
-    value="<?php echo htmlspecialchars($publicacao["nome_conteudo"], ENT_QUOTES, "UTF-8"); ?>"
-    required
->
+        <input type="hidden" name="id_conteudo" value="<?php echo $id_conteudo; ?>">
 
-                       
+        <label class="mb-2 fw-bold fs-5">
+            Nome do material
+        </label>
 
-<label class="mb-2 fw-bold fs-5">
-    Categoria
-</label>
-
-<select name="categoria" class="form-control fs-5 mb-4" required>
-
-    <?php
-    $categorias = [
-        "Artigo",
-        "Apostila",
-        "Mapa mental",
-        "Lista de exercícios",
-        "Resumo",
-        "Simulados",
-        "Slides",
-        "Outros"
-    ];
-
-    foreach ($categorias as $categoria) {
-    ?>
-
-        <option
-            value="<?php echo htmlspecialchars($categoria, ENT_QUOTES, "UTF-8"); ?>"
-            <?php echo $publicacao["categoria"] == $categoria ? "selected" : ""; ?>
+        <input
+            type="text"
+            name="nome_conteudo"
+            class="form-control fs-5 mb-4"
+            value="<?php echo htmlspecialchars($publicacao["nome_conteudo"], ENT_QUOTES, "UTF-8"); ?>"
+            maxlength="150"
+            required
         >
-            <?php echo htmlspecialchars($categoria, ENT_QUOTES, "UTF-8"); ?>
-        </option>
 
-    <?php } ?>
+        <label class="mb-2 fw-bold fs-5">
+            Categoria
+        </label>
 
-</select>
+        <select name="categoria" class="form-control fs-5 mb-4" required>
 
-                        <label class="mb-2 fw-bold fs-5">
-                            Descrição
-                        </label>
+            <?php
+            $categorias = [
+                "Artigo",
+                "Apostila",
+                "Mapa mental",
+                "Lista de exercícios",
+                "Resumo",
+                "Simulados",
+                "Slides",
+                "Outros"
+            ];
 
-                        <textarea class="form-control fs-5 mb-4"
-                            rows="4">Resumo em PDF de Matemática Básica contendo operações fundamentais, frações, porcentagem e exercícios resolvidos para revisão dos principais conteúdos.</textarea>
+            foreach ($categorias as $categoria) {
+            ?>
 
-                        <label class="mb-2 fw-bold fs-5">
-                            Imagem da capa
-                        </label>
+                <option
+                    value="<?php echo htmlspecialchars($categoria, ENT_QUOTES, "UTF-8"); ?>"
+                    <?php echo $publicacao["categoria"] == $categoria ? "selected" : ""; ?>
+                >
+                    <?php echo htmlspecialchars($categoria, ENT_QUOTES, "UTF-8"); ?>
+                </option>
 
-                        <div class="text-center mb-4">
+            <?php } ?>
 
-                            <img src="assets/img/fotopdfmat2.jpg" class="img-fluid rounded shadow"
-                                style="max-width:220px;" alt="Capa da publicação">
-                        </div>
+        </select>
 
-                        <label class="mb-2 fw-bold">
-                            Alterar imagem da capa
-                        </label>
+        <label class="mb-2 fw-bold fs-5">
+            Nível de ensino
+        </label>
 
-                        <input type="file" class="form-control mb-5">
+        <select name="nivel" class="form-control fs-5 mb-4" required>
 
-                        <hr class="my-4">
+            <?php
+            $niveis = [
+                "Ensino fundamental",
+                "Ensino médio",
+                "Ensino técnico",
+                "Ensino superior",
+                "Curso livre",
+                "Outros"
+            ];
 
-                        <label class="mb-2 fw-bold fs-5">
-                            Arquivo PDF
-                        </label>
+            foreach ($niveis as $nivel) {
+            ?>
 
-                        <p class="text-muted mb-2">
-                            <i class="bi bi-file-earmark-pdf-fill"></i>
-                            Matematica-Basica.pdf
-                        </p>
+                <option
+                    value="<?php echo htmlspecialchars($nivel, ENT_QUOTES, "UTF-8"); ?>"
+                    <?php echo $publicacao["nivel"] == $nivel ? "selected" : ""; ?>
+                >
+                    <?php echo htmlspecialchars($nivel, ENT_QUOTES, "UTF-8"); ?>
+                </option>
 
-                        <label class="mb-2 fw-bold">
-                            Alterar arquivo PDF
-                        </label>
+            <?php } ?>
 
-                        <input type="file" class="form-control mb-4">
+        </select>
 
-                        <button class="btn px-4 py-2 rounded-pill fw-bold"
-                            style="background-color:#4E0119; color:white;">
-                            Salvar Alterações
-                        </button>
+        <label class="mb-2 fw-bold fs-5">
+            Descrição
+        </label>
 
-                    </div>
+        <textarea
+            name="descricao"
+            class="form-control fs-5 mb-4"
+            rows="4"
+            maxlength="2000"
+            required
+        ><?php echo htmlspecialchars($publicacao["descricao"], ENT_QUOTES, "UTF-8"); ?></textarea>
+
+        <label class="mb-2 fw-bold fs-5">
+            Imagem atual da capa
+        </label>
+
+        <div class="text-center mb-4">
+
+            <img
+                src="<?php echo htmlspecialchars($publicacao["imagem"], ENT_QUOTES, "UTF-8"); ?>"
+                class="img-fluid rounded shadow"
+                style="max-width:220px;"
+                alt="Capa da publicação"
+            >
+
+        </div>
+
+        <label class="mb-2 fw-bold">
+            Alterar imagem da capa
+        </label>
+
+        <input
+            type="file"
+            name="imagem"
+            class="form-control mb-2"
+            accept=".jpg,.jpeg,.png"
+        >
+
+        <small class="text-muted">
+            Se não selecionar outra imagem, a atual será mantida.
+        </small>
+
+        <hr class="my-4">
+
+        <label class="mb-2 fw-bold fs-5">
+            Arquivo PDF atual
+        </label>
+
+        <p class="text-muted mb-3">
+            <i class="bi bi-file-earmark-pdf-fill"></i>
+
+            <a
+                href="<?php echo htmlspecialchars($publicacao["arquivo_pdf"], ENT_QUOTES, "UTF-8"); ?>"
+                target="_blank"
+            >
+                <?php echo htmlspecialchars(basename($publicacao["arquivo_pdf"]), ENT_QUOTES, "UTF-8"); ?>
+            </a>
+        </p>
+
+        <label class="mb-2 fw-bold">
+            Alterar arquivo PDF
+        </label>
+
+        <input
+            type="file"
+            name="arquivo_pdf"
+            class="form-control mb-2"
+            accept=".pdf"
+        >
+
+        <small class="text-muted">
+            Se não selecionar outro PDF, o atual será mantido.
+        </small>
+
+        <button
+            type="submit"
+            class="btn px-4 py-2 rounded-pill fw-bold mt-4"
+            style="background-color:#4E0119; color:white;"
+        >
+            Salvar Alterações
+        </button>
+
+    </form>
+
+</div>
+
                 </div>
             </div>
         </div>

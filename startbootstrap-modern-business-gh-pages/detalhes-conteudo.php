@@ -1,6 +1,10 @@
 <?php
 session_start();
-
+// Verifica se o usuário está logado
+if (!isset($_SESSION["id_usuario"])) {
+    header("Location: login.html");
+    exit;
+}
 require_once "conecta.php";
 
 if (!isset($_GET["id"]) || !is_numeric($_GET["id"]) || (int) $_GET["id"] <= 0) {
@@ -68,9 +72,9 @@ if (!$conteudo) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="conteudos.html">Conteúdos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="materiais.html">Doações</a></li>
-                    <li class="nav-item"><a class="nav-link" href="minha-conta.html">Minha Conta</a></li>
+                    <li class="nav-item"><a class="nav-link" href="conteudos.php">Conteúdos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="materiais.php">Doações</a></li>
+                    <li class="nav-item"><a class="nav-link" href="minha-conta.php">Minha Conta</a></li>
                 </ul>
             </div>
         </div>
