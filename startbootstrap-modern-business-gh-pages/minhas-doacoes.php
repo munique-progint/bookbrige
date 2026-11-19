@@ -59,9 +59,9 @@ $resultado = mysqli_stmt_get_result($stmt);
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-                        <li class="nav-item"><a class="nav-link" href="conteudos.html">Conteúdos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="materiais.html">Doações</a></li>
-                        <li class="nav-item"><a class="nav-link" href="minha-conta.html">Minha Conta</a></li>
+                        <li class="nav-item"><a class="nav-link" href="conteudos.php">Conteúdos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="materiais.php">Doações</a></li>
+                        <li class="nav-item"><a class="nav-link" href="minha-conta.php">Minha Conta</a></li>
                     </ul>
                 </div>
             </div>
@@ -166,32 +166,30 @@ $resultado = mysqli_stmt_get_result($stmt);
                         <?php } ?>
 
                     </p>
-
                    
-<div class="d-flex justify-content-between mt-3">
+<div class="d-flex flex-wrap gap-2 mt-3">
+
     <a href="material-detalhes.php?id=<?php echo $material["id"]; ?>"
-        class="btn btn-sm"
+        class="btn"
         style="background-color:#4E0119; color:white;">
         Ver detalhes
     </a>
 
-    <a href="editar-material.html?id=<?php echo $material["id"]; ?>"
-        class="btn btn-sm"
+    <a href="editar-material.php?id=<?php echo $material["id"]; ?>"
+        class="btn"
         style="background-color:#FBDD91; color:#4E0119;">
         Editar
     </a>
 
     <button type="button"
-    class="btn btn-sm"
-    style="background-color:#DF8F9C; color:#4E0119;"
-    data-bs-toggle="modal"
-    data-bs-target="#modalExcluirMaterial"
-    data-id="<?php echo $material["id"]; ?>">
-    Excluir
-</button>
+        class="btn btn-danger"
+        data-bs-toggle="modal"
+        data-bs-target="#modalExcluirMaterial"
+        data-id="<?php echo $material["id"]; ?>">
+        Excluir
+    </button>
+
 </div>
-
-
                 </div>
 
             </div>

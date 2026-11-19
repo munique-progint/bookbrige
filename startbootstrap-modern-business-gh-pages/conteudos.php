@@ -279,13 +279,63 @@ $resultado = mysqli_stmt_get_result($stmt);
 
                     <div class="position-relative">
 
-                        <img
-                            class="card-img-top imagem-material"
-                            src="<?php echo htmlspecialchars($conteudo['imagem']); ?>"
-                            alt="<?php echo htmlspecialchars($conteudo['nome_conteudo']); ?>"
-                        >
+    <img
+        class="card-img-top imagem-material"
+        src="<?php echo htmlspecialchars($conteudo['imagem']); ?>"
+        alt="<?php echo htmlspecialchars($conteudo['nome_conteudo']); ?>"
+    >
 
-                    </div>
+    <?php
+    $favoritado = false;
+
+    if (isset($_SESSION["id_usuario"])) {
+
+        $id_usuario = $_SESSION["id_usuario"];
+        $id_conteudo = $conteudo["id"];
+
+        $sql_favorito = "SELECT id FROM favoritos
+                         WHERE id_usuario = ?
+                         AND id_conteudo = ?";
+
+        $stmt_favorito = mysqli_prepare($conn, $sql_favorito);
+
+        mysqli_stmt_bind_param($stmt_favorito, "ii", $id_usuario, $id_conteudo);
+
+        mysqli_stmt_execute($stmt_favorito);
+
+        $resultado_favorito = mysqli_stmt_get_result($stmt_favorito);
+
+        if (mysqli_num_rows($resultado_favorito) > 0) {
+            $favoritado = true;
+        }
+
+        mysqli_stmt_close($stmt_favorito);
+    }
+    ?>
+
+    <form action="processa-favorito.php" method="POST"
+          style="position:absolute; top:10px; right:10px;">
+
+        <input type="hidden" name="id_item"
+               value="<?php echo (int) $conteudo['id']; ?>">
+
+        <input type="hidden" name="tipo" value="conteudo">
+
+        <input type="hidden" name="acao"
+               value="<?php echo $favoritado ? 'remover' : 'adicionar'; ?>">
+
+        <button type="submit"
+                style="border:none; background:white; border-radius:50%;
+                       width:40px; height:40px; color:#DF8F9C;">
+
+            <i class="bi <?php echo $favoritado ? 'bi-heart-fill' : 'bi-heart'; ?>"
+               style="font-size:20px;"></i>
+
+        </button>
+
+    </form>
+
+</div>
 
                     <div class="card-body p-4">
 
@@ -424,7 +474,7 @@ $resultado = mysqli_stmt_get_result($stmt);
                         Cancelar
                     </button>
 
-                    <a href="meus-dados.html" class="btn" style="background:#DF8F9C; color:#4E0119;">
+                    <a href="meus-dados.php" class="btn" style="background:#DF8F9C; color:#4E0119;">
                         Ir para Minha Conta
                     </a>
 

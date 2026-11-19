@@ -59,10 +59,11 @@ if (!in_array($estado, $estados_permitidos, true)) {
     exit;
 }
 
+// Categorias conforme o formulário
 if (
     $categoria != "Livro" &&
-    $categoria != "Apostila" &&
-    $categoria != "Material escolar"
+    $categoria != "Apostilas" &&
+    $categoria != "Materiais escolares"
 ) {
     $_SESSION["msg"] = "Categoria inválida.";
     $_SESSION["class"] = "erro";
@@ -70,6 +71,7 @@ if (
     exit;
 }
 
+// Áreas permitidas
 $areas_permitidas = [
     "Matemática",
     "Português",
@@ -84,10 +86,8 @@ $areas_permitidas = [
     "Biologia",
     "Física",
     "Química",
-    "Ciências",
     "Artes",
     "Educação Física",
-    "Informática",
     "Todas as matérias",
     "Outra"
 ];
@@ -99,11 +99,11 @@ if (!in_array($area, $areas_permitidas, true)) {
     exit;
 }
 
+// Níveis conforme o formulário
 if (
-    $nivel != "Ensino fundamental" &&
-    $nivel != "Ensino médio" &&
-    $nivel != "Ensino técnico" &&
-    $nivel != "Ensino superior" &&
+    $nivel != "Ensino Fundamental" &&
+    $nivel != "Ensino Médio" &&
+    $nivel != "Ensino Superior" &&
     $nivel != "Curso livre" &&
     $nivel != "Outros"
 ) {
@@ -113,6 +113,7 @@ if (
     exit;
 }
 
+// Upload da imagem
 $imagem = null;
 
 if (isset($_FILES["imagem"]) && $_FILES["imagem"]["error"] != UPLOAD_ERR_NO_FILE) {
@@ -142,14 +143,12 @@ if (isset($_FILES["imagem"]) && $_FILES["imagem"]["error"] != UPLOAD_ERR_NO_FILE
 
     $extensao = strtolower(pathinfo($_FILES["imagem"]["name"], PATHINFO_EXTENSION));
 
-    
-        if (
-    $extensao != "jpg" &&
-    $extensao != "jpeg" &&
-    $extensao != "jfif" &&
-    $extensao != "png" &&
-    $extensao != "webp"
-
+    if (
+        $extensao != "jpg" &&
+        $extensao != "jpeg" &&
+        $extensao != "jfif" &&
+        $extensao != "png" &&
+        $extensao != "webp"
     ) {
         $_SESSION["msg"] = "Formato de imagem inválido. Use JPG, PNG ou WEBP.";
         $_SESSION["class"] = "erro";
@@ -182,29 +181,27 @@ try {
 
     $id_usuario = $_SESSION["id_usuario"];
 
- 
-$sql = "INSERT INTO materiais
-        (id_usuario, nome_material, categoria, area, estado, nivel, descricao, imagem)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO materiais
+            (id_usuario, nome_material, categoria, area, estado, nivel, descricao, imagem)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-$stmt = mysqli_prepare($conn, $sql);
+    $stmt = mysqli_prepare($conn, $sql);
 
-mysqli_stmt_bind_param(
-    $stmt,
-    "isssssss",
-    $id_usuario,
-    $nome_material,
-    $categoria,
-    $area,
-    $estado,
-    $nivel,
-    $descricao,
-    $imagem
-);
+    mysqli_stmt_bind_param(
+        $stmt,
+        "isssssss",
+        $id_usuario,
+        $nome_material,
+        $categoria,
+        $area,
+        $estado,
+        $nivel,
+        $descricao,
+        $imagem
+    );
 
-mysqli_stmt_execute($stmt);
-mysqli_stmt_close($stmt);
-
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
 
     $_SESSION["msg"] = "Doação cadastrada com sucesso!";
     $_SESSION["class"] = "sucesso";
