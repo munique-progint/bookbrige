@@ -121,7 +121,7 @@ $resultado = mysqli_stmt_get_result($stmt);
                             </li>
                         <?php } else { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="login.php">Entrar</a>
+                                <a class="nav-link" href="login.html">Entrar</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="cadastro.html">Cadastre-se</a>
@@ -285,7 +285,7 @@ $resultado = mysqli_stmt_get_result($stmt);
                         Quer compartilhar conhecimento?
                     </h4>
 
-                    <a href="#" id="btnPublicarConteudo" class="btn px-5 py-3 rounded-pill fw-bold"
+                    <a href="login.html" id="btnPublicarConteudo" class="btn px-5 py-3 rounded-pill fw-bold"
                         style="background-color:#DF8F9C; color:#4E0119;">
                         + Publicar conteúdo
                     </a>
@@ -528,7 +528,7 @@ $resultado = mysqli_stmt_get_result($stmt);
 
             <?php if (!isset($_SESSION["id_usuario"])) { ?>
 
-                window.location.href = "login.php";
+                window.location.href = "login.html";
 
             <?php } elseif (isset($_SESSION["tipo_usuario"]) && $_SESSION["tipo_usuario"] == "colaborador") { ?>
 
