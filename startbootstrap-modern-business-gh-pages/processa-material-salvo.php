@@ -9,16 +9,16 @@ if (!isset($_SESSION["id_usuario"])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    header("Location: materiais.php");
+    header("Location: conteudos.php");
     exit;
 }
 
 $id_usuario = (int) $_SESSION["id_usuario"];
-$id_material = filter_input(INPUT_POST, "id_material", FILTER_VALIDATE_INT);
+$id_conteudo = filter_input(INPUT_POST, "id_conteudo", FILTER_VALIDATE_INT);
 $nome_pasta = trim($_POST["nome_pasta"] ?? "");
 
-if (!$id_material || $nome_pasta == "" || mb_strlen($nome_pasta) > 100) {
-    die("Material ou pasta inválidos.");
+if (!$id_conteudo || $nome_pasta == "" || mb_strlen($nome_pasta) > 100) {
+    die("Conteúdo ou pasta inválidos.");
 }
 
 $sql = "SELECT id FROM pastas
@@ -38,31 +38,30 @@ if (!$pasta) {
     die("Essa pasta não existe ou não pertence à sua conta.");
 }
 
-$sql = "SELECT id FROM materiais
-        WHERE id = ? AND status = 'Disponível'";
+$sql = "SELECT id FROM conteudos WHERE id = ?";
 
 $stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_bind_param($stmt, "i", $id_material);
+mysqli_stmt_bind_param($stmt, "i", $id_conteudo);
 mysqli_stmt_execute($stmt);
 
 $resultado = mysqli_stmt_get_result($stmt);
-$material = mysqli_fetch_assoc($resultado);
+$conteudo = mysqli_fetch_assoc($resultado);
 
 mysqli_stmt_close($stmt);
 
-if (!$material) {
-    die("Material não encontrado ou indisponível.");
+if (!$conteudo) {
+    die("Conteúdo não encontrado.");
 }
 
-$sql = "INSERT INTO materiais_salvos (id_usuario, id_material, nome_pasta)
+$sql = "INSERT INTO conteudos_salvos (id_usuario, id_conteudo, nome_pasta)
         VALUES (?, ?, ?)";
 
 $stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_bind_param($stmt, "iis", $id_usuario, $id_material, $nome_pasta);
+mysqli_stmt_bind_param($stmt, "iis", $id_usuario, $id_conteudo, $nome_pasta);
 
 if (mysqli_stmt_execute($stmt)) {
     mysqli_stmt_close($stmt);
-    header("Location: material-detalhes.php?id=" . $id_material . "&salvo=1");
+    header("Location: detalhes-conteudo.php?id=" . $id_conteudo . "&salvo=1");
     exit;
 }
 
@@ -70,9 +69,9 @@ $erro = mysqli_stmt_errno($stmt);
 mysqli_stmt_close($stmt);
 
 if ($erro == 1062) {
-    header("Location: material-detalhes.php?id=" . $id_material . "&salvo=2");
+    header("Location: detalhes-conteudo.php?id=" . $id_conteudo . "&salvo=2");
     exit;
 }
 
-die("Não foi possível salvar o material. Tente novamente.");
+die("Não foi possível salvar o conteúdo. Tente novamente.");
 ?>

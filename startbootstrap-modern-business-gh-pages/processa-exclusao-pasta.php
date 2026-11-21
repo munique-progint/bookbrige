@@ -22,7 +22,7 @@ if ($nome_pasta == "" || mb_strlen($nome_pasta) > 100) {
 
 mysqli_begin_transaction($conn);
 
-$sql = "DELETE FROM materiais_salvos
+$sql = "DELETE FROM conteudos_salvos
         WHERE id_usuario = ?
           AND nome_pasta = ?";
 
@@ -32,7 +32,7 @@ mysqli_stmt_bind_param($stmt, "is", $id_usuario, $nome_pasta);
 if (!mysqli_stmt_execute($stmt)) {
     mysqli_stmt_close($stmt);
     mysqli_rollback($conn);
-    die("Não foi possível excluir os materiais da pasta.");
+    die("Não foi possível excluir os conteúdos da pasta.");
 }
 
 mysqli_stmt_close($stmt);

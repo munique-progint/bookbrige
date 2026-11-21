@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Verifica se o usuário está logado
 if (!isset($_SESSION["id_usuario"])) {
     header("Location: login.html");
     exit;
@@ -15,6 +14,7 @@ if (!isset($_GET["id"]) || !is_numeric($_GET["id"]) || (int) $_GET["id"] <= 0) {
 }
 
 $id_conteudo = (int) $_GET["id"];
+$id_usuario_logado = (int) $_SESSION["id_usuario"];
 
 $sql = "SELECT conteudos.id, conteudos.nome_conteudo,
                conteudos.categoria, conteudos.area, conteudos.nivel,
@@ -42,6 +42,26 @@ if (!$conteudo) {
     header("Location: conteudos.php");
     exit;
 }
+
+// Busca as pastas do estudante
+$pastas = [];
+
+$sql = "SELECT nome_pasta
+        FROM pastas
+        WHERE id_usuario = ?
+        ORDER BY nome_pasta";
+
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "i", $id_usuario_logado);
+mysqli_stmt_execute($stmt);
+
+$resultado_pastas = mysqli_stmt_get_result($stmt);
+
+while ($pasta = mysqli_fetch_assoc($resultado_pastas)) {
+    $pastas[] = $pasta;
+}
+
+mysqli_stmt_close($stmt);
 ?>
 
 <!DOCTYPE html>
@@ -97,8 +117,7 @@ if (!$conteudo) {
                             src="<?php echo htmlspecialchars($conteudo['imagem'], ENT_QUOTES, 'UTF-8'); ?>"
                             class="img-fluid shadow-lg rounded-4"
                             style="max-height: 450px; width: 100%; object-fit: cover;"
-                            alt="<?php echo htmlspecialchars($conteudo['nome_conteudo'], ENT_QUOTES, 'UTF-8'); ?>"
-                        >
+                            alt="<?php echo htmlspecialchars($conteudo['nome_conteudo'], ENT_QUOTES, 'UTF-8'); ?>">
                     </div>
 
                     <!-- Informações do conteúdo -->
@@ -153,17 +172,24 @@ if (!$conteudo) {
                                     class="btn px-4 py-2 rounded-pill fw-bold"
                                     style="background-color:#DF8F9C; color:#4E0119;"
                                     target="_blank"
-                                    rel="noopener"
-                                >
+                                    rel="noopener">
                                     <i class="bi bi-file-earmark-pdf"></i>
                                     Abrir PDF
                                 </a>
 
+                                <button type="button"
+                                    class="btn px-4 py-2 rounded-pill fw-bold"
+                                    style="background-color:#DF8F9C; color:#4E0119;"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalAdicionarPasta">
+                                    <i class="bi bi-folder-plus"></i>
+                                    Adicionar à pasta
+                                </button>
+
                                 <a
                                     href="conteudos.php"
                                     class="btn px-4 py-2 rounded-pill fw-bold"
-                                    style="background-color:#FBDD91; color:#4E0119;"
-                                >
+                                    style="background-color:#FBDD91; color:#4E0119;">
                                     <i class="bi bi-arrow-left"></i>
                                     Voltar aos conteúdos
                                 </a>
@@ -179,81 +205,88 @@ if (!$conteudo) {
     </main>
 
     <!-- Modal Adicionar à Pasta -->
-    <div class="modal fade" id="modalAdicionarPasta" tabindex="-1">
+    <div class="modal fade" id="modalAdicionarPasta" tabindex="-1"
+        aria-labelledby="modalAdicionarPastaLabel" aria-hidden="true">
+
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h5 class="modal-title">
+                    <h5 class="modal-title fw-bold" id="modalAdicionarPastaLabel">
                         Adicionar à pasta
                     </h5>
 
-                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    <button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Fechar">
                     </button>
                 </div>
 
-                <div class="modal-body">
+                <form action="processa-material-salvo.php" method="POST">
 
-                    <p class="mb-3">
-                        Selecione uma pasta:
-                    </p>
+                    <div class="modal-body">
 
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="pasta" id="pasta1">
-                        <label class="form-check-label" for="pasta1">
-                            Matemática básica
-                        </label>
+                        <input type="hidden" name="id_conteudo"
+                            value="<?php echo (int) $conteudo['id']; ?>">
+
+                        <?php if (count($pastas) > 0) { ?>
+
+                            <p class="mb-3">Selecione uma pasta:</p>
+
+                            <?php foreach ($pastas as $indice => $pasta) { ?>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio"
+                                        name="nome_pasta"
+                                        id="pasta<?php echo $indice; ?>"
+                                        value="<?php echo htmlspecialchars($pasta["nome_pasta"], ENT_QUOTES, 'UTF-8'); ?>"
+                                        required>
+
+                                    <label class="form-check-label"
+                                        for="pasta<?php echo $indice; ?>">
+                                        <?php echo htmlspecialchars($pasta["nome_pasta"]); ?>
+                                    </label>
+                                </div>
+
+                            <?php } ?>
+
+                        <?php } else { ?>
+
+                            <p class="text-muted">
+                                Você ainda não possui pastas.
+                                Acesse Minha Conta e abra a área de pastas para criar uma.
+                            </p>
+
+                        <?php } ?>
+
                     </div>
 
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="pasta" id="pasta2">
-                        <label class="form-check-label" for="pasta2">
-                            Biologia - físicos
-                        </label>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                            Cancelar
+                        </button>
+
+                        <?php if (count($pastas) > 0) { ?>
+
+                            <button type="submit" class="btn"
+                                style="background-color:#DF8F9C; color:#4E0119;">
+                                Adicionar
+                            </button>
+
+                        <?php } else { ?>
+
+                            <a href="pastas.php" class="btn"
+                                style="background-color:#DF8F9C; color:#4E0119;">
+                                Criar pasta
+                            </a>
+
+                        <?php } ?>
+
                     </div>
 
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="pasta" id="pasta3">
-                        <label class="form-check-label" for="pasta3">
-                            Biologia - digitais
-                        </label>
-                    </div>
+                </form>
 
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="pasta" id="pasta4">
-                        <label class="form-check-label" for="pasta4">
-                            Programação
-                        </label>
-                    </div>
-
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="pasta" id="pasta5">
-                        <label class="form-check-label" for="pasta5">
-                            Redação para UFRGS
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pasta" id="pasta6">
-                        <label class="form-check-label" for="pasta6">
-                            Faculdade
-                        </label>
-                    </div>
-
-                </div>
-
-                <div class="modal-footer">
-
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Cancelar
-                    </button>
-
-                    <button type="button" class="btn" style="background:#DF8F9C; color:#4E0119;"
-                        data-bs-dismiss="modal">
-                        Adicionar
-                    </button>
-
-                </div>
             </div>
         </div>
     </div>
