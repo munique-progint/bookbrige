@@ -58,14 +58,14 @@ $resultado = mysqli_stmt_get_result($stmt);
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
             <div class="container px-5">
-                <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">BookBridge</a>
+                <a class="navbar-brand fs-2 fw-bold" href="index.php" style="color:#DF8F9C;">BookBridge</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation"><span
                         class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php">Início</a></li>
                         <li class="nav-item"><a class="nav-link" href="conteudos.html">Conteúdos</a></li>
                         <li class="nav-item"><a class="nav-link" href="materiais.html">Doações</a></li>
                         <li class="nav-item"><a class="nav-link" href="minha-conta.html">Minha Conta</a></li>

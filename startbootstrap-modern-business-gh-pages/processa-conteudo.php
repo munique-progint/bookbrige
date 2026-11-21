@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 if (
     !isset($_POST["nome_conteudo"]) ||
     !isset($_POST["categoria"]) ||
+    !isset($_POST["area"]) ||
     !isset($_POST["nivel"]) ||
     !isset($_POST["descricao"]) ||
     !isset($_FILES["imagem"]) ||
@@ -36,6 +37,7 @@ if (
 
 $nome_conteudo = trim($_POST["nome_conteudo"]);
 $categoria = trim($_POST["categoria"]);
+$area = trim($_POST["area"]);
 $nivel = trim($_POST["nivel"]);
 $descricao = trim($_POST["descricao"]);
 $id_usuario = (int) $_SESSION["id_usuario"];
@@ -66,6 +68,7 @@ $niveis_permitidos = [
 if (
     $nome_conteudo == "" ||
     $categoria == "" ||
+    $area == "" ||
     $nivel == "" ||
     $descricao == ""
 ) {
@@ -76,8 +79,12 @@ if (
 }
 
 // Verifica os limites de caracteres
-if (strlen($nome_conteudo) > 150 || strlen($descricao) > 2000) {
-    $_SESSION["msg"] = "O nome ou a descrição ultrapassou o limite permitido.";
+if (
+    strlen($nome_conteudo) > 150 ||
+    strlen($area) > 100 ||
+    strlen($descricao) > 2000
+) {
+    $_SESSION["msg"] = "O nome, a área ou a descrição ultrapassou o limite permitido.";
     $_SESSION["class"] = "danger";
     header("Location: cadastrar-conteudo.php");
     exit;
@@ -201,17 +208,18 @@ if (!move_uploaded_file($arquivo_pdf["tmp_name"], $caminho_pdf)) {
 try {
 
     $sql = "INSERT INTO conteudos
-            (id_usuario, nome_conteudo, categoria, nivel, descricao, imagem, arquivo_pdf)
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
+            (id_usuario, nome_conteudo, categoria, area, nivel, descricao, imagem, arquivo_pdf)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = mysqli_prepare($conn, $sql);
 
     mysqli_stmt_bind_param(
         $stmt,
-        "issssss",
+        "isssssss",
         $id_usuario,
         $nome_conteudo,
         $categoria,
+        $area,
         $nivel,
         $descricao,
         $caminho_imagem,

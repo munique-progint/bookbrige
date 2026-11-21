@@ -24,6 +24,7 @@ if (
     !isset($_POST["id_conteudo"]) ||
     !isset($_POST["nome_conteudo"]) ||
     !isset($_POST["categoria"]) ||
+    !isset($_POST["area"]) ||
     !isset($_POST["nivel"]) ||
     !isset($_POST["descricao"]) ||
     !isset($_FILES["imagem"]) ||
@@ -37,6 +38,7 @@ $id_usuario = (int) $_SESSION["id_usuario"];
 
 $nome_conteudo = trim($_POST["nome_conteudo"]);
 $categoria = trim($_POST["categoria"]);
+$area = trim($_POST["area"]);
 $nivel = trim($_POST["nivel"]);
 $descricao = trim($_POST["descricao"]);
 
@@ -49,6 +51,7 @@ if ($id_conteudo <= 0) {
 if (
     $nome_conteudo == "" ||
     $categoria == "" ||
+    $area == "" ||
     $nivel == "" ||
     $descricao == ""
 ) {
@@ -56,8 +59,12 @@ if (
 }
 
 // Verifica os limites de caracteres
-if (strlen($nome_conteudo) > 150 || strlen($descricao) > 2000) {
-    die("O nome ou a descrição ultrapassou o limite permitido.");
+if (
+    strlen($nome_conteudo) > 150 ||
+    strlen($area) > 100 ||
+    strlen($descricao) > 2000
+) {
+    die("O nome, a área ou a descrição ultrapassou o limite permitido.");
 }
 
 // Categorias permitidas
@@ -223,6 +230,7 @@ try {
     $sql = "UPDATE conteudos
             SET nome_conteudo = ?,
                 categoria = ?,
+                area = ?,
                 nivel = ?,
                 descricao = ?,
                 imagem = ?,
@@ -233,9 +241,10 @@ try {
 
     mysqli_stmt_bind_param(
         $stmt,
-        "ssssssii",
+        "sssssssii",
         $nome_conteudo,
         $categoria,
+        $area,
         $nivel,
         $descricao,
         $caminho_imagem,

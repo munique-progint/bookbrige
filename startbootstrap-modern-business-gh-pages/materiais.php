@@ -31,11 +31,21 @@ $parametros = [];
 $tipos = "";
 
 if ($pesquisa != "") {
-    $sql .= " AND (materiais.nome_material LIKE ? OR materiais.area LIKE ? OR materiais.descricao LIKE ?)";
+    $sql .= " AND (
+        materiais.nome_material LIKE ?
+        OR materiais.categoria LIKE ?
+        OR materiais.area LIKE ?
+        OR materiais.descricao LIKE ?
+        OR materiais.nivel LIKE ?
+    )";
+
     $parametros[] = "%" . $pesquisa . "%";
     $parametros[] = "%" . $pesquisa . "%";
     $parametros[] = "%" . $pesquisa . "%";
-    $tipos .= "sss";
+    $parametros[] = "%" . $pesquisa . "%";
+    $parametros[] = "%" . $pesquisa . "%";
+
+    $tipos .= "sssss";
 }
 
 if ($categoria != "") {
@@ -110,7 +120,7 @@ $resultado = mysqli_stmt_get_result($stmt);
 
             <div class="container px-5">
 
-                <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">
+                <a class="navbar-brand fs-2 fw-bold" href="index.php" style="color:#DF8F9C;">
                     BookBridge
                 </a>
 
@@ -127,7 +137,7 @@ $resultado = mysqli_stmt_get_result($stmt);
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Início</a>
+                            <a class="nav-link" href="index.php">Início</a>
                         </li>
 
                         <li class="nav-item">
@@ -151,7 +161,7 @@ $resultado = mysqli_stmt_get_result($stmt);
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="cadastro.php">Cadastre-se</a>
+                                <a class="nav-link" href="cadastro.html">Cadastre-se</a>
                             </li>
 
                         <?php } ?>
@@ -523,27 +533,13 @@ $resultado = mysqli_stmt_get_result($stmt);
 
                 <?php } else { ?>
 
-                    <div class="col-12 text-center pt-0 pb-4">
+                    <div class="col-12 text-center">
 
-                        <i class="bi bi-search" style="font-size: 3rem; color: #DF8F9C;"></i>
+    <p class="text-muted">
+        Nenhum material encontrado.
+    </p>
 
-                        <h5 class="mt-3" style="color: #4E0119;">
-                            Nenhum material encontrado
-                        </h5>
-
-                        <p class="text-muted">
-                            Não encontramos materiais com os filtros selecionados.
-                            Tente alterar sua pesquisa ou limpar os filtros.
-                        </p>
-
-                        <a href="materiais.php" class="btn rounded-pill px-4 py-2"
-                            style="background-color: #FBDD91; color: #4E0119;">
-
-                            Limpar filtros
-
-                        </a>
-
-                    </div>
+</div>
 
                 <?php } ?>
 

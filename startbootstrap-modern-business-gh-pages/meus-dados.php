@@ -70,14 +70,14 @@ if ($class == "sucesso") {
         <!-- Navegação-->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
             <div class="container px-5">
-                <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">BookBridge</a>
+                <a class="navbar-brand fs-2 fw-bold" href="index.php" style="color:#DF8F9C;">BookBridge</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation"><span
                         class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php">Início</a></li>
                         <li class="nav-item"><a class="nav-link" href="conteudos.php">Conteúdos</a></li>
                         <li class="nav-item"><a class="nav-link" href="materiais.php">Doações</a></li>
                         <li class="nav-item"><a class="nav-link" href="minha-conta.php">Minha Conta</a></li>
@@ -179,7 +179,7 @@ if ($class == "sucesso") {
 
                             <div class="links-conta text-center mt-5">
 
-                                <a href="alterar-senha.html" class="d-block mb-2">
+                                <a href="alterar-senha.php" class="d-block mb-2">
                                     Alterar senha
                                 </a>
 
@@ -225,21 +225,19 @@ if ($class == "sucesso") {
 
                     </div>
 
-                    <div class="modal-footer">
+                   <div class="modal-footer">
 
-                        <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">
+    <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">
+        Cancelar
+    </button>
 
-                            Cancelar
+    <form action="processa-exclusao-conta.php" method="POST">
+        <button type="submit" class="btn btn-danger">
+            Excluir
+        </button>
+    </form>
 
-                        </button>
-
-                        <button type="button" class="btn btn-danger">
-
-                            Excluir
-
-                        </button>
-
-                    </div>
+</div>
                 </div>
             </div>
         </div>

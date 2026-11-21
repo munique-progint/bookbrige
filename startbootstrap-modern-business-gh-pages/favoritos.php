@@ -89,7 +89,7 @@ $resultado = mysqli_stmt_get_result($stmt);
 
             <div class="container px-5">
 
-                <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">
+                <a class="navbar-brand fs-2 fw-bold" href="index.php" style="color:#DF8F9C;">
                     BookBridge
                 </a>
 
@@ -109,7 +109,7 @@ $resultado = mysqli_stmt_get_result($stmt);
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Início</a>
+                            <a class="nav-link" href="index.php">Início</a>
                         </li>
 
                         <li class="nav-item">

@@ -84,7 +84,7 @@ if ($senha != $confirmar_senha) {
 if ($tipo_usuario != "estudante" && $tipo_usuario != "colaborador") {
     $_SESSION["msg"] = "Tipo de usuário inválido.";
     $_SESSION["class"] = "erro";
-    header("Location: resultado-cadastro.php");
+    header("Location: resultado-");
     exit;
 }
 

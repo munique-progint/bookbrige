@@ -79,13 +79,13 @@ if ($id_usuario_logado > 0) {
     <!-- Navegação-->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
         <div class="container px-5">
-            <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">BookBridge</a>
+            <a class="navbar-brand fs-2 fw-bold" href="index.php" style="color:#DF8F9C;">BookBridge</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="conteudos.php">Conteúdos</a></li>
                     <li class="nav-item"><a class="nav-link" href="materiais.php">Doações</a></li>
                     <li class="nav-item"><a class="nav-link" href="minha-conta.php">Minha Conta</a></li>
@@ -301,19 +301,30 @@ if ($id_usuario_logado != $material["id_usuario"]) {
 
 
 
-                <div class="modal-footer">
+               <div class="modal-footer">
 
-                    <button type="button" class="btn btn-secondary"
-                        data-bs-dismiss="modal">
-                        Cancelar
-                    </button>
+    <button type="button" class="btn btn-secondary"
+        data-bs-dismiss="modal">
+        Cancelar
+    </button>
 
-                    <button type="submit" class="btn"
-                        style="background-color:#DF8F9C; color:#4E0119;">
-                        Adicionar
-                    </button>
+    <?php if (count($pastas) > 0) { ?>
 
-                </div>
+        <button type="submit" class="btn"
+            style="background-color:#DF8F9C; color:#4E0119;">
+            Adicionar
+        </button>
+
+    <?php } else { ?>
+
+        <a href="pastas.php" class="btn"
+            style="background-color:#DF8F9C; color:#4E0119;">
+            Criar pasta
+        </a>
+
+    <?php } ?>
+
+</div>
 
             </form>
 

@@ -47,13 +47,13 @@ if (isset($_SESSION["msg_conteudo"])) {
     <!-- Navegação-->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FBDD91;">
         <div class="container px-5">
-            <a class="navbar-brand fs-2 fw-bold" href="index.html" style="color:#DF8F9C;">BookBridge</a>
+            <a class="navbar-brand fs-2 fw-bold" href="index.php" style="color:#DF8F9C;">BookBridge</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="conteudos.php">Conteúdos</a></li>
                     <li class="nav-item"><a class="nav-link" href="materiais.php">Doações</a></li>
                     <li class="nav-item"><a class="nav-link" href="minha-conta.php">Minha Conta</a></li>
@@ -82,87 +82,98 @@ if (isset($_SESSION["msg_conteudo"])) {
                 <div class="col-lg-8">
 
                     <div class="card formulario-card p-5 mx-auto" style="max-width: 700px; width: 100%;">
+
                         <form action="processa-conteudo.php" method="POST" enctype="multipart/form-data">
+
                             <?php if ($msg_conteudo != "") { ?>
-    <div class="alert <?php echo $class_conteudo == 'sucesso' ? 'alert-success' : 'alert-danger'; ?>">
-        <?php echo htmlspecialchars($msg_conteudo); ?>
-    </div>
-<?php } ?>
+                                <div class="alert <?php echo $class_conteudo == 'sucesso' ? 'alert-success' : 'alert-danger'; ?>">
+                                    <?php echo htmlspecialchars($msg_conteudo); ?>
+                                </div>
+                            <?php } ?>
 
-                      <label for="nome_conteudo" class="mb-2 fw-bold fs-5">
-    Nome do conteúdo
-</label>
+                            <label for="nome_conteudo" class="mb-2 fw-bold fs-5">
+                                Nome do conteúdo
+                            </label>
 
-<input type="text" id="nome_conteudo" name="nome_conteudo"
-    class="form-control fs-5 mb-4 w-100"
-    placeholder="Ex: Resumo de Biologia - Bioquímica"
-    maxlength="150" required>
+                            <input type="text" id="nome_conteudo" name="nome_conteudo"
+                                class="form-control fs-5 mb-4 w-100"
+                                placeholder="Ex: Resumo de Biologia - Bioquímica"
+                                maxlength="150" required>
 
+                            <label for="categoria" class="mb-2 fw-bold fs-5">
+                                Categoria
+                            </label>
 
-                     <label for="categoria" class="mb-2 fw-bold fs-5">
-    Categoria
-</label>
+                            <select id="categoria" name="categoria" class="form-control fs-5 mb-4" required>
+                                <option value="">Selecione</option>
+                                <option value="Artigo">Artigo</option>
+                                <option value="Apostila">Apostila</option>
+                                <option value="Mapa mental">Mapa mental</option>
+                                <option value="Lista de exercícios">Lista de exercícios</option>
+                                <option value="Resumo">Resumo</option>
+                                <option value="Simulados">Simulados</option>
+                                <option value="Slides">Slides</option>
+                                <option value="Outros">Outros</option>
+                            </select>
 
-<select id="categoria" name="categoria" class="form-control fs-5 mb-4" required>
-    <option value="">Selecione</option>
-    <option value="Artigo">Artigo</option>
-    <option value="Apostila">Apostila</option>
-    <option value="Mapa mental">Mapa mental</option>
-    <option value="Lista de exercícios">Lista de exercícios</option>
-    <option value="Resumo">Resumo</option>
-    <option value="Simulados">Simulados</option>
-    <option value="Slides">Slides</option>
-    <option value="Outros">Outros</option>
-</select>
-                      <label for="nivel" class="mb-2 fw-bold fs-5">
-    Nível
-</label>
+                            <label for="area" class="mb-2 fw-bold fs-5">
+                                Área
+                            </label>
 
-<select id="nivel" name="nivel" class="form-control fs-5 mb-4" required>
-    <option value="">Selecione</option>
-    <option value="Ensino fundamental">Ensino fundamental</option>
-    <option value="Ensino médio">Ensino médio</option>
-    <option value="Ensino técnico">Ensino técnico</option>
-    <option value="Ensino superior">Ensino superior</option>
-    <option value="Curso livre">Curso livre</option>
-    <option value="Outros">Outros</option>
-</select>
+                            <input type="text" id="area" name="area"
+                                class="form-control fs-5 mb-4"
+                                placeholder="Ex: Química, Biologia, Matemática"
+                                maxlength="100" required>
 
-                     <label for="descricao" class="mb-2 fw-bold fs-5">
-    Descrição
-</label>
+                            <label for="nivel" class="mb-2 fw-bold fs-5">
+                                Nível
+                            </label>
 
-<textarea id="descricao" name="descricao"
-    class="form-control fs-5 mb-4" rows="4"
-    maxlength="2000"
-    placeholder="Conte um pouco sobre o material"
-    required></textarea>
+                            <select id="nivel" name="nivel" class="form-control fs-5 mb-4" required>
+                                <option value="">Selecione</option>
+                                <option value="Ensino fundamental">Ensino fundamental</option>
+                                <option value="Ensino médio">Ensino médio</option>
+                                <option value="Ensino técnico">Ensino técnico</option>
+                                <option value="Ensino superior">Ensino superior</option>
+                                <option value="Curso livre">Curso livre</option>
+                                <option value="Outros">Outros</option>
+                            </select>
 
-                      <div class="mb-4">
-    <label for="imagem" class="form-label fw-bold">
-        Imagem de capa
-    </label>
+                            <label for="descricao" class="mb-2 fw-bold fs-5">
+                                Descrição
+                            </label>
 
-    <input type="file" id="imagem" name="imagem"
-        class="form-control" accept=".jpg,.jpeg,.png" required>
-</div>
+                            <textarea id="descricao" name="descricao"
+                                class="form-control fs-5 mb-4" rows="4"
+                                maxlength="2000"
+                                placeholder="Conte um pouco sobre o material"
+                                required></textarea>
 
-<div class="mb-4">
-    <label for="arquivo_pdf" class="form-label fw-bold">
-        Arquivo do conteúdo (PDF)
-    </label>
+                            <div class="mb-4">
+                                <label for="imagem" class="form-label fw-bold">
+                                    Imagem de capa
+                                </label>
 
-    <input type="file" id="arquivo_pdf" name="arquivo_pdf"
-        class="form-control" accept=".pdf" required>
-</div>
+                                <input type="file" id="imagem" name="imagem"
+                                    class="form-control" accept=".jpg,.jpeg,.png" required>
+                            </div>
 
-<button type="submit" class="btn px-5 py-3 rounded-pill fw-bold fs-5"
-    style="background-color:#4E0119; color:white;">
-    Publicar
-</button>
+                            <div class="mb-4">
+                                <label for="arquivo_pdf" class="form-label fw-bold">
+                                    Arquivo do conteúdo (PDF)
+                                </label>
 
-</form>
-                           
+                                <input type="file" id="arquivo_pdf" name="arquivo_pdf"
+                                    class="form-control" accept=".pdf" required>
+                            </div>
+
+                            <button type="submit" class="btn px-5 py-3 rounded-pill fw-bold fs-5"
+                                style="background-color:#4E0119; color:white;">
+                                Publicar
+                            </button>
+
+                        </form>
+
                     </div>
                 </div>
             </div>
